@@ -1,0 +1,42 @@
+import Image from 'next/image';
+
+interface ReviewCardProps {
+    id: string | number;
+    name: string;
+    date: string;
+    text: string;
+    avatar: string;
+}
+
+const ReviewCard = ({ name, date, text, avatar }: ReviewCardProps) => {
+    return (
+        <div className="bg-white rounded-[10px] p-5 shadow-lg h-[290px] flex flex-col max-w-[300px] mx-auto">
+            <div className="flex items-start gap-4 mb-4">
+                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                        src={avatar}
+                        alt={name}
+                        width={48}
+                        height={48}
+                        className="object-cover w-full h-full"
+                    />
+                </div>
+                <div className="flex-1">
+                    <h3 className="text-[18px] font-medium text-foreground mb-1">
+                        {name}
+                    </h3>
+                    <p className="text-[14px] text-gray-500">
+                        {date}
+                    </p>
+                </div>
+            </div>
+            <div className="flex-1 overflow-hidden">
+                <p className="text-[16px] text-foreground leading-relaxed line-clamp-7">
+                    {text}
+                </p>
+            </div>
+        </div>
+    );
+};
+
+export default ReviewCard;

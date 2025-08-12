@@ -12,6 +12,7 @@ import TrustSection from "@/sections/TrustSection";
 import HowWeWorkSection from "@/sections/HowWeWorkSection";
 import ReviewsSection from "@/sections/ReviewsSection";
 import FAQSection from "@/sections/FAQSection";
+import UsefulSection from "@/sections/UsefulSection";
 
 export default function Home() {
     return (
@@ -29,6 +30,7 @@ export default function Home() {
             <TrustSection />
             <HowWeWorkSection />
             <FAQSection />
+            <UsefulSection />
         </main>
     );
 }
