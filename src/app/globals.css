@@ -181,6 +181,7 @@ body {
     background: var(--background);
     color: var(--foreground);
     font-family: "Gilroy", Arial, Helvetica, sans-serif !important;
+    overflow-x: hidden;
 }
 
 /* Custom container class */

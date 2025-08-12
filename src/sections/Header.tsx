@@ -2,7 +2,7 @@ import Logo from "@/components/Logo";
 import Navigation from "@/components/Navigation";
 import Button from "@/components/Button";
 
-//TODO: add links
+//TODO: add links, add burger menu
 const navigationItems = [
     {
         label: "Передачі",
@@ -41,7 +41,7 @@ const Header = () => {
                 <div className="flex items-center justify-between">
                     <Logo />
                     <Navigation items={navigationItems} />
-                    <Button className="max-w-[220px]" variant="primary" size="sm">
+                    <Button className="max-w-[220px] max-[1100px]:max-w-[160px]" variant="primary" size="sm">
                         Забронювати
                     </Button>
                 </div>
