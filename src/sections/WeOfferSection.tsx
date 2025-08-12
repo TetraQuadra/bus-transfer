@@ -29,11 +29,11 @@ const WeOfferSection = () => {
         <section className="py-8 w-full">
             <div className="">
                 <div className="w-full">
-                    <h2 className="text-[40px] font-regular text-center text-foreground mb-12">
+                    <h2 className="text-[40px] font-regular text-center text-foreground mb-12 max-sm:text-[30px]">
                         {texts.title}
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-[260px] max-w-4xl mx-auto">
+                    <div className="flex flex-row justify-between max-w-4xl mx-auto  max-lg:w-[85%] max-sm:w-full">
                         {texts.services.map((service) => (
                             <ServiceCard
                                 key={service.id}

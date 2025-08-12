@@ -18,11 +18,11 @@ const ServiceCard = ({ title, image }: ServiceCardProps) => {
                     alt={title}
                     width={116}
                     height={116}
-                    className="object-contain"
+                    className="object-contain max-md:w-[80px] max-md:h-[80px] max-sm:w-[70px] max-sm:h-[70px]"
                     quality={100}
                 />
             </div>
-            <h3 className="text-foreground font-regular text-[24px] mb-2">
+            <h3 className="text-foreground font-regular text-[24px] mb-2 max-md:text-[16px]">
                 {title}
             </h3>
         </div>

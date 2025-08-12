@@ -68,7 +68,7 @@ const BookingSection = () => {
         <section className="py-8 w-full">
             <div className="">
                 <div className="w-full">
-                    <h2 className="text-[40px] font-regular text-center text-foreground mb-8">
+                    <h2 className="text-[40px] font-regular text-center text-foreground mb-8 max-sm:text-[30px]">
                         БРОНЮВАННЯ МІСЦЬ
                     </h2>
 
