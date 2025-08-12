@@ -13,7 +13,7 @@ interface NavigationProps {
 
 const Navigation = ({ items, className = "" }: NavigationProps) => {
     return (
-        <nav className={`hidden md:flex items-center gap-[18px] ${className}`}>
+        <nav className={`hidden max-[1000px]:hidden min-[1000px]:flex items-center gap-[18px] ${className}`}>
             {items.map((item, index) => (
                 <Link
                     key={index}

@@ -15,40 +15,41 @@ const Hero = () => {
     const destinations = [
         "Нідерланди",
         "Бельгія",
-        "Польща"
+        "Польща",
+        "Німеччина",
     ];
 
     return (
         <section className="bg-background">
             <div className="">
-                <div className="flex justify-between items-start">
-                    <div className="flex flex-col h-full">
-                        <div>
-                            <h1 className="text-[66px] leading-[1.01] text-foreground mb-4 lg:max-w-[580px] lg:w-full">
+                <div className="flex justify-between items-start max-[900px]:flex-col">
+                    <div className="flex flex-col h-full max-[900px]:w-full max-[900px]:items-start max-[900px]:flex-row max-[900px]:gap-4 max-md:flex-col">
+                        <div className="max-[900px]:text-center max-[900px]:w-[80%]">
+                            <h1 className="text-[66px] leading-[1.01] text-foreground mb-4 lg:max-w-[580px] lg:w-full max-[1200px]:text-[40px] max-[900px]:text-start max-[900px]:text-[50px] max-[900px]:font-medium max-sm:text-[45px]">
                                 ПАСАЖИРСЬКІ<br />
-                                ПЕРЕВЕЗЕННЯ <br /> <span className="whitespace-nowrap">ДО КРАЇН ЄВРОПИ</span>
+                                ПЕРЕВЕЗЕННЯ <br /> <span className="whitespace-nowrap max-sm:whitespace-normal">ДО КРАЇН ЄВРОПИ</span>
                             </h1>
 
-                            <p className="text-lg text-foreground mb-6 text-[26px]">
+                            <p className="text-lg text-foreground mb-6 text-[26px] max-[900px]:text-start max-md:mb-1 max-sm:text-[20px]">
                                 швидко, легко та безпечно
                             </p>
                         </div>
 
-                        <div className="bg-white border border-gray-300 rounded-lg p-5 w-fit">
+                        <div className="bg-white border border-gray-300 rounded-lg p-5 w-fit max-[900px]:w-full max-[900px]:items-start max-[900px]:p-3 max-md:w-auto max-md:mx-auto max-md:mb-4">
                             <p className="text-foreground font-medium mb-2 text-[20px]">Україна:</p>
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-3 max-[1200px]:grid max-[1200px]:grid-cols-2 max-md:flex max-sm:grid max-sm:grid-cols-2">
                                 {destinations.map((destination, index) => (
-                                    <div key={index} className="flex items-center justify-center gap-3">
+                                    <div key={index} className="flex items-center justify-start gap-3 max-[900px]:gap-1">
                                         {(
                                             <Image
                                                 src="/icons/arrowRight.svg"
                                                 alt="arrow"
-                                                width={45}
-                                                height={16}
-                                                className="w-[45px] h-4"
+                                                width={35}
+                                                height={8}
+                                                className="max-[900px]:w-[20px] max-[900px]:h-[8px] max-md:w-[35px] max-md:h-[8px]"
                                             />
                                         )}
-                                        <span className="text-foreground font-regular text-[20px]">
+                                        <span className="text-foreground font-regular text-[16px]">
                                             {destination}
                                         </span>
                                     </div>
@@ -58,17 +59,17 @@ const Hero = () => {
                     </div>
 
                     {/* Right Section - Image Grid */}
-                    <div className="lg:col-span-2">
-                        <div className="flex flex-col gap-[14px] relative">
+                    <div className="lg:col-span-2 max-[900px]:w-full max-[900px]:justify-center max-[900px]:items-center">
+                        <div className="flex flex-col gap-[14px] relative ">
                             {/* Top row - 3 images */}
-                            <div className="flex gap-3">
+                            <div className="flex gap-3 max-[900px]:justify-center">
                                 <div className="relative overflow-hidden rounded-lg">
                                     <Image
                                         src={heroImages[0]}
                                         alt="Hero image 1"
                                         width={207}
                                         height={123}
-                                        className="object-cover"
+                                        className="object-cover max-sm:hidden"
                                         priority
                                     />
                                 </div>
@@ -95,8 +96,8 @@ const Hero = () => {
                             </div>
 
                             {/* Middle row - 2 images with left padding */}
-                            <div className="flex gap-3 relative">
-                                <div className="flex flex-row gap-3 pl-[120px]">
+                            <div className="flex gap-3 relative max-[900px]:justify-center">
+                                <div className="flex flex-row gap-3 pl-[120px] max-sm:pl-0">
                                     <div className="relative overflow-hidden rounded-lg ">
                                         <Image
                                             src={heroImages[3]}
@@ -119,14 +120,14 @@ const Hero = () => {
                             </div>
 
                             {/* Bottom row - 3 images */}
-                            <div className="flex gap-3">
+                            <div className="flex gap-3 max-[900px]:justify-center">
                                 <div className="relative overflow-hidden rounded-lg">
                                     <Image
                                         src={heroImages[5]}
                                         alt="Hero image 6"
                                         width={207}
                                         height={123}
-                                        className="object-cover"
+                                        className="object-cover max-sm:hidden"
                                     />
                                 </div>
                                 <div className="relative overflow-hidden rounded-lg">
