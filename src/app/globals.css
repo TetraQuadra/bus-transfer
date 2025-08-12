@@ -1,26 +1,235 @@
 @import "tailwindcss";
 
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --background: #F6F6F3;
+    --foreground: #000000;
+
+    --color-primary: #23D000;
+    --color-secondary: #0E8A00;
+
+    --white: #FFFFFF;
+
+    --border-color: #757575;
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Gilroy local font faces */
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-Thin.woff") format("woff"),
+        url("/gilroy/Gilroy-Thin.ttf") format("truetype");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-ThinItalic.woff") format("woff"),
+        url("/gilroy/Gilroy-ThinItalic.ttf") format("truetype");
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-UltraLight.woff") format("woff"),
+        url("/gilroy/Gilroy-UltraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-UltraLightItalic.woff") format("woff"),
+        url("/gilroy/Gilroy-UltraLightItalic.ttf") format("truetype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-Light.woff") format("woff"),
+        url("/gilroy/Gilroy-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-LightItalic.woff") format("woff"),
+        url("/gilroy/Gilroy-LightItalic.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-Regular.woff") format("woff"),
+        url("/gilroy/Gilroy-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-RegularItalic.woff") format("woff"),
+        url("/gilroy/Gilroy-RegularItalic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-Medium.woff") format("woff"),
+        url("/gilroy/Gilroy-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-MediumItalic.woff") format("woff"),
+        url("/gilroy/Gilroy-MediumItalic.ttf") format("truetype");
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-SemiBold.woff") format("woff"),
+        url("/gilroy/Gilroy-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-SemiBoldItalic.woff") format("woff"),
+        url("/gilroy/Gilroy-SemiBoldItalic.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-Bold.woff") format("woff"),
+        url("/gilroy/Gilroy-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-BoldItalic.woff") format("woff"),
+        url("/gilroy/Gilroy-BoldItalic.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-ExtraBold.woff") format("woff"),
+        url("/gilroy/Gilroy-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-ExtraBoldItalic.woff") format("woff"),
+        url("/gilroy/Gilroy-ExtraBoldItalic.ttf") format("truetype");
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-Black.woff") format("woff"),
+        url("/gilroy/Gilroy-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gilroy";
+    src: url("/gilroy/Gilroy-BlackItalic.woff") format("woff"),
+        url("/gilroy/Gilroy-BlackItalic.ttf") format("truetype");
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: "Gilroy", Arial, Helvetica, sans-serif !important;
+}
+
+/* Custom container class */
+.container-custom {
+    max-width: 1264px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+    .container-custom {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container-custom {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+/* Line clamp utilities */
+.line-clamp-6 {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Swiper custom styles */
+.reviews-swiper .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #ccc;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.reviews-swiper .swiper-pagination-bullet-active {
+    background: var(--color-secondary);
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.reviews-swiper .swiper-slide {
+    height: auto;
 }
