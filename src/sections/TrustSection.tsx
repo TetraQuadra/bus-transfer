@@ -1,13 +1,15 @@
 'use client'
 
 import Image from 'next/image';
+import { useTranslations } from '@/hooks/useTranslations';
 
 const TrustSection = () => {
+    const t = useTranslations('trust');
     return (
         <section className="py-12 w-full">
             <div className="max-w-7xl mx-auto px-4">
                 <h2 className="text-[40px] font-regular text-center text-foreground mb-12">
-                    ЧОМУ НАМ ДОВІРЯЮТЬ
+                    {t('title')}
                 </h2>
 
                 <div className="flex flex-row gap-[30px] mb-[30px]">
@@ -15,69 +17,69 @@ const TrustSection = () => {
                     <div className="bg-white rounded-[10px] p-6 shadow-lg" style={{ width: '500px' }}>
                         <Image
                             src="/trust/1.png"
-                            alt="Автопарк"
+                            alt={t('alt.trust1')}
                             width={460}
                             height={120}
                             className="w-full h-auto mb-4 rounded-[8px]"
                         />
                         <h3 className="text-[26px] font-normal text-foreground mb-3">
-                            7 років на ринку
+                            {t('cards.first.title')}
                         </h3>
                         <p className="text-[18px] font-normal text-foreground">
-                            Маємо великий досвід і тисячі успішних поїздок Україною та Європою.
+                            {t('cards.first.description')}
                         </p>
                     </div>
 
                     {/* Вторая карточка - 250px */}
                     <div className="bg-[var(--color-secondary)] rounded-[10px] p-6 shadow-lg" style={{ width: '250px' }}>
                         <h3 className="text-[26px] font-normal text-white mb-3">
-                            Сучасні мікроавтобуси
+                            {t('cards.second.title')}
                         </h3>
                         <p className="text-[18px] font-normal text-white">
-                            Комфортні салони, мультимедіа, кондиціонер, Wi-Fi та зарядки — усе для вашої зручності.
+                            {t('cards.second.description')}
                         </p>
                     </div>
 
                     {/* Третья карточка - 388px */}
                     <div className="bg-white rounded-[10px] p-6 shadow-lg" style={{ width: '388px' }}>
                         <h3 className="text-[26px] font-normal text-foreground mb-3">
-                            Безпека на першому місці
+                            {t('cards.third.title')}
                         </h3>
                         <div className="space-y-3">
                             <div className="flex items-center gap-3">
                                 <Image
                                     src="/icons/check.png"
-                                    alt="Check"
+                                    alt={t('alt.check')}
                                     width={50}
                                     height={50}
                                     className="flex-shrink-0 max-lg:w-[20px] max-lg:h-[20px]"
                                 />
                                 <p className="text-[18px] font-normal text-foreground">
-                                    Регулярний техогляд
+                                    {t('cards.third.items.1')}
                                 </p>
                             </div>
                             <div className="flex items-center gap-3">
                                 <Image
                                     src="/icons/check.png"
-                                    alt="Check"
+                                    alt={t('alt.check')}
                                     width={50}
                                     height={50}
                                     className="flex-shrink-0 max-lg:w-[20px] max-lg:h-[20px]"
                                 />
                                 <p className="text-[18px] font-normal text-foreground">
-                                    Професійні водії
+                                    {t('cards.third.items.2')}
                                 </p>
                             </div>
                             <div className="flex items-center gap-3">
                                 <Image
                                     src="/icons/check.png"
-                                    alt="Check"
+                                    alt={t('alt.check')}
                                     width={50}
                                     height={50}
                                     className="flex-shrink-0 max-lg:w-[20px] max-lg:h-[20px]"
                                 />
                                 <p className="text-[18px] font-normal text-foreground">
-                                    Страхування пасажирів
+                                    {t('cards.third.items.3')}
                                 </p>
                             </div>
                         </div>
@@ -88,19 +90,19 @@ const TrustSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] mb-[30px]">
                     <div className="bg-[var(--color-secondary)] rounded-[10px] p-6 shadow-lg">
                         <h3 className="text-[26px] font-normal text-white mb-3">
-                            Прозора комунікація
+                            {t('cards.fourth.title')}
                         </h3>
                         <p className="text-[18px] font-normal text-white">
-                            Жодних прихованих платежів. Чітко пояснюємо умови поїздки та ціни
+                            {t('cards.fourth.description')}
                         </p>
                     </div>
 
                     <div className="bg-white rounded-[10px] p-6 shadow-lg">
                         <h3 className="text-[26px] font-normal text-foreground mb-3">
-                            Легке бронювання
+                            {t('cards.fifth.title')}
                         </h3>
                         <p className="text-[18px] font-normal text-foreground">
-                            Заявка займає до 3 хвилин, а всі деталі ви отримуєте у зручному месенджер
+                            {t('cards.fifth.description')}
                         </p>
                     </div>
                 </div>
@@ -109,23 +111,23 @@ const TrustSection = () => {
                 <div className="bg-white rounded-[10px] p-6 shadow-lg flex gap-6">
                     <div className="flex-1">
                         <h3 className="text-[26px] font-normal text-foreground mb-3">
-                            Живе спілкування — без ботів
+                            {t('cards.sixth.title')}
                         </h3>
                         <p className="text-[18px] font-normal text-foreground">
-                            Усі заявки обробляють живі менеджери, які реально розуміють ваші потреби та оперативно дають відповіді.
+                            {t('cards.sixth.description')}
                         </p>
                     </div>
                     <div className="flex gap-6">
                         <Image
                             src="/trust/2.png"
-                            alt="Автопарк 2"
+                            alt={t('alt.trust2')}
                             width={270}
                             height={210}
                             className="rounded-[10px] max-[1200px]:hidden"
                         />
                         <Image
                             src="/trust/3.png"
-                            alt="Автопарк 3"
+                            alt={t('alt.trust3')}
                             width={460}
                             height={210}
                             className="rounded-[10px]"

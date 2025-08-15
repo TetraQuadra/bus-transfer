@@ -316,5 +316,44 @@
         "text": "Very satisfied with the quality of service. The driver was polite and professional, and arrived on time. The bus was clean and comfortable. The trip went without problems. I recommend this company to everyone."
       }
     ]
+  },
+  "trust": {
+    "title": "WHY PEOPLE TRUST US",
+    "alt": {
+      "trust1": "Fleet",
+      "trust2": "Fleet 2",
+      "trust3": "Fleet 3",
+      "check": "Check"
+    },
+    "cards": {
+      "first": {
+        "title": "7 years on the market",
+        "description": "We have extensive experience and thousands of successful trips across Ukraine and Europe."
+      },
+      "second": {
+        "title": "Modern minibuses",
+        "description": "Comfortable interiors, multimedia, air conditioning, Wi‑Fi and charging — everything for your convenience."
+      },
+      "third": {
+        "title": "Safety first",
+        "items": {
+          "1": "Regular maintenance",
+          "2": "Professional drivers",
+          "3": "Passenger insurance"
+        }
+      },
+      "fourth": {
+        "title": "Transparent communication",
+        "description": "No hidden fees. We clearly explain trip conditions and prices"
+      },
+      "fifth": {
+        "title": "Easy booking",
+        "description": "The application takes up to 3 minutes, and you receive all details via a convenient messenger"
+      },
+      "sixth": {
+        "title": "Real communication — no bots",
+        "description": "All requests are handled by real managers who truly understand your needs and respond promptly."
+      }
+    }
   }
 }
