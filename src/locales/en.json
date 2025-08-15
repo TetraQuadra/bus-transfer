@@ -63,5 +63,34 @@
       "packages": "Package delivery",
       "pets": "Transportation of pets"
     }
+  },
+  "howWeWork": {
+    "title": "HOW WE WORK",
+    "steps": {
+      "1": {
+        "title": "You submit a request",
+        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram"
+      },
+      "2": {
+        "title": "We contact you",
+        "description": "A manager clarifies trip details, answers all questions, and reserves a seat"
+      },
+      "3": {
+        "title": "Payment for services",
+        "description": "Pay in the way that is most convenient for you"
+      },
+      "4": {
+        "title": "We carry out the transfer",
+        "description": "Arrive at the specified place and time — your trip will be comfortable, safe, and on time"
+      },
+      "5": {
+        "title": "Customer support",
+        "description": "24/7 support from Mon-Fri before, during, and after the trip — we are in touch with you"
+      },
+      "6": {
+        "title": "Loyalty program",
+        "description": "Come back again and get discounts, bonuses, or priority booking."
+      }
+    }
   }
 }

@@ -10,22 +10,25 @@ import ReviewsSection from "@/sections/ReviewsSection";
 import FAQSection from "@/sections/FAQSection";
 import UsefulSection from "@/sections/UsefulSection";
 import BookingSection from "@/sections/BookingSection";
+import RoutesSection from "@/sections/RoutesSection";
 
 export default function HomePage() {
     return (
         <main>
             <Hero />
-            <PopularRoutesSection />
+            <BookingSection />
             <WeOfferSection />
-            <HowWeWorkSection />
+            <RoutesSection />
+            <BenefitsSection />
+            <PopularRoutesSection />
+            <BookingSection />
             <Autopark />
             <AdvantagesSection />
-            <BenefitsSection />
-            <TrustSection />
             <ReviewsSection />
+            <TrustSection />
+            <HowWeWorkSection />
             <FAQSection />
             <UsefulSection />
-            <BookingSection />
         </main>
     );
 }
