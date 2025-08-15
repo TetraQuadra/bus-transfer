@@ -204,5 +204,56 @@
       "2": "Plan inconvenient routes",
       "3": "Overpay for tickets"
     }
+  },
+  "autopark": {
+    "title": "OUR FLEET",
+    "tabs": {
+      "comfort": "Comfort",
+      "lux": "Luxury"
+    },
+    "videoPlaceholder": "Video placeholder",
+    "cta": "Book now",
+    "alt": {
+      "icon": "icon",
+      "armchair": "armchair"
+    },
+    "features": {
+      "comfort": {
+        "1": {
+          "title": "Comfort and safety",
+          "description": "Comfort class minibuses are equipped with comfortable electrically adjustable seats, air conditioning and seat belts for maximum convenience during your trip. A technical inspection is carried out before each trip to ensure complete safety on the road."
+        },
+        "2": {
+          "title": "Multimedia",
+          "description": "Our minibuses are equipped with a TV and a modern multimedia system, allowing you to watch movies or listen to music during the trip. This creates a pleasant atmosphere in the cabin and makes the journey less tiring."
+        },
+        "3": {
+          "title": "Experienced drivers",
+          "description": "Our drivers have many years of experience in international transportation, know the routes well and always follow the traffic rules. They undergo regular checks to ensure the peace and safety of passengers on every trip."
+        },
+        "4": {
+          "title": "Wi‑Fi and charging on the go",
+          "description": "Comfort class minibuses offer free Wi‑Fi and USB/Type‑C chargers at every seat, so you can stay online and use your gadgets without restrictions while traveling."
+        }
+      },
+      "lux": {
+        "1": {
+          "title": "Comfort and safety",
+          "description": "Luxury class minibuses feature spacious seats with electric adjustment and leg support for maximum comfort even on long trips. Blankets are provided for passengers, and a spacious refrigerator is available in the cabin. A full technical inspection is carried out before each trip to ensure a high level of safety and reliability on the road."
+        },
+        "2": {
+          "title": "Multimedia",
+          "description": "The cabin has a large LED TV with a modern multimedia system and high-quality sound. During the trip, movies, music or a calm background environment are available — for a comfortable mood throughout the entire route."
+        },
+        "3": {
+          "title": "Experienced drivers",
+          "description": "Drivers of luxury class minibuses have more than 10 years of transportation experience. They care not only about safe driving but also about making your trip pleasant from the very first minute."
+        },
+        "4": {
+          "title": "Wi‑Fi and charging on the go",
+          "description": "Luxury class minibuses offer high-speed Wi‑Fi, and each seat has USB, Type‑C, and a 220V outlet for charging laptops, tablets, or smartphones. You stay connected and productive even on the go."
+        }
+      }
+    }
   }
 }
