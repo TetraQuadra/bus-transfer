@@ -92,5 +92,117 @@
         "description": "Come back again and get discounts, bonuses, or priority booking."
       }
     }
+  },
+  "booking": {
+    "title": "SEAT BOOKING",
+    "submitLabel": "Book now",
+    "fields": {
+      "departureCountry": {
+        "label": "Departure country",
+        "placeholder": "Enter a country"
+      },
+      "departureCity": {
+        "label": "Departure city",
+        "placeholder": "Enter a city"
+      },
+      "arrivalCountry": {
+        "label": "Arrival country",
+        "placeholder": "Enter a country"
+      },
+      "arrivalCity": { "label": "Arrival city", "placeholder": "Enter a city" },
+      "date": { "label": "Travel date", "placeholder": "dd.mm.yyyy" },
+      "fullName": {
+        "label": "Full name",
+        "placeholder": "Enter your full name"
+      },
+      "phone": { "label": "Phone number", "placeholder": "+380" }
+    },
+    "errors": {
+      "required": "This field is required"
+    },
+    "log": { "submitted": "Form submitted:" },
+    "alert": { "submitted": "Form submitted! (this is a placeholder for now)" },
+    "suggestions": {
+      "countries": [
+        "Ukraine",
+        "Poland",
+        "Germany",
+        "France",
+        "Italy",
+        "Spain",
+        "Netherlands",
+        "Belgium"
+      ],
+      "cities": [
+        "Kyiv",
+        "Lviv",
+        "Kharkiv",
+        "Odesa",
+        "Dnipro",
+        "Warsaw",
+        "Berlin",
+        "Paris",
+        "Rome",
+        "Madrid"
+      ]
+    }
+  },
+  "routesSection": {
+    "title": "OUR ROUTES",
+    "more": "Learn more",
+    "infoTitle": "Information",
+    "mapAlt": "Route map to {name}",
+    "alt": {
+      "price": "Price",
+      "time": "Time",
+      "frequency": "Frequency",
+      "passengers": "Passengers"
+    },
+    "routes": {
+      "poland": {
+        "name": "Ukraine - Poland",
+        "info": {
+          "duration": "Travel time: 12-20 hours",
+          "price": "Price: 140-190€",
+          "passengers": "Number of passengers: 8",
+          "frequency": "Stops: every 3-4 hours"
+        }
+      },
+      "germany": {
+        "name": "Ukraine - Germany",
+        "info": {
+          "duration": "Travel time: 24-30 hours",
+          "price": "Price: 150-200€",
+          "passengers": "Number of passengers: 8",
+          "frequency": "Stops: every 3-4 hours"
+        }
+      },
+      "netherlands": {
+        "name": "Ukraine - Netherlands",
+        "info": {
+          "duration": "Travel time: 28-36 hours",
+          "price": "Price: 150-200€",
+          "passengers": "Number of passengers: 8",
+          "frequency": "Stops: every 3-4 hours"
+        }
+      },
+      "belgium": {
+        "name": "Ukraine - Belgium",
+        "info": {
+          "duration": "Travel time: 28-36 hours",
+          "price": "Price: 140-190€",
+          "passengers": "Number of passengers: 8",
+          "frequency": "Stops: every 3-4 hours"
+        }
+      }
+    }
+  },
+  "benefits": {
+    "title": "From this moment, you no longer need to:",
+    "items": {
+      "1": "Spend time looking for tickets",
+      "2": "Plan inconvenient routes",
+      "3": "Overpay for tickets"
+    }
   }
 }

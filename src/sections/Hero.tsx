@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { getTranslations } from 'next-intl/server';
 
+//TODO: 900-1000px говняк пофиксить
+
 const Hero = async () => {
     const t = await getTranslations('hero');
     const heroImages = [

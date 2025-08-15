@@ -1,27 +1,20 @@
 'use client'
 
-const benefits = [
-    {
-        id: 1,
-        text: "Витрачати час на пошук квитків"
-    },
-    {
-        id: 2,
-        text: "Планувати незручні маршрути"
-    },
-    {
-        id: 3,
-        text: "Переплачувати за квитки"
-    }
-];
+import { useTranslations } from '@/hooks/useTranslations';
 
 const BenefitsSection = () => {
+    const t = useTranslations('benefits');
+    const benefits = [
+        { id: 1, text: t('items.1') },
+        { id: 2, text: t('items.2') },
+        { id: 3, text: t('items.3') },
+    ];
     return (
         <section className="w-full bg-[var(--color-secondary)] h-[270px] flex items-center rounded-[10px] shadow-lg my-12">
             <div className="w-full">
                 <div className="max-w-7xl mx-auto px-4">
                     <h2 className="text-[36px] font-medium text-white text-center mb-8">
-                        З цієї хвилини Вам не потрібно більше:
+                        {t('title')}
                     </h2>
 
                     <div className="flex flex-row gap-16 justify-center">

@@ -1,15 +1,27 @@
 'use client'
 
 import React, { useState } from 'react';
-import BaseInput from '../components/BaseInput';
-import DatePicker from '../components/DatePicker';
-import AutoCompleteInput from '../components/AutoCompleteInput';
+import BaseInput from '@/components/BaseInput';
+import DatePicker from '@/components/DatePicker';
+import AutoCompleteInput from '@/components/AutoCompleteInput';
 import Button from '@/components/Button';
+import { useTranslations } from '@/hooks/useTranslations';
 
 // TODO: СДЕЛАТЬ ВСЕ ЭТО
 
+type BookingFormData = {
+    departureCountry: string;
+    departureCity: string;
+    arrivalCountry: string;
+    arrivalCity: string;
+    date: string;
+    fullName: string;
+    phone: string;
+};
+
 const BookingSection = () => {
-    const [formData, setFormData] = useState({
+    const t = useTranslations('booking');
+    const [formData, setFormData] = useState<BookingFormData>({
         departureCountry: '',
         departureCity: '',
         arrivalCountry: '',
@@ -19,21 +31,21 @@ const BookingSection = () => {
         phone: ''
     });
 
-    const [errors, setErrors] = useState<Record<string, string>>({});
+    const [errors, setErrors] = useState<Partial<Record<keyof BookingFormData, string>>>({});
 
-    // Примеры данных для автодополнения
-    const countries = ['Україна', 'Польща', 'Німеччина', 'Франція', 'Італія', 'Іспанія', 'Нідерланди', 'Бельгія'];
-    const cities = ['Київ', 'Львів', 'Харків', 'Одеса', 'Дніпро', 'Варшава', 'Берлін', 'Париж', 'Рим', 'Мадрид'];
+    // Списки для автодополнения из локалей
+    const countries = t.raw('suggestions.countries') as string[];
+    const cities = t.raw('suggestions.cities') as string[];
 
-    const handleInputChange = (field: string, value: string) => {
-        setFormData(prev => ({
+    const handleInputChange = (field: keyof BookingFormData, value: string) => {
+        setFormData((prev: BookingFormData) => ({
             ...prev,
             [field]: value
         }));
 
         // Очищаем ошибку при вводе
         if (errors[field]) {
-            setErrors(prev => ({
+            setErrors((prev: Partial<Record<keyof BookingFormData, string>>) => ({
                 ...prev,
                 [field]: ''
             }));
@@ -44,15 +56,15 @@ const BookingSection = () => {
         e.preventDefault();
 
         // Простая валидация
-        const newErrors: Record<string, string> = {};
+        const newErrors: Partial<Record<keyof BookingFormData, string>> = {};
 
-        if (!formData.departureCountry) newErrors.departureCountry = 'Обов\'язкове поле';
-        if (!formData.departureCity) newErrors.departureCity = 'Обов\'язкове поле';
-        if (!formData.arrivalCountry) newErrors.arrivalCountry = 'Обов\'язкове поле';
-        if (!formData.arrivalCity) newErrors.arrivalCity = 'Обов\'язкове поле';
-        if (!formData.date) newErrors.date = 'Обов\'язкове поле';
-        if (!formData.fullName) newErrors.fullName = 'Обов\'язкове поле';
-        if (!formData.phone) newErrors.phone = 'Обов\'язкове поле';
+        if (!formData.departureCountry) newErrors.departureCountry = t('errors.required');
+        if (!formData.departureCity) newErrors.departureCity = t('errors.required');
+        if (!formData.arrivalCountry) newErrors.arrivalCountry = t('errors.required');
+        if (!formData.arrivalCity) newErrors.arrivalCity = t('errors.required');
+        if (!formData.date) newErrors.date = t('errors.required');
+        if (!formData.fullName) newErrors.fullName = t('errors.required');
+        if (!formData.phone) newErrors.phone = t('errors.required');
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
@@ -60,8 +72,8 @@ const BookingSection = () => {
         }
 
         // Здесь будет отправка формы
-        console.log('Форма отправлена:', formData);
-        alert('Форма отправлена! (пока что это заглушка)');
+        console.log(t('log.submitted'), formData);
+        alert(t('alert.submitted'));
     };
 
     return (
@@ -69,47 +81,47 @@ const BookingSection = () => {
             <div className="">
                 <div className="w-full">
                     <h2 className="text-[40px] font-regular text-center text-foreground mb-8 max-sm:text-[30px]">
-                        БРОНЮВАННЯ МІСЦЬ
+                        {t('title')}
                     </h2>
 
                     <form onSubmit={handleSubmit} className="w-full">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                             <AutoCompleteInput
-                                label="Країна відправлення"
-                                placeholder="Введіть країну"
+                                label={t('fields.departureCountry.label')}
+                                placeholder={t('fields.departureCountry.placeholder')}
                                 value={formData.departureCountry}
-                                onChange={(e) => handleInputChange('departureCountry', e.target.value)}
-                                onSuggestionSelect={(suggestion) => handleInputChange('departureCountry', suggestion)}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('departureCountry', e.target.value)}
+                                onSuggestionSelect={(suggestion: string) => handleInputChange('departureCountry', suggestion)}
                                 suggestions={countries}
                                 error={errors.departureCountry}
                             />
 
                             <AutoCompleteInput
-                                label="Місто відправлення"
-                                placeholder="Введіть місто"
+                                label={t('fields.departureCity.label')}
+                                placeholder={t('fields.departureCity.placeholder')}
                                 value={formData.departureCity}
-                                onChange={(e) => handleInputChange('departureCity', e.target.value)}
-                                onSuggestionSelect={(suggestion) => handleInputChange('departureCity', suggestion)}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('departureCity', e.target.value)}
+                                onSuggestionSelect={(suggestion: string) => handleInputChange('departureCity', suggestion)}
                                 suggestions={cities}
                                 error={errors.departureCity}
                             />
 
                             <AutoCompleteInput
-                                label="Країна прибуття"
-                                placeholder="Введіть країну"
+                                label={t('fields.arrivalCountry.label')}
+                                placeholder={t('fields.arrivalCountry.placeholder')}
                                 value={formData.arrivalCountry}
-                                onChange={(e) => handleInputChange('arrivalCountry', e.target.value)}
-                                onSuggestionSelect={(suggestion) => handleInputChange('arrivalCountry', suggestion)}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('arrivalCountry', e.target.value)}
+                                onSuggestionSelect={(suggestion: string) => handleInputChange('arrivalCountry', suggestion)}
                                 suggestions={countries}
                                 error={errors.arrivalCountry}
                             />
 
                             <AutoCompleteInput
-                                label="Місто прибуття"
-                                placeholder="Введіть місто"
+                                label={t('fields.arrivalCity.label')}
+                                placeholder={t('fields.arrivalCity.placeholder')}
                                 value={formData.arrivalCity}
-                                onChange={(e) => handleInputChange('arrivalCity', e.target.value)}
-                                onSuggestionSelect={(suggestion) => handleInputChange('arrivalCity', suggestion)}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('arrivalCity', e.target.value)}
+                                onSuggestionSelect={(suggestion: string) => handleInputChange('arrivalCity', suggestion)}
                                 suggestions={cities}
                                 error={errors.arrivalCity}
                             />
@@ -117,27 +129,27 @@ const BookingSection = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <DatePicker
-                                label="Дата поїздки"
-                                placeholder="дд.мм.рррр"
+                                label={t('fields.date.label')}
+                                placeholder={t('fields.date.placeholder')}
                                 value={formData.date}
-                                onChange={(e) => handleInputChange('date', e.target.value)}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('date', e.target.value)}
                                 error={errors.date}
                             />
 
                             <BaseInput
-                                label="Ім'я та прізвище"
-                                placeholder="Введіть повне ім'я"
+                                label={t('fields.fullName.label')}
+                                placeholder={t('fields.fullName.placeholder')}
                                 value={formData.fullName}
-                                onChange={(e) => handleInputChange('fullName', e.target.value)}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('fullName', e.target.value)}
                                 error={errors.fullName}
                             />
 
                             <BaseInput
-                                label="Номер телефону"
-                                placeholder="+380"
+                                label={t('fields.phone.label')}
+                                placeholder={t('fields.phone.placeholder')}
                                 type="tel"
                                 value={formData.phone}
-                                onChange={(e) => handleInputChange('phone', e.target.value)}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('phone', e.target.value)}
                                 error={errors.phone}
                             />
 
@@ -147,7 +159,7 @@ const BookingSection = () => {
                                     size='sm'
                                     className="w-full"
                                 >
-                                    Забронювати
+                                    {t('submitLabel')}
                                 </Button>
                             </div>
                         </div>
