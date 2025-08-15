@@ -1,0 +1,32 @@
+{
+  "common": {
+    "loading": "Завантаження...",
+    "error": "Помилка",
+    "success": "Успішно",
+    "cancel": "Скасувати",
+    "save": "Зберегти",
+    "edit": "Редагувати",
+    "delete": "Видалити",
+    "search": "Пошук",
+    "filter": "Фільтр",
+    "sort": "Сортування"
+  },
+  "navigation": {
+    "home": "Головна",
+    "about": "Про нас",
+    "services": "Послуги",
+    "contact": "Контакти"
+  },
+  "header": {
+    "navigation": {
+      "handover": "Передачі",
+      "fleet": "Автопарк",
+      "services": "Послуги",
+      "about": "Про нас",
+      "contacts": "Контакти",
+      "helpful": "Корисне",
+      "reviews": "Відгуки"
+    },
+    "book": "Забронювати"
+  }
+}

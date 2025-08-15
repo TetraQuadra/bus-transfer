@@ -1,36 +1,31 @@
-
-
 import Hero from "@/sections/Hero";
-import BookingSection from "@/sections/BookingSection";
-import WeOfferSection from "@/sections/WeOfferSection";
-import RoutesSection from "@/sections/RoutesSection";
-import BenefitsSection from "@/sections/BenefitsSection";
 import PopularRoutesSection from "@/sections/PopularRoutesSection";
+import WeOfferSection from "@/sections/WeOfferSection";
+import HowWeWorkSection from "@/sections/HowWeWorkSection";
 import Autopark from "@/sections/Autopark";
 import AdvantagesSection from "@/sections/AdvantagesSection";
+import BenefitsSection from "@/sections/BenefitsSection";
 import TrustSection from "@/sections/TrustSection";
-import HowWeWorkSection from "@/sections/HowWeWorkSection";
 import ReviewsSection from "@/sections/ReviewsSection";
 import FAQSection from "@/sections/FAQSection";
 import UsefulSection from "@/sections/UsefulSection";
+import BookingSection from "@/sections/BookingSection";
 
-export default function Home() {
+export default function HomePage() {
     return (
-        <main className="min-h-[500vh] bg-background">
+        <main>
             <Hero />
-            <BookingSection />
-            <WeOfferSection />
-            <RoutesSection />
-            <BenefitsSection />
             <PopularRoutesSection />
-            <BookingSection />
+            <WeOfferSection />
+            <HowWeWorkSection />
             <Autopark />
             <AdvantagesSection />
-            <ReviewsSection />
+            <BenefitsSection />
             <TrustSection />
-            <HowWeWorkSection />
+            <ReviewsSection />
             <FAQSection />
             <UsefulSection />
+            <BookingSection />
         </main>
     );
 }

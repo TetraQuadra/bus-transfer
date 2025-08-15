@@ -1,0 +1,32 @@
+{
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Ошибка",
+    "success": "Успешно",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "edit": "Редактировать",
+    "delete": "Удалить",
+    "search": "Поиск",
+    "filter": "Фильтр",
+    "sort": "Сортировка"
+  },
+  "navigation": {
+    "home": "Главная",
+    "about": "О нас",
+    "services": "Услуги",
+    "contact": "Контакты"
+  },
+  "header": {
+    "navigation": {
+      "handover": "Передачи",
+      "fleet": "Автопарк",
+      "services": "Услуги",
+      "about": "О нас",
+      "contacts": "Контакты",
+      "helpful": "Полезное",
+      "reviews": "Отзывы"
+    },
+    "book": "Забронировать"
+  }
+}
