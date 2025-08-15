@@ -444,5 +444,39 @@
         "href": "/articles/cargo-insurance-international"
       }
     ]
+  },
+  "footer": {
+    "about": {
+      "title": "О компании",
+      "p1": "Мы специализируемся на пассажирских перевозках в Польшу, Германию, Нидерланды и Бельгию. Наши маршруты разработаны так, чтобы обеспечить максимальный комфорт и безопасность во время поездки.",
+      "p2": "Мы стремимся сделать каждую вашу поездку лёгкой и беззаботной."
+    },
+    "info": {
+      "title": "Информация",
+      "links": {
+        "autopark": "Автопарк",
+        "reviews": "Отзывы",
+        "about": "О нас",
+        "useful": "Полезное",
+        "home": "Главная",
+        "routes": "Маршруты",
+        "parcels": "Посылки",
+        "prices": "Цены"
+      }
+    },
+    "contacts": {
+      "title": "Контакты"
+    },
+    "social": {
+      "title": "Соц. сети",
+      "alt": {
+        "viber": "Viber",
+        "telegram": "Telegram",
+        "facebook": "Facebook",
+        "whatsapp": "WhatsApp",
+        "instagram": "Instagram",
+        "tiktok": "TikTok"
+      }
+    }
   }
 }

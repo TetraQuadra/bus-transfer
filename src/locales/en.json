@@ -387,8 +387,8 @@
         "description": "Booking can be made via our website, by calling us, or by writing in messengers."
       },
       {
-        "title": "Do you provide parcel delivery services?",
-        "description": "Yes, we also provide parcel delivery services between Ukraine and European countries."
+        "title": "Do you provide package delivery services?",
+        "description": "Yes, we also provide package delivery services between Ukraine and European countries."
       },
       {
         "title": "Which countries do you serve?",
@@ -441,5 +441,39 @@
         "href": "/articles/cargo-insurance-international"
       }
     ]
+  },
+  "footer": {
+    "about": {
+      "title": "About the company",
+      "p1": "We specialize in passenger transportation to Poland, Germany, the Netherlands and Belgium. Our routes are designed to provide maximum comfort and safety during your journey.",
+      "p2": "We strive to make every trip easy and carefree."
+    },
+    "info": {
+      "title": "Information",
+      "links": {
+        "autopark": "Fleet",
+        "reviews": "Reviews",
+        "about": "About us",
+        "useful": "Useful",
+        "home": "Home",
+        "routes": "Routes",
+        "parcels": "Packages",
+        "prices": "Prices"
+      }
+    },
+    "contacts": {
+      "title": "Contacts"
+    },
+    "social": {
+      "title": "Social networks",
+      "alt": {
+        "viber": "Viber",
+        "telegram": "Telegram",
+        "facebook": "Facebook",
+        "whatsapp": "WhatsApp",
+        "instagram": "Instagram",
+        "tiktok": "TikTok"
+      }
+    }
   }
 }

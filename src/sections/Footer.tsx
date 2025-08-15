@@ -1,69 +1,71 @@
 import Image from 'next/image';
+import { getTranslations } from 'next-intl/server';
 
 //TODO: Добавить ссылки на страницы
 
-const Footer = () => {
+const Footer = async () => {
+    const t = await getTranslations('footer');
     return (
         <footer className="bg-white py-16 flex justify-center items-center">
             <div className="container-custom mx-auto px-4">
                 <div className="flex gap-8 justify-between">
 
-                    {/* Про компанію */}
+                    {/* About */}
                     <div className="lg:col-span-2 flex-1 max-w-[340px]">
                         <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
-                            Про компанію
+                            {t('about.title')}
                         </h3>
                         <div className="space-y-4">
                             <p className="text-[18px] font-regular text-foreground">
-                                Ми спеціалізуємося на пасажирських перевезеннях до Польщі, Німеччини, Нідерландів та Бельгії. Наші маршрути розроблені так, щоб забезпечити вам максимальний комфорт і безпеку під час подорожі.
+                                {t('about.p1')}
                             </p>
                             <p className="text-[18px] font-regular text-foreground">
-                                Ми прагнемо зробити кожну вашу поїздку легкою та безтурботною.
+                                {t('about.p2')}
                             </p>
                         </div>
                     </div>
 
-                    {/* Інформація */}
+                    {/* Info */}
                     <div>
                         <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
-                            Інформація
+                            {t('info.title')}
                         </h3>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-3">
                                 <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
-                                    Автопарк
+                                    {t('info.links.autopark')}
                                 </a>
                                 <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
-                                    Відгуки
+                                    {t('info.links.reviews')}
                                 </a>
                                 <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
-                                    Про нас
+                                    {t('info.links.about')}
                                 </a>
                                 <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
-                                    Корисне
+                                    {t('info.links.useful')}
                                 </a>
                             </div>
                             <div className="space-y-3">
                                 <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
-                                    Головна
+                                    {t('info.links.home')}
                                 </a>
                                 <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
-                                    Маршрути
+                                    {t('info.links.routes')}
                                 </a>
                                 <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
-                                    Посилки
+                                    {t('info.links.parcels')}
                                 </a>
                                 <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
-                                    Ціни
+                                    {t('info.links.prices')}
                                 </a>
                             </div>
                         </div>
                     </div>
 
-                    {/* Контакти */}
+                    {/* Contacts */}
                     <div>
                         <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
-                            Контакти
+                            {t('contacts.title')}
                         </h3>
                         <a
                             href="tel:+380982275197"
@@ -73,16 +75,16 @@ const Footer = () => {
                         </a>
                     </div>
 
-                    {/* Соц. мережі */}
+                    {/* Social */}
                     <div>
                         <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
-                            Соц. мережі
+                            {t('social.title')}
                         </h3>
                         <div className="grid grid-cols-3 grid-rows-2 border border-white overflow-hidden ">
                             <a href="#" className="flex items-center justify-center p-3 border-r border-b border-gray-300 hover:bg-gray-50 transition-colors">
                                 <Image
                                     src="/icons/Viber.png"
-                                    alt="Viber"
+                                    alt={t('social.alt.viber')}
                                     width={42}
                                     height={42}
                                     className="object-contain"
@@ -91,7 +93,7 @@ const Footer = () => {
                             <a href="#" className="flex items-center justify-center p-3 border-r border-b border-gray-300 hover:bg-gray-50 transition-colors">
                                 <Image
                                     src="/icons/Telegram.png"
-                                    alt="Telegram"
+                                    alt={t('social.alt.telegram')}
                                     width={42}
                                     height={42}
                                     className="object-contain"
@@ -100,7 +102,7 @@ const Footer = () => {
                             <a href="#" className="flex items-center justify-center p-3 border-b border-gray-300 hover:bg-gray-50 transition-colors">
                                 <Image
                                     src="/icons/Facebook.png"
-                                    alt="Facebook"
+                                    alt={t('social.alt.facebook')}
                                     width={42}
                                     height={42}
                                     className="object-contain"
@@ -109,7 +111,7 @@ const Footer = () => {
                             <a href="#" className="flex items-center justify-center p-3 border-r border-gray-300 hover:bg-gray-50 transition-colors">
                                 <Image
                                     src="/icons/WhatsApp.png"
-                                    alt="WhatsApp"
+                                    alt={t('social.alt.whatsapp')}
                                     width={42}
                                     height={42}
                                     className="object-contain"
@@ -118,7 +120,7 @@ const Footer = () => {
                             <a href="#" className="flex items-center justify-center p-3 border-r border-gray-300 hover:bg-gray-50 transition-colors">
                                 <Image
                                     src="/icons/inst.png"
-                                    alt="Instagram"
+                                    alt={t('social.alt.instagram')}
                                     width={42}
                                     height={42}
                                     className="object-contain"
@@ -127,7 +129,7 @@ const Footer = () => {
                             <a href="#" className="flex items-center justify-center p-3 hover:bg-gray-50 transition-colors">
                                 <Image
                                     src="/icons/TikTok.png"
-                                    alt="TikTok"
+                                    alt={t('social.alt.tiktok')}
                                     width={42}
                                     height={42}
                                     className="object-contain"
