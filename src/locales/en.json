@@ -28,5 +28,22 @@
       "reviews": "Reviews"
     },
     "book": "Book now"
+  },
+  "popularRoutes": {
+    "title": "POPULAR ROUTES",
+    "countries": ["Poland", "Germany", "Netherlands", "Belgium"],
+    "cities": [
+      "Uman",
+      "Bila Tserkva",
+      "Kyiv",
+      "Zhytomyr",
+      "Vinnytsia",
+      "Khmelnytskyi",
+      "Ternopil",
+      "Lviv",
+      "Rivne",
+      "Lutsk",
+      "Zviahel"
+    ]
   }
 }
