@@ -45,5 +45,15 @@
       "Lutsk",
       "Zviahel"
     ]
+  },
+  "hero": {
+    "title": {
+      "line1": "PASSENGER",
+      "line2": "TRANSPORTATION",
+      "line3": "TO EUROPEAN COUNTRIES"
+    },
+    "subtitle": "fast, easy and safe",
+    "label": "Ukraine:",
+    "destinations": ["Netherlands", "Belgium", "Poland", "Germany"]
   }
 }

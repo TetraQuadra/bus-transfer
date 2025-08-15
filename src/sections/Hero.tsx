@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { getTranslations } from 'next-intl/server';
 
-const Hero = () => {
+const Hero = async () => {
+    const t = await getTranslations('hero');
     const heroImages = [
         "/hero/1.png",
         "/hero/2.png",
@@ -12,12 +14,12 @@ const Hero = () => {
         "/hero/8.png"
     ];
 
-    const destinations = [
-        "Нідерланди",
-        "Бельгія",
-        "Польща",
-        "Німеччина",
-    ];
+    const titleLine1 = t('title.line1');
+    const titleLine2 = t('title.line2');
+    const titleLine3 = t('title.line3');
+    const subtitle = t('subtitle');
+    const label = t('label');
+    const destinations = t.raw('destinations') as string[];
 
     return (
         <section className="bg-background">
@@ -25,18 +27,18 @@ const Hero = () => {
                 <div className="flex justify-between items-start max-[900px]:flex-col">
                     <div className="flex flex-col h-full max-[900px]:w-full max-[900px]:items-start max-[900px]:flex-row max-[900px]:gap-4 max-md:flex-col">
                         <div className="max-[900px]:text-center max-[900px]:w-[80%]">
-                            <h1 className="text-[66px] leading-[1.01] text-foreground mb-4 lg:max-w-[580px] lg:w-full max-[1200px]:text-[40px] max-[900px]:text-start max-[900px]:text-[50px] max-[900px]:font-medium max-sm:text-[45px]">
-                                ПАСАЖИРСЬКІ<br />
-                                ПЕРЕВЕЗЕННЯ <br /> <span className="whitespace-nowrap max-sm:whitespace-normal">ДО КРАЇН ЄВРОПИ</span>
+                            <h1 className="text-[62px] leading-[1.01] text-foreground mb-4 lg:max-w-[580px] lg:w-full max-[1200px]:text-[40px] max-[900px]:text-start max-[900px]:text-[50px] max-[900px]:font-medium max-sm:text-[45px]">
+                                {titleLine1}<br />
+                                {titleLine2} <br /> <span className=" max-sm:whitespace-normal">{titleLine3}</span>
                             </h1>
 
                             <p className="text-lg text-foreground mb-6 text-[26px] max-[900px]:text-start max-md:mb-1 max-sm:text-[20px]">
-                                швидко, легко та безпечно
+                                {subtitle}
                             </p>
                         </div>
 
                         <div className="bg-white border border-gray-300 rounded-lg p-5 w-fit max-[900px]:w-full max-[900px]:items-start max-[900px]:p-3 max-md:w-auto max-md:mx-auto max-md:mb-4">
-                            <p className="text-foreground font-medium mb-2 text-[20px]">Україна:</p>
+                            <p className="text-foreground font-medium mb-2 text-[20px]">{label}</p>
                             <div className="flex items-center gap-3 max-[1200px]:grid max-[1200px]:grid-cols-2 max-md:flex max-sm:grid max-sm:grid-cols-2">
                                 {destinations.map((destination, index) => (
                                     <div key={index} className="flex items-center justify-start gap-3 max-[900px]:gap-1">
