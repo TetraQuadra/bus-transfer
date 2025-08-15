@@ -1,16 +1,18 @@
 'use client'
 
 import { SwiperSlide } from 'swiper/react';
-import { REVIEWS } from '@/const/reviews';
 import Button from '@/components/Button';
 import GallerySlider from '@/components/GallerySlider';
 import ReviewCard from '@/components/ReviewCard';
+import { useTranslations } from '@/hooks/useTranslations';
 
 const ReviewsSection = () => {
+    const t = useTranslations('reviews');
+    const items = t.raw('items') as Array<{ id: number; name: string; date: string; text: string; avatar: string }>;
     return (
         <>
-            <GallerySlider title={REVIEWS.title}>
-                {REVIEWS.items.map((review) => (
+            <GallerySlider title={t('title')}>
+                {items.map((review) => (
                     <SwiperSlide key={review.id}>
                         <ReviewCard
                             id={review.id}
@@ -30,7 +32,7 @@ const ReviewsSection = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Більше відгуків
+                    {t('more')}
                 </Button>
             </div>
         </>

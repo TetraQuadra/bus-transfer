@@ -1,38 +1,21 @@
 'use client'
 
-const BENEFITS = {
-    items: [
-        {
-            id: 1,
-            title: "Європейський рівень сервісу",
-            description: "Як в європейських транспортних компаніях"
-        },
-        {
-            id: 2,
-            title: "Комфорт у кожній деталі",
-            description: "Усе продумано для вашої зручності під час подорожі"
-        },
-        {
-            id: 3,
-            title: "Швидка підтримка",
-            description: "Наші менеджери на зв'язку у Viber/WhatsApp/Instagram з понеділка по п'ятницю"
-        },
-        {
-            id: 4,
-            title: "Зручні місця посадки",
-            description: "Наші маршрути продумані так, щоб вам було завжди легко дістатися"
-        }
-    ]
-};
+import { useTranslations } from '@/hooks/useTranslations';
 
 
 const AdvantagesSection = () => {
+    const t = useTranslations('advantages');
+    const items = [1, 2, 3, 4].map((i) => ({
+        id: i,
+        title: t(`items.${i}.title`),
+        description: t(`items.${i}.description`)
+    }));
     return (
         <section className="py-24 w-full">
             <div className="">
                 <div className="w-full">
                     <div className="flex flex-col lg:flex-row gap-12 max-w-7xl mx-auto">
-                        {BENEFITS.items.map((item: { id: number; title: string; description: string }) => (
+                        {items.map((item: { id: number; title: string; description: string }) => (
                             <div
                                 key={item.id}
                                 className="flex-1 max-w-[275px] mx-auto lg:mx-0"

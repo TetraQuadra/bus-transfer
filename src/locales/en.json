@@ -255,5 +255,66 @@
         }
       }
     }
+  },
+  "advantages": {
+    "items": {
+      "1": {
+        "title": "European level of service",
+        "description": "Just like in European transport companies"
+      },
+      "2": {
+        "title": "Comfort in every detail",
+        "description": "Everything is designed for your convenience during the trip"
+      },
+      "3": {
+        "title": "Fast support",
+        "description": "Our managers are available on Viber/WhatsApp/Instagram from Monday to Friday"
+      },
+      "4": {
+        "title": "Convenient boarding points",
+        "description": "Our routes are designed so that it is always easy for you to reach"
+      }
+    }
+  },
+  "reviews": {
+    "title": "REVIEWS",
+    "more": "More reviews",
+    "items": [
+      {
+        "id": 1,
+        "name": "Viktoriia Vitaliivna",
+        "date": "15.12.24",
+        "avatar": "/reviews/avatar.png",
+        "text": "Very satisfied with the cooperation with 'World of Modern Transportation'. Fast, organized, without unnecessary hassle. The driver arrived on time, communication was clear and prompt. The items were delivered intact and undamaged, well packaged. The price is reasonable. I recommend this company to anyone looking for a reliable carrier."
+      },
+      {
+        "id": 2,
+        "name": "Oleksandr Petrovych",
+        "date": "08.12.24",
+        "avatar": "/reviews/avatar.png",
+        "text": "Excellent service! The driver arrived exactly at the appointed time, the vehicle was clean and comfortable. The trip went smoothly, and the rest stops were convenient. The price is fair for such quality service. I will definitely use it again."
+      },
+      {
+        "id": 3,
+        "name": "Mariia Ivanivna",
+        "date": "01.12.24",
+        "avatar": "/reviews/avatar.png",
+        "text": "I traveled with the company for the first time and was very satisfied. The driver was professional and attentive, and the route was optimal. The bus was modern and had all the necessary amenities. I recommend it for trips to Europe."
+      },
+      {
+        "id": 4,
+        "name": "Andrii Serhiiovych",
+        "date": "24.11.24",
+        "avatar": "/reviews/avatar.png",
+        "text": "A great company for transportation! The driver was experienced, and the vehicle was in excellent condition. The trip was comfortable, with stops in convenient places. The price is reasonable for such quality service."
+      },
+      {
+        "id": 5,
+        "name": "Tetiana Oleksandrivna",
+        "date": "17.11.24",
+        "avatar": "/reviews/avatar.png",
+        "text": "Very satisfied with the quality of service. The driver was polite and professional, and arrived on time. The bus was clean and comfortable. The trip went without problems. I recommend this company to everyone."
+      }
+    ]
   }
 }
