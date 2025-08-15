@@ -55,5 +55,13 @@
     "subtitle": "fast, easy and safe",
     "label": "Ukraine:",
     "destinations": ["Netherlands", "Belgium", "Poland", "Germany"]
+  },
+  "weOffer": {
+    "title": "WE OFFER",
+    "services": {
+      "passengers": "Passenger transportation",
+      "packages": "Package delivery",
+      "pets": "Transportation of pets"
+    }
   }
 }
