@@ -6,6 +6,8 @@ import GallerySlider from '@/components/GallerySlider';
 import ReviewCard from '@/components/ReviewCard';
 import { useTranslations } from '@/hooks/useTranslations';
 
+// TODO: ТУТ МАКНУТЫЕ РЕВЬЮ НАДО ВСТАВИТЬ РЕАЛЬНЫЕ
+
 const ReviewsSection = () => {
     const t = useTranslations('reviews');
     const items = t.raw('items') as Array<{ id: number; name: string; date: string; text: string; avatar: string }>;

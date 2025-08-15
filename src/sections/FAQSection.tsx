@@ -2,44 +2,13 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useTranslations } from '@/hooks/useTranslations';
 
-// FAQ ВЗЯТЬ ВОПРОСЫ
-const faqData = [
-    {
-        title: "Скільки часу займає перевезення до Європи?",
-        description: "Залежить від країни призначення. Наприклад, до Польщі – 1-2 дні, до Німеччини – 2-3 дні, до Італії чи Франції – до 5 днів."
-    },
-    {
-        title: "Які документи потрібні для поїздки?",
-        description: "Для поїздки потрібен закордонний паспорт, віза (якщо потрібна), страховка та інші документи залежно від країни призначення."
-    },
-    {
-        title: "Чи можна перевозити домашніх тварин?",
-        description: "Так, ми надаємо послуги перевезення домашніх тварин. Потрібні відповідні документи та ветеринарні сертифікати."
-    },
-    {
-        title: "Які автомобілі використовуються для перевезень?",
-        description: "Ми використовуємо автомобілі комфорт та люкс класу для забезпечення максимального комфорту пасажирів."
-    },
-    {
-        title: "Чи можна замовити індивідуальний трансфер?",
-        description: "Так, ми надаємо послуги індивідуального трансферу за попереднім замовленням."
-    },
-    {
-        title: "Як забронювати поїздку?",
-        description: "Бронювання можна здійснити через наш сайт, зателефонувавши нам або написавши в месенджерах."
-    },
-    {
-        title: "Чи надаєте ви послуги доставки посилок?",
-        description: "Так, ми також надаємо послуги доставки посилок між Україною та країнами Європи."
-    },
-    {
-        title: "Які країни ви обслуговуєте?",
-        description: "Ми обслуговуємо маршрути Україна - Польща - Німеччина - Нідерланди - Бельгія та інші країни Європи."
-    }
-];
+// TODO: ТУТ ХЕРНЯ НАПИСАНА НАДО ВСТАВИТЬ НОРМАЛЬНЫЕ ТЕКСТА
 
 const FAQSection = () => {
+    const t = useTranslations('faq');
+    const faqData = t.raw('items') as Array<{ title: string; description: string }>;
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     const toggleAccordion = (index: number) => {
@@ -53,7 +22,7 @@ const FAQSection = () => {
                     {/* FAQ Section */}
                     <div className="flex-3">
                         <h2 className="text-[40px] font-regular text-foreground mb-8">
-                            НАЙЧАСТІШІ ПИТАННЯ ВІД НАШИХ КЛІЄНТІВ
+                            {t('title')}
                         </h2>
 
                         <div className="">
@@ -109,7 +78,7 @@ const FAQSection = () => {
                         <div className="relative">
                             <Image
                                 src="/faq/1.png"
-                                alt="Instagram profile"
+                                alt={t('alt.phone')}
                                 width={380}
                                 height={675} className="object-contain"
                             />
