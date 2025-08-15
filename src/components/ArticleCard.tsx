@@ -8,9 +8,10 @@ interface ArticleCardProps {
     date: string;
     description: string;
     href: string;
+    buttonLabel?: string;
 }
 
-const ArticleCard = ({ image, title, date, description, href }: ArticleCardProps) => {
+const ArticleCard = ({ image, title, date, description, href, buttonLabel }: ArticleCardProps) => {
     return (
         <div className="bg-white rounded-[10px] overflow-hidden shadow-lg max-w-[400px] mx-auto">
             <div className="relative h-48 overflow-hidden">
@@ -37,7 +38,7 @@ const ArticleCard = ({ image, title, date, description, href }: ArticleCardProps
                     size="sm"
                     variant="primary"
                 >
-                    Читати повністю
+                    {buttonLabel ?? 'Читати повністю'}
                 </Button>
             </div>
         </div>

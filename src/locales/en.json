@@ -395,5 +395,51 @@
         "description": "We serve routes Ukraine — Poland — Germany — Netherlands — Belgium and other European countries."
       }
     ]
+  },
+  "useful": {
+    "title": "USEFUL",
+    "readMore": "Read in full",
+    "articles": [
+      {
+        "id": 1,
+        "image": "/articles/1.png",
+        "title": "Rules for transporting belongings to Europe: what you need to know",
+        "date": "15.12.2024",
+        "description": "International transportation of belongings to European Union countries is a process regulated by both Ukrainian legislation and EU regulations. If you are planning a move or transporting personal items, it is important to familiarize yourself with the rules in advance to avoid delays at the border, fines, or even confiscation of the cargo...",
+        "href": "/articles/transportation-rules-europe"
+      },
+      {
+        "id": 2,
+        "image": "/articles/1.png",
+        "title": "How to properly prepare documents for a trip to Europe",
+        "date": "10.12.2024",
+        "description": "Preparing documents for a trip to European Union countries requires attention to detail. The success of your move and compliance with all necessary legal requirements depend on properly prepared documents...",
+        "href": "/articles/documents-preparation-europe"
+      },
+      {
+        "id": 3,
+        "image": "/articles/1.png",
+        "title": "Transporting pets: specifics and requirements",
+        "date": "05.12.2024",
+        "description": "Transporting pets between countries has its own specifics and requirements. For successful transportation, it is necessary to follow veterinary standards and have the relevant documents...",
+        "href": "/articles/pet-transportation-europe"
+      },
+      {
+        "id": 4,
+        "image": "/articles/1.png",
+        "title": "Choosing the optimal route for transportation to Europe",
+        "date": "01.12.2024",
+        "description": "Choosing the right route for transportation to Europe can significantly affect travel time, cost, and comfort. Let's look at the key factors to consider when planning a route...",
+        "href": "/articles/route-selection-europe"
+      },
+      {
+        "id": 5,
+        "image": "/articles/1.png",
+        "title": "Cargo insurance in international transportation",
+        "date": "28.11.2024",
+        "description": "Cargo insurance is an important aspect of international transportation. Properly arranged insurance will protect your belongings from damage, loss, or delays en route...",
+        "href": "/articles/cargo-insurance-international"
+      }
+    ]
   }
 }
