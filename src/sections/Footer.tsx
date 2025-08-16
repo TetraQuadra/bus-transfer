@@ -8,10 +8,10 @@ const Footer = async () => {
     return (
         <footer className="bg-white py-16 flex justify-center items-center">
             <div className="container-custom mx-auto px-4">
-                <div className="flex gap-8 justify-between">
+                <div className="lg:flex lg:gap-8 lg:justify-between max-lg:grid max-lg:grid-cols-2 max-md:grid-cols-1 gap-8 max-lg:text-center">
 
                     {/* About */}
-                    <div className="lg:col-span-2 flex-1 max-w-[340px]">
+                    <div className="w-full lg:flex-1 lg:max-w-[340px] max-lg:flex max-lg:flex-col max-lg:items-center">
                         <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
                             {t('about.title')}
                         </h3>
@@ -26,11 +26,11 @@ const Footer = async () => {
                     </div>
 
                     {/* Info */}
-                    <div>
+                    <div className="w-full max-lg:flex max-lg:flex-col max-lg:items-center">
                         <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
                             {t('info.title')}
                         </h3>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-2 gap-4 max-lg:justify-items-center">
                             <div className="space-y-3">
                                 <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.autopark')}
@@ -63,7 +63,7 @@ const Footer = async () => {
                     </div>
 
                     {/* Contacts */}
-                    <div>
+                    <div className="w-full max-lg:flex max-lg:flex-col max-lg:items-center">
                         <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
                             {t('contacts.title')}
                         </h3>
@@ -76,11 +76,11 @@ const Footer = async () => {
                     </div>
 
                     {/* Social */}
-                    <div>
+                    <div className="w-full max-lg:flex max-lg:flex-col max-lg:items-center">
                         <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
                             {t('social.title')}
                         </h3>
-                        <div className="grid grid-cols-3 grid-rows-2 border border-white overflow-hidden ">
+                        <div className="grid grid-cols-3 grid-rows-2 border border-white overflow-hidden max-lg:w-fit max-lg:mx-auto ">
                             <a href="#" className="flex items-center justify-center p-3 border-r border-b border-gray-300 hover:bg-gray-50 transition-colors">
                                 <Image
                                     src="/icons/Viber.png"
