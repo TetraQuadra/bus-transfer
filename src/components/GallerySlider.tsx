@@ -132,7 +132,7 @@ const GallerySlider = ({
                             <div className="flex justify-center gap-12 mt-4 lg:hidden">
                                 <button
                                     onClick={handlePrev}
-                                    className="w-[80px] h-[80px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200"
+                                    className="w-[80px] h-[80px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200 lg:flex max-lg:w-[50px] max-lg:h-[50px]"
                                 >
                                     <Image
                                         src="/icons/ArrowButtonRight.svg"
@@ -144,7 +144,7 @@ const GallerySlider = ({
                                 </button>
                                 <button
                                     onClick={handleNext}
-                                    className="w-[80px] h-[80px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200"
+                                    className="w-[80px] h-[80px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200 lg:flex max-lg:w-[50px] max-lg:h-[50px]"
                                 >
                                     <Image
                                         src="/icons/ArrowButtonRight.svg"

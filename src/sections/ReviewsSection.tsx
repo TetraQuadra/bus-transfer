@@ -27,12 +27,13 @@ const ReviewsSection = () => {
                 ))}
             </GallerySlider>
 
-            <div className="flex justify-center mt-4 lg:max-w-[280px] mx-auto">
+            <div className="flex justify-center mt-4 max-lg:h-[50px] lg:max-w-[280px] mx-auto">
                 <Button
                     as="link"
                     href="https://www.google.com/maps/place/%D0%A1%D0%B2%D1%96%D1%82+%D0%A1%D1%83%D1%87%D0%B0%D1%81%D0%BD%D0%B8%D1%85+%D0%9F%D0%B5%D1%80%D0%B5%D0%B2%D0%B5%D0%B7%D0%B5%D0%BD%D1%8C/@49.7984121,30.1141283,17z/data=!3m1!4b1!4m6!3m5!1s0x40d343a17d2bf6a7:0xfcbecfcf462be5c0!8m2!3d49.7984122!4d30.1189992!16s%2Fg%2F11xmc9hf2k?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="max-lg:h-[60px]"
                 >
                     {t('more')}
                 </Button>
