@@ -11,17 +11,17 @@ const AdvantagesSection = () => {
         description: t(`items.${i}.description`)
     }));
     return (
-        <section className="py-24 w-full">
+        <section className="py-6 w-full">
             <div className="">
                 <div className="w-full">
-                    <div className="flex flex-col lg:flex-row gap-12 max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-12 max-w-7xl mx-auto justify-items-center">
                         {items.map((item: { id: number; title: string; description: string }) => (
                             <div
                                 key={item.id}
-                                className="flex-1 max-w-[275px] mx-auto lg:mx-0"
+                                className="w-full md:max-w-[275px] mx-auto"
                             >
                                 <div className="flex items-start">
-                                    <div className="w-[2px] h-[140px] bg-black mr-6"></div>
+                                    <div className="w-[2px] h-[140px] bg-black mr-6 max-md:h-[90px]"></div>
                                     <div className="flex-1">
                                         <h3 className="text-[26px] font-medium text-foreground mb-2">
                                             {item.title}
