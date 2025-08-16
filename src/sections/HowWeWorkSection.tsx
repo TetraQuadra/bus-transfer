@@ -13,7 +13,7 @@ const STEPS_META = [
 const HowWeWorkSection = async () => {
     const t = await getTranslations('howWeWork');
     return (
-        <section className="py-12 w-full">
+        <section className="py-4 w-full">
             <h2 className="text-[40px] font-regular text-center text-foreground mb-12">
                 {t('title')}
             </h2>

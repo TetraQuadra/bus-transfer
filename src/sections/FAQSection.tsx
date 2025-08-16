@@ -16,12 +16,12 @@ const FAQSection = () => {
     };
 
     return (
-        <section className="bg-background py-16">
+        <section className="bg-background py-8">
             <div className="px-4">
                 <div className="flex flex-col lg:flex-row gap-12 items-start">
                     {/* FAQ Section */}
                     <div className="flex-3">
-                        <h2 className="text-[40px] font-regular text-foreground mb-8">
+                        <h2 className="text-[40px] font-regular text-foreground mb-4">
                             {t('title')}
                         </h2>
 
@@ -30,13 +30,13 @@ const FAQSection = () => {
                                 <div key={index} className="overflow-hidden border-b border-[#e0e0e0c4]">
                                     <button
                                         onClick={() => toggleAccordion(index)}
-                                        className="w-full flex items-center justify-between text-left"
+                                        className="w-full flex items-center justify-between text-left min-h-[70px]"
                                     >
-                                        <span className="text-[26px] font-regular text-foreground p-4">
+                                        <span className="text-[26px] font-regular text-foreground p-4 max-sm:p-1 max-md:text-[20px]">
                                             {item.title}
                                         </span>
                                         <div
-                                            className="w-8 h-8 rounded-full flex items-center justify-center"
+                                            className="w-8 h-8 rounded-full flex items-center justify-center min-w-[32px]"
                                             style={{ backgroundColor: 'var(--color-primary)' }}
                                         >
                                             <svg
@@ -62,7 +62,7 @@ const FAQSection = () => {
                                     >
                                         <div className="">
                                             <div className="bg-white p-4">
-                                                <p className="text-[20px] font-regular text-foreground">
+                                                <p className="text-[20px] font-regular text-foreground  max-md:text-[20px]">
                                                     {item.description}
                                                 </p>
                                             </div>
@@ -80,7 +80,7 @@ const FAQSection = () => {
                                 src="/faq/1.png"
                                 alt={t('alt.phone')}
                                 width={380}
-                                height={675} className="object-contain"
+                                height={675} className="object-contain max-lg:hidden"
                             />
                         </div>
                     </div>

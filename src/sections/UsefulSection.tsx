@@ -18,27 +18,29 @@ const UsefulSection = () => {
         href: string;
     }>;
     return (
-        <GallerySlider
-            title={t('title')}
-            slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }}
-            spaceBetween={20}
-            autoplay={false}
-            showPagination={false}
-        >
-            {articlesData.map((article) => (
-                <SwiperSlide key={article.id}>
-                    <ArticleCard
-                        id={article.id}
-                        image={article.image}
-                        title={article.title}
-                        date={article.date}
-                        description={article.description}
-                        href={article.href}
-                        buttonLabel={t('readMore')}
-                    />
-                </SwiperSlide>
-            ))}
-        </GallerySlider>
+        <section className='mb-12'>
+            <GallerySlider
+                title={t('title')}
+                slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }}
+                spaceBetween={20}
+                autoplay={false}
+                showPagination={false}
+            >
+                {articlesData.map((article) => (
+                    <SwiperSlide key={article.id}>
+                        <ArticleCard
+                            id={article.id}
+                            image={article.image}
+                            title={article.title}
+                            date={article.date}
+                            description={article.description}
+                            href={article.href}
+                            buttonLabel={t('readMore')}
+                        />
+                    </SwiperSlide>
+                ))}
+            </GallerySlider>
+        </section>
     );
 };
 
