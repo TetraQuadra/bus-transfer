@@ -14,11 +14,11 @@ const Autopark = () => {
     }));
 
     return (
-        <section className="w-full py-16">
-            <h2 className="text-[40px] font-regular text-center text-foreground mb-12">{t('title')}</h2>
-            <div className="lg:w-[80%] bg-white rounded-[10px] mx-auto px-[50px] py-[40px] relative lg:min-h-[950px]">
-                <div className="flex flex-row gap-15 mb-12">
-                    <div className="flex flex-col gap-5 lg:w-[290px]">
+        <section className="w-full py-10 sm:py-12 md:py-16">
+            <h2 className="text-[24px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-regular text-center text-foreground mb-8 sm:mb-10 lg:mb-12">{t('title')}</h2>
+            <div className="w-full lg:w-[80%] bg-white rounded-[10px] mx-auto px-4 sm:px-6 md:px-8 lg:px-[50px] py-6 sm:py-8 md:py-10 lg:py-[40px] relative lg:min-h-[950px]">
+                <div className="flex flex-col lg:flex-row gap-6 md:gap-10 lg:gap-12 mb-8 md:mb-12">
+                    <div className="flex flex-col gap-5 w-full lg:w-[290px]">
                         <Button
                             onClick={() => setActiveTab('comfort')}
                             variant={activeTab === 'comfort' ? 'primary' : 'secondary'}
@@ -34,24 +34,26 @@ const Autopark = () => {
                             {t('tabs.lux')}
                         </Button>
                     </div>
-                    <div>
-                        <div className="flex flex-col gap-5 bg-gray-400 h-full lg:w-[500px]">{t('videoPlaceholder')}</div>
+                    <div className="w-full">
+                        <div className="flex flex-col items-center justify-center gap-5 bg-gray-200 rounded-[10px] min-h-[220px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[400px] lg:w-[500px]">
+                            {t('videoPlaceholder')}
+                        </div>
                     </div>
                 </div>
 
-                <div className="lg:grid lg:grid-cols-2 gap-x-[60px] gap-y-[30px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[60px] gap-y-[30px]">
                     {currentTexts.map((text, index) => (
                         <div key={index} className="flex flex-row gap-[14px] items-start">
-                            <Image src="/icons/shield.svg" alt={t('alt.icon')} width={70} height={70} />
+                            <Image src="/icons/shield.svg" alt={t('alt.icon')} width={70} height={70} className="w-10 h-10 md:w-[70px] md:h-[70px]" />
                             <div>
-                                <h3 className="text-[24px] font-regular text-foreground mb-1 pt-[16px]">{text.title}</h3>
-                                <p className="text-[16px] font-regular text-foreground">{text.description}</p>
+                                <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-regular text-foreground mb-1 pt-[16px] max-md:pt-0">{text.title}</h3>
+                                <p className="text-[14px] sm:text-[15px] md:text-[16px] font-regular text-foreground">{text.description}</p>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <div className="flex justify-center absolute bottom-[40px] right-[50%] translate-x-[50%]">
+                <div className="flex justify-center lg:absolute lg:bottom-[40px] lg:right-[50%] lg:translate-x-[50%]">
                     <Button className="mx-auto mt-8 max-w-[286px]">
                         {t('cta')}
                     </Button>
