@@ -55,7 +55,7 @@ const GallerySlider = ({
     };
 
     return (
-        <section className={`pb-16 w-full ${className}`}>
+        <section className={`w-full ${className}`}>
             <div className="">
                 <div className="w-full">
                     {title && (
@@ -129,7 +129,7 @@ const GallerySlider = ({
                         </div>
 
                         {showNavigation && (
-                            <div className="flex justify-center gap-12 mt-8 lg:hidden">
+                            <div className="flex justify-center gap-12 mt-4 lg:hidden">
                                 <button
                                     onClick={handlePrev}
                                     className="w-[80px] h-[80px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200"
