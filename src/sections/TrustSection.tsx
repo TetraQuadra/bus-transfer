@@ -12,9 +12,9 @@ const TrustSection = () => {
                     {t('title')}
                 </h2>
 
-                <div className="flex flex-row gap-[30px] mb-[30px]">
+                <div className="lg:flex lg:flex-row max-lg:flex max-lg:flex-col gap-[30px] mb-[30px]">
                     {/* Первая карточка - 500px */}
-                    <div className="bg-white rounded-[10px] p-6 shadow-lg" style={{ width: '500px' }}>
+                    <div className="bg-white rounded-[10px] p-6 shadow-lg w-full lg:w-[500px]">
                         <Image
                             src="/trust/1.png"
                             alt={t('alt.trust1')}
@@ -31,7 +31,7 @@ const TrustSection = () => {
                     </div>
 
                     {/* Вторая карточка - 250px */}
-                    <div className="bg-[var(--color-secondary)] rounded-[10px] p-6 shadow-lg" style={{ width: '250px' }}>
+                    <div className="bg-[var(--color-secondary)] rounded-[10px] p-6 shadow-lg w-full lg:w-[250px]">
                         <h3 className="text-[26px] font-normal text-white mb-3">
                             {t('cards.second.title')}
                         </h3>
@@ -41,7 +41,7 @@ const TrustSection = () => {
                     </div>
 
                     {/* Третья карточка - 388px */}
-                    <div className="bg-white rounded-[10px] p-6 shadow-lg" style={{ width: '388px' }}>
+                    <div className="bg-white rounded-[10px] p-6 shadow-lg w-full lg:w-[388px]">
                         <h3 className="text-[26px] font-normal text-foreground mb-3">
                             {t('cards.third.title')}
                         </h3>
@@ -87,7 +87,7 @@ const TrustSection = () => {
                 </div>
 
                 {/* Второй ряд - две карточки пополам */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px] mb-[30px]">
+                <div className="lg:grid lg:grid-cols-2 max-lg:flex max-lg:flex-col gap-[30px] mb-[30px]">
                     <div className="bg-[var(--color-secondary)] rounded-[10px] p-6 shadow-lg">
                         <h3 className="text-[26px] font-normal text-white mb-3">
                             {t('cards.fourth.title')}
@@ -108,7 +108,7 @@ const TrustSection = () => {
                 </div>
 
                 {/* Третий ряд - одна карточка на всю ширину */}
-                <div className="bg-white rounded-[10px] p-6 shadow-lg flex gap-6">
+                <div className="bg-white rounded-[10px] p-6 shadow-lg flex flex-col md:flex-row gap-6">
                     <div className="flex-1">
                         <h3 className="text-[26px] font-normal text-foreground mb-3">
                             {t('cards.sixth.title')}
@@ -117,20 +117,20 @@ const TrustSection = () => {
                             {t('cards.sixth.description')}
                         </p>
                     </div>
-                    <div className="flex gap-6">
+                    <div className="flex gap-6 justify-center md:justify-end">
                         <Image
                             src="/trust/2.png"
                             alt={t('alt.trust2')}
                             width={270}
                             height={210}
-                            className="rounded-[10px] max-[1200px]:hidden"
+                            className="rounded-[10px] max-md:hidden max-lg:block max-[1200px]:hidden"
                         />
                         <Image
                             src="/trust/3.png"
                             alt={t('alt.trust3')}
                             width={460}
                             height={210}
-                            className="rounded-[10px]"
+                            className="rounded-[10px] max-lg:hidden max-md:block"
                         />
                     </div>
                 </div>
