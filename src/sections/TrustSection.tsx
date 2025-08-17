@@ -6,7 +6,7 @@ import { useTranslations } from '@/hooks/useTranslations';
 const TrustSection = () => {
     const t = useTranslations('trust');
     return (
-        <section className="py-12 w-full">
+        <section id="trust" className="py-12 w-full">
             <div className="max-w-7xl mx-auto px-4">
                 <h2 className="text-[40px] font-regular text-center text-foreground mb-12">
                     {t('title')}

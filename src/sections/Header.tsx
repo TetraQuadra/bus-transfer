@@ -7,13 +7,13 @@ const Header = async () => {
     const t = await getTranslations('header');
 
     const navigationItems = [
-        { label: t('navigation.handover'), href: "/handover" },
-        { label: t('navigation.fleet'), href: "/fleet" },
-        { label: t('navigation.services'), href: "/services" },
-        { label: t('navigation.about'), href: "/about" },
-        { label: t('navigation.contacts'), href: "/contacts" },
-        { label: t('navigation.helpful'), href: "/helpful" },
-        { label: t('navigation.reviews'), href: "/reviews" }
+        { label: t('navigation.handover'), href: "/#parcels" },
+        { label: t('navigation.fleet'), href: "/#fleet" },
+        { label: t('navigation.services'), href: "/#services" },
+        { label: t('navigation.about'), href: "/#footer" },
+        { label: t('navigation.contacts'), href: "/#footer" },
+        { label: t('navigation.helpful'), href: "/#useful" },
+        { label: t('navigation.reviews'), href: "/#reviews" }
     ];
 
     return (
@@ -22,7 +22,7 @@ const Header = async () => {
                 <div className="flex items-center justify-between">
                     <Logo />
                     <Navigation items={navigationItems} />
-                    <Button className="max-w-[220px] max-[1100px]:max-w-[160px]" variant="primary" size="sm">
+                    <Button as="link" href="/#booking" className="max-w-[220px] max-[1100px]:max-w-[160px]" variant="primary" size="sm">
                         {t('book')}
                     </Button>
                 </div>

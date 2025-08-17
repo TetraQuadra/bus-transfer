@@ -18,7 +18,7 @@ const UsefulSection = () => {
         href: string;
     }>;
     return (
-        <section className='mb-12'>
+        <section id='useful' className='mb-12'>
             <GallerySlider
                 title={t('title')}
                 slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }}

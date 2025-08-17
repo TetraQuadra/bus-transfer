@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
 
 //TODO: Добавить ссылки на страницы
@@ -6,13 +7,13 @@ import { getTranslations } from 'next-intl/server';
 const Footer = async () => {
     const t = await getTranslations('footer');
     return (
-        <footer className="bg-white py-16 flex justify-center items-center">
+        <footer id="footer" className="bg-white py-16 flex justify-center items-center">
             <div className="container-custom mx-auto px-4">
                 <div className="lg:flex lg:gap-8 lg:justify-between max-lg:grid max-lg:grid-cols-2 max-md:grid-cols-1 gap-8 max-lg:text-center">
 
                     {/* About */}
-                    <div className="w-full lg:flex-1 lg:max-w-[340px] max-lg:flex max-lg:flex-col max-lg:items-center">
-                        <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
+                    <div className="w-full lg:flex-1 lg:min-w-[340px] max-lg:flex max-lg:flex-col max-lg:items-center">
+                        <h3 className="text-[26px] font-medium text-foreground mb-6 max-lg:text-center">
                             {t('about.title')}
                         </h3>
                         <div className="space-y-4">
@@ -27,44 +28,44 @@ const Footer = async () => {
 
                     {/* Info */}
                     <div className="w-full max-lg:flex max-lg:flex-col max-lg:items-center">
-                        <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
+                        <h3 className="text-[26px] font-medium text-foreground mb-6  max-lg:text-center">
                             {t('info.title')}
                         </h3>
                         <div className="grid grid-cols-2 gap-4 max-lg:justify-items-center">
                             <div className="space-y-3">
-                                <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
+                                <Link href="/#fleet" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.autopark')}
-                                </a>
-                                <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
+                                </Link>
+                                <Link href="/#reviews" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.reviews')}
-                                </a>
-                                <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
+                                </Link>
+                                <Link href="/#footer" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.about')}
-                                </a>
-                                <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
+                                </Link>
+                                <Link href="/#useful" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.useful')}
-                                </a>
+                                </Link>
                             </div>
                             <div className="space-y-3">
-                                <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
+                                <Link href="/" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.home')}
-                                </a>
-                                <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
+                                </Link>
+                                <Link href="/#routes" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.routes')}
-                                </a>
-                                <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
+                                </Link>
+                                <Link href="/parcels" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.parcels')}
-                                </a>
-                                <a href="#" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
+                                </Link>
+                                <Link href="/#routes" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.prices')}
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
 
                     {/* Contacts */}
                     <div className="w-full max-lg:flex max-lg:flex-col max-lg:items-center">
-                        <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
+                        <h3 className="text-[26px] font-medium text-foreground mb-6  max-lg:text-center ">
                             {t('contacts.title')}
                         </h3>
                         <a
@@ -77,7 +78,7 @@ const Footer = async () => {
 
                     {/* Social */}
                     <div className="w-full max-lg:flex max-lg:flex-col max-lg:items-center">
-                        <h3 className="text-[26px] font-medium text-foreground mb-6 text-center">
+                        <h3 className="text-[26px] font-medium text-foreground mb-6  max-lg:text-center">
                             {t('social.title')}
                         </h3>
                         <div className="grid grid-cols-3 grid-rows-2 border border-white overflow-hidden max-lg:w-fit max-lg:mx-auto ">

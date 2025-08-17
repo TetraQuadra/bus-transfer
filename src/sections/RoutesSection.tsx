@@ -19,7 +19,7 @@ const RoutesSection = () => {
     const [selectedRouteId, setSelectedRouteId] = useState<(typeof ROUTES)[number]['id']>(ROUTES[0].id);
 
     return (
-        <section className="py-16 w-full">
+        <section id="routes" className="py-16 w-full">
             <div className="">
                 <div className="w-full">
                     <div className="flex lg:flex-nowrap gap-8 max-w-7xl mx-auto max-lg:flex-col max-sm:items-center">
@@ -57,7 +57,7 @@ const RoutesSection = () => {
                             </div>
                         </div>
 
-                        <Button className="w-full lg:hidden mt-2 max-lg:order-4">
+                        <Button as="link" href="/#routes" className="w-full lg:hidden mt-2 max-lg:order-4">
                             {t('more')}
                         </Button>
 
@@ -118,7 +118,7 @@ const RoutesSection = () => {
                             </div>
 
                             <div className="mt-6 max-lg:hidden">
-                                <Button className="w-full">
+                                <Button as="link" href="/#routes" className="w-full">
                                     {t('more')}
                                 </Button>
                             </div>

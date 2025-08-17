@@ -14,6 +14,10 @@
 
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Gilroy local font faces */
 @font-face {
     font-family: "Gilroy";
@@ -182,6 +186,7 @@ body {
     color: var(--foreground);
     font-family: "Gilroy", Arial, Helvetica, sans-serif !important;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 /* Custom container class */

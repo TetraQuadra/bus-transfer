@@ -11,7 +11,7 @@ const AdvantagesSection = () => {
         description: t(`items.${i}.description`)
     }));
     return (
-        <section className="py-6 w-full">
+        <section id="advantages" className="py-6 w-full">
             <div className="">
                 <div className="w-full">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 lg:gap-12 max-w-7xl mx-auto justify-items-center">
