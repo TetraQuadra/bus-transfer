@@ -15,6 +15,7 @@ export async function loadMessages(locale: string) {
     const messages = (await import(`./locales/${normalized}.json`)).default;
     return messages;
   } catch (e) {
+    console.error(`Failed to load messages for locale: ${locale}`, e);
     notFound();
   }
 }

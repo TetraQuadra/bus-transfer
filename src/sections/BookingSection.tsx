@@ -1,11 +1,13 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import BaseInput from '@/components/BaseInput';
 import DatePicker from '@/components/DatePicker';
 import AutoCompleteInput from '@/components/AutoCompleteInput';
 import Button from '@/components/Button';
 import { useTranslations } from '@/hooks/useTranslations';
+import { findCityByName, isUkraineCity, normalizeToken } from '@/const/cities';
+import { useRouter } from 'next/navigation';
 
 // TODO: СДЕЛАТЬ ВСЕ ЭТО
 
@@ -21,6 +23,7 @@ type BookingFormData = {
 
 const BookingSection = () => {
     const t = useTranslations('booking');
+    const router = useRouter();
     const [formData, setFormData] = useState<BookingFormData>({
         departureCountry: '',
         departureCity: '',
@@ -36,6 +39,19 @@ const BookingSection = () => {
     // Списки для автодополнения из локалей
     const countries = t.raw('suggestions.countries') as string[];
     const cities = t.raw('suggestions.cities') as string[];
+
+    const countryMap = useMemo(() => {
+        const entries = [
+            ['ukraine', ['украина', 'україна', 'ukraine']],
+            ['poland', ['польша', 'польща', 'poland']],
+            ['germany', ['германия', 'німеччина', 'germany']],
+            ['belgium', ['бельгия', 'бельгія', 'belgium']],
+            ['netherlands', ['нидерланды', 'нідерланди', 'netherlands']]
+        ] as const;
+        const map = new Map<string, string>();
+        entries.forEach(([code, arr]) => arr.forEach(name => map.set(normalizeToken(name), code)));
+        return map;
+    }, []);
 
     const handleInputChange = (field: keyof BookingFormData, value: string) => {
         setFormData((prev: BookingFormData) => ({
@@ -55,12 +71,9 @@ const BookingSection = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Простая валидация
         const newErrors: Partial<Record<keyof BookingFormData, string>> = {};
 
-        if (!formData.departureCountry) newErrors.departureCountry = t('errors.required');
         if (!formData.departureCity) newErrors.departureCity = t('errors.required');
-        if (!formData.arrivalCountry) newErrors.arrivalCountry = t('errors.required');
         if (!formData.arrivalCity) newErrors.arrivalCity = t('errors.required');
         if (!formData.date) newErrors.date = t('errors.required');
         if (!formData.fullName) newErrors.fullName = t('errors.required');
@@ -71,9 +84,37 @@ const BookingSection = () => {
             return;
         }
 
-        // Здесь будет отправка формы
-        console.log(t('log.submitted'), formData);
-        alert(t('alert.submitted'));
+        const fromCity = findCityByName(formData.departureCity || '');
+        const toCity = findCityByName(formData.arrivalCity || '');
+
+        if (fromCity && toCity) {
+            const fromIsUa = isUkraineCity(fromCity);
+            const toIsUa = isUkraineCity(toCity);
+            if (fromIsUa === toIsUa) {
+                setErrors(prev => ({ ...prev, arrivalCity: t('errors.directionConstraint') }));
+                return;
+            }
+            const slug = `${fromCity.slug}-${toCity.slug}`;
+            router.push(`/book/${slug}`);
+            console.log(t('log.submitted'), formData);
+            return;
+        }
+
+        // если города не распознаны, пробуем по странам
+        const depCode = countryMap.get(normalizeToken(formData.departureCountry || ''));
+        const arrCode = countryMap.get(normalizeToken(formData.arrivalCountry || ''));
+
+        if ((depCode === 'ukraine' && arrCode && arrCode !== 'ukraine') || (arrCode === 'ukraine' && depCode && depCode !== 'ukraine')) {
+            const direction = (depCode === 'ukraine' ? arrCode : depCode) as string;
+            router.push(`/book/${direction}`);
+            console.log(t('log.submitted'), formData);
+            return;
+        }
+
+        // не смогли распознать
+        if (!fromCity) newErrors.departureCity = t('errors.invalidCity');
+        if (!toCity) newErrors.arrivalCity = t('errors.invalidCity');
+        setErrors(newErrors);
     };
 
     return (

@@ -2,7 +2,7 @@
 
 import { useRef, ReactNode } from 'react';
 import Image from 'next/image';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 // Import Swiper styles

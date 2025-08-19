@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:ssg:full": "cross-env LOG_SSG_BOOK=full next build",
+    "build:ssg:summary": "cross-env LOG_SSG_BOOK=summary next build",
     "start": "next start",
     "lint": "next lint"
   },

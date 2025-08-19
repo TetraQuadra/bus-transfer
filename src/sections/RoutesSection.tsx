@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Button from '@/components/Button';
 import { useTranslations } from '@/hooks/useTranslations';
@@ -14,9 +14,19 @@ const ROUTES = [
     { id: 'belgium', map: '/main_routes/belgium.png' },
 ] as const;
 
-const RoutesSection = () => {
+type RoutesSectionProps = {
+    initialRouteId?: (typeof ROUTES)[number]['id'];
+};
+
+const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
     const t = useTranslations('routesSection');
-    const [selectedRouteId, setSelectedRouteId] = useState<(typeof ROUTES)[number]['id']>(ROUTES[0].id);
+    const [selectedRouteId, setSelectedRouteId] = useState<(typeof ROUTES)[number]['id']>(initialRouteId ?? ROUTES[0].id);
+
+    useEffect(() => {
+        if (initialRouteId) {
+            setSelectedRouteId(initialRouteId);
+        }
+    }, [initialRouteId]);
 
     return (
         <section id="routes" className="py-16 w-full">
@@ -57,7 +67,7 @@ const RoutesSection = () => {
                             </div>
                         </div>
 
-                        <Button as="link" href="/#routes" className="w-full lg:hidden mt-2 max-lg:order-4">
+                        <Button as="link" href={`/book/${selectedRouteId}`} className="w-full lg:hidden mt-2 max-lg:order-4">
                             {t('more')}
                         </Button>
 
@@ -118,7 +128,7 @@ const RoutesSection = () => {
                             </div>
 
                             <div className="mt-6 max-lg:hidden">
-                                <Button as="link" href="/#routes" className="w-full">
+                                <Button as="link" href={`/book/${selectedRouteId}`} className="w-full">
                                     {t('more')}
                                 </Button>
                             </div>

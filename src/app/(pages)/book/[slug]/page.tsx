@@ -1,0 +1,137 @@
+import { notFound } from 'next/navigation';
+import BookingSection from '@/sections/BookingSection';
+import RoutesSection from '@/sections/RoutesSection';
+import TrustSection from '@/sections/TrustSection';
+import FAQSection from '@/sections/FAQSection';
+import { DirectionId, EU_COUNTRIES, UA_CITIES_LIST, EU_CITIES_LIST, citiesBySlug, getDirectionByCity } from '@/const/cities';
+import { getTranslations } from 'next-intl/server';
+
+type Props = { params: Promise<{ slug: string }> };
+
+function isDirectionSlug(slug: string): slug is DirectionId {
+    return (EU_COUNTRIES as readonly string[]).includes(slug);
+}
+
+function parsePair(slug: string): { from: string; to: string } | null {
+    const parts = slug.split('-');
+    if (parts.length !== 2) return null;
+    const [a, b] = parts;
+    if (!a || !b) return null;
+    return { from: a, to: b };
+}
+
+function resolveDirectionFromSlug(slug: string): DirectionId | null {
+    if (isDirectionSlug(slug)) return slug;
+    const pair = parsePair(slug);
+    if (!pair) return null;
+    const fromCity = citiesBySlug[pair.from];
+    const toCity = citiesBySlug[pair.to];
+    if (!fromCity || !toCity) return null;
+    // определить направление как неукраинская сторона
+    const nonUaCity = fromCity.country === 'ukraine' ? toCity : fromCity;
+    const dir = getDirectionByCity(nonUaCity);
+    return dir ?? null;
+}
+
+export async function generateStaticParams() {
+    const params: { slug: string }[] = [];
+    // общие направления
+    for (const country of EU_COUNTRIES) {
+        params.push({ slug: country });
+    }
+    // пары UA <-> EU
+    for (const ua of UA_CITIES_LIST) {
+        for (const eu of EU_CITIES_LIST) {
+            params.push({ slug: `${ua.slug}-${eu.slug}` });
+            params.push({ slug: `${eu.slug}-${ua.slug}` });
+        }
+    }
+    /*
+    // Logging disabled
+    try {
+        const total = params.length;
+        const directions = EU_COUNTRIES.length;
+        const pairs = total - directions;
+        const paths = params.map((p) => `/book/${p.slug}`);
+        console.log(`[SSG][book] total: ${total} pages (${directions} directions + ${pairs} pairs)`);
+        const mode = process.env.LOG_SSG_BOOK || 'summary';
+        if (mode === 'full') {
+            const chunkSize = 200;
+            for (let i = 0; i < paths.length; i += chunkSize) {
+                console.log(`[SSG][book] paths ${i + 1}-${Math.min(i + chunkSize, paths.length)}:`);
+                console.log(paths.slice(i, i + chunkSize).join('\n'));
+            }
+        } else {
+            const head = paths.slice(0, 30);
+            const tail = paths.slice(-30);
+            console.log('[SSG][book] sample (first 30):');
+            console.log(head.join('\n'));
+            console.log('[SSG][book] sample (last 30):');
+            console.log(tail.join('\n'));
+            console.log('[SSG][book] set env LOG_SSG_BOOK=full to print the full list');
+        }
+
+        // Write full list to JSON
+        try {
+            const fs = await import('node:fs/promises');
+            const pathMod = await import('node:path');
+            const outPath = pathMod.join(process.cwd(), 'ssg-book-paths.json');
+            const payload = { total, directions, pairs, paths };
+            await fs.writeFile(outPath, JSON.stringify(payload, null, 2), 'utf-8');
+            console.log(`[SSG][book] full list written to: ${outPath}`);
+        } catch (fileErr) {
+            console.log('[SSG][book] failed to write ssg-book-paths.json:', fileErr);
+        }
+    } catch (e) {
+        console.log('[SSG][book] logging failed:', e);
+    }
+    */
+    return params;
+}
+
+export async function generateMetadata({ params }: Props) {
+    const t = await getTranslations('booking');
+    const { slug } = await params;
+    let title = '';
+    let description = '';
+    if (isDirectionSlug(slug)) {
+        title = `${t('meta.directionTitlePrefix', { direction: slug })}`;
+        description = `${t('meta.directionDescription', { direction: slug })}`;
+    } else {
+        const pair = parsePair(slug);
+        if (pair && citiesBySlug[pair.from] && citiesBySlug[pair.to]) {
+            const fromName = citiesBySlug[pair.from].names.en; // язык меты уточним позже
+            const toName = citiesBySlug[pair.to].names.en;
+            title = `${t('meta.pairTitlePrefix', { from: fromName, to: toName })}`;
+            description = `${t('meta.pairDescription', { from: fromName, to: toName })}`;
+        }
+    }
+    return { title, description };
+}
+
+export default async function Page({ params }: Props) {
+    const { slug } = await params;
+    const direction = resolveDirectionFromSlug(slug);
+    if (!direction) {
+        return notFound();
+    }
+    const t = await getTranslations('booking');
+    return (
+        <div className="space-y-12">
+            <BookingSection />
+            <RoutesSection initialRouteId={direction} />
+            <section className="py-4">
+                <div className="bg-white rounded-[10px] p-6 max-w-5xl mx-auto">
+                    <h2 className="text-[28px] mb-3">{t('countryTexts.title', { direction })}</h2>
+                    <p className="text-foreground/80 mb-2">{t(`countryTexts.${direction}.p1`)}</p>
+                    <p className="text-foreground/80">{t(`countryTexts.${direction}.p2`)}</p>
+                </div>
+            </section>
+            <TrustSection />
+            <BookingSection />
+            <FAQSection />
+        </div>
+    );
+}
+
+
