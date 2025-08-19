@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import BaseInput from '@/components/BaseInput';
 import DatePicker from '@/components/DatePicker';
 import AutoCompleteInput from '@/components/AutoCompleteInput';
@@ -21,18 +21,40 @@ type BookingFormData = {
     phone: string;
 };
 
-const BookingSection = () => {
+type BookingSectionProps = {
+    initialDepartureCountry?: string;
+    initialArrivalCountry?: string;
+    initialDepartureCity?: string;
+    initialArrivalCity?: string;
+};
+
+const BookingSection = ({
+    initialDepartureCountry,
+    initialArrivalCountry,
+    initialDepartureCity,
+    initialArrivalCity,
+}: BookingSectionProps) => {
     const t = useTranslations('booking');
     const router = useRouter();
     const [formData, setFormData] = useState<BookingFormData>({
-        departureCountry: '',
-        departureCity: '',
-        arrivalCountry: '',
-        arrivalCity: '',
+        departureCountry: initialDepartureCountry || '',
+        departureCity: initialDepartureCity || '',
+        arrivalCountry: initialArrivalCountry || '',
+        arrivalCity: initialArrivalCity || '',
         date: '',
         fullName: '',
         phone: ''
     });
+
+    useEffect(() => {
+        setFormData(prev => ({
+            ...prev,
+            departureCountry: initialDepartureCountry || prev.departureCountry,
+            arrivalCountry: initialArrivalCountry || prev.arrivalCountry,
+            departureCity: initialDepartureCity || prev.departureCity,
+            arrivalCity: initialArrivalCity || prev.arrivalCity,
+        }));
+    }, [initialDepartureCountry, initialArrivalCountry, initialDepartureCity, initialArrivalCity]);
 
     const [errors, setErrors] = useState<Partial<Record<keyof BookingFormData, string>>>({});
 

@@ -4,7 +4,7 @@ import RoutesSection from '@/sections/RoutesSection';
 import TrustSection from '@/sections/TrustSection';
 import FAQSection from '@/sections/FAQSection';
 import { DirectionId, EU_COUNTRIES, UA_CITIES_LIST, EU_CITIES_LIST, citiesBySlug, getDirectionByCity } from '@/const/cities';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, getLocale } from 'next-intl/server';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -91,17 +91,34 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
     const t = await getTranslations('booking');
+    const locale = await getLocale();
     const { slug } = await params;
     let title = '';
     let description = '';
+
+    const countries = t.raw('suggestions.countries') as string[];
+    const nameByCode = (code: 'ukraine' | DirectionId) => {
+        const indexMap: Record<'ukraine' | DirectionId, number> = {
+            ukraine: 0,
+            poland: 1,
+            germany: 2,
+            netherlands: 3,
+            belgium: 4
+        };
+        return countries[indexMap[code]] ?? '';
+    };
+
     if (isDirectionSlug(slug)) {
-        title = `${t('meta.directionTitlePrefix', { direction: slug })}`;
-        description = `${t('meta.directionDescription', { direction: slug })}`;
+        const directionName = nameByCode(slug);
+        title = `${t('meta.directionTitlePrefix', { direction: directionName })}`;
+        description = `${t('meta.directionDescription', { direction: directionName })}`;
     } else {
         const pair = parsePair(slug);
         if (pair && citiesBySlug[pair.from] && citiesBySlug[pair.to]) {
-            const fromName = citiesBySlug[pair.from].names.en; // язык меты уточним позже
-            const toName = citiesBySlug[pair.to].names.en;
+            const supported = ['uk', 'ru', 'en'] as const;
+            const lang = (supported as readonly string[]).includes(locale) ? (locale as 'uk' | 'ru' | 'en') : 'uk';
+            const fromName = citiesBySlug[pair.from].names[lang];
+            const toName = citiesBySlug[pair.to].names[lang];
             title = `${t('meta.pairTitlePrefix', { from: fromName, to: toName })}`;
             description = `${t('meta.pairDescription', { from: fromName, to: toName })}`;
         }
@@ -116,9 +133,45 @@ export default async function Page({ params }: Props) {
         return notFound();
     }
     const t = await getTranslations('booking');
+    const locale = await getLocale();
+    const countries = t.raw('suggestions.countries') as string[];
+    const nameByCode = (code: 'ukraine' | DirectionId) => {
+        const indexMap: Record<'ukraine' | DirectionId, number> = {
+            ukraine: 0,
+            poland: 1,
+            germany: 2,
+            netherlands: 3,
+            belgium: 4
+        };
+        return countries[indexMap[code]] ?? '';
+    };
+
+    let initialDepartureCountry = nameByCode('ukraine');
+    let initialArrivalCountry = nameByCode(direction);
+    let initialDepartureCityName = '';
+    let initialArrivalCityName = '';
+
+    const pair = parsePair(slug);
+    if (pair) {
+        const fromCity = citiesBySlug[pair.from];
+        const toCity = citiesBySlug[pair.to];
+        if (fromCity && toCity) {
+            initialDepartureCountry = nameByCode(fromCity.country === 'ukraine' ? 'ukraine' : fromCity.country);
+            initialArrivalCountry = nameByCode(toCity.country === 'ukraine' ? 'ukraine' : toCity.country);
+            const supported = ['uk', 'ru', 'en'] as const;
+            const lang = (supported as readonly string[]).includes(locale) ? (locale as 'uk' | 'ru' | 'en') : 'uk';
+            initialDepartureCityName = fromCity.names[lang];
+            initialArrivalCityName = toCity.names[lang];
+        }
+    }
     return (
         <div className="space-y-12">
-            <BookingSection />
+            <BookingSection
+                initialDepartureCountry={initialDepartureCountry}
+                initialArrivalCountry={initialArrivalCountry}
+                initialDepartureCity={initialDepartureCityName}
+                initialArrivalCity={initialArrivalCityName}
+            />
             <RoutesSection initialRouteId={direction} />
             <section className="py-4">
                 <div className="bg-white rounded-[10px] p-6 max-w-5xl mx-auto">
@@ -128,7 +181,12 @@ export default async function Page({ params }: Props) {
                 </div>
             </section>
             <TrustSection />
-            <BookingSection />
+            <BookingSection
+                initialDepartureCountry={initialDepartureCountry}
+                initialArrivalCountry={initialArrivalCountry}
+                initialDepartureCity={initialDepartureCityName}
+                initialArrivalCity={initialArrivalCityName}
+            />
             <FAQSection />
         </div>
     );
