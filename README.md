@@ -1,3 +1,15 @@
+## Email (booking)
+
+Set environment variables in `.env.local` (create if missing):
+
+```
+SMTP_USER=your_gmail_login
+SMTP_PASS=your_app_password
+BOOKING_MAIL_TO=recipient@example.com
+```
+
+Note: For Gmail, use an App Password (Google Account → Security → 2‑Step Verification → App passwords).
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

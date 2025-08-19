@@ -208,9 +208,21 @@ const BookingSection = ({
                 setErrors(prev => ({ ...prev, arrivalCity: t('errors.directionConstraint') }));
                 return;
             }
-            const slug = `${fromCity.slug}-${toCity.slug}`;
-            router.push(`/book/${slug}`);
-            console.log(t('log.submitted'), formData);
+            // Отправка формы на API
+            fetch('/api/send-booking', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+                .then(async (res) => {
+                    if (!res.ok) throw new Error('Send failed');
+                    alert(t('alert.submitted'));
+                    const slug = `${fromCity.slug}-${toCity.slug}`;
+                    router.push(`/book/${slug}`);
+                })
+                .catch(() => {
+                    alert(t('error'));
+                });
             return;
         }
 
