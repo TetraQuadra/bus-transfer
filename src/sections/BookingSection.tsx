@@ -36,7 +36,10 @@ const BookingSection = ({
     initialArrivalCity,
 }: BookingSectionProps) => {
     const t = useTranslations('booking');
+    const tCommon = useTranslations('common');
     const router = useRouter();
+    const [submitting, setSubmitting] = useState(false);
+    const [sent, setSent] = useState(false);
     const [formData, setFormData] = useState<BookingFormData>({
         departureCountry: initialDepartureCountry || '',
         departureCity: initialDepartureCity || '',
@@ -147,18 +150,41 @@ const BookingSection = ({
     const arrCityMismatch = useMemo(() => !!(arrSelectedCity && arrivalCountryCode && arrSelectedCity.country !== arrivalCountryCode), [arrSelectedCity, arrivalCountryCode]);
 
     // Live: проверка даты в прошлом
+    const parseDateParts = (raw: string): { y: number; m: number; d: number } | null => {
+        if (!raw) return null;
+        const s = raw.trim();
+        // yyyy-mm-dd
+        let m = s.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+        if (m) return { y: Number(m[1]), m: Number(m[2]), d: Number(m[3]) };
+        // dd.mm.yyyy or dd-mm-yyyy
+        m = s.match(/^(\d{2})[.\/-](\d{2})[.\/-](\d{4})$/);
+        if (m) return { y: Number(m[3]), m: Number(m[2]), d: Number(m[1]) };
+        // yyyy.mm.dd
+        m = s.match(/^(\d{4})[.\/-](\d{2})[.\/-](\d{2})$/);
+        if (m) return { y: Number(m[1]), m: Number(m[2]), d: Number(m[3]) };
+        return null;
+    };
+
+    const debugLog = (...args: unknown[]) => {
+        if (process.env.NODE_ENV !== 'production') {
+            console.log('[Booking][date]', ...args);
+        }
+    };
+
     const dateInPast = useMemo(() => {
-        const raw = formData.date;
-        if (!raw) return false;
-        const [dd, mm, yyyy] = raw.split(/[./-]/).map(Number);
-        if (!yyyy || !mm || !dd) return false;
-        const selected = new Date(yyyy, mm - 1, dd);
+        const p = parseDateParts(formData.date);
         const today = new Date();
-        today.setHours(0, 0, 0, 0);
-        return selected < today;
+        const y = today.getFullYear();
+        const m = today.getMonth() + 1;
+        const d = today.getDate();
+        const nSel = p ? p.y * 10000 + p.m * 100 + p.d : NaN;
+        const nToday = y * 10000 + m * 100 + d;
+        const result = !!p && nSel < nToday;
+        debugLog('liveCheck', { raw: formData.date, parts: p, today: { y, m, d }, nSel, nToday, result });
+        return result;
     }, [formData.date]);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         const newErrors: Partial<Record<keyof BookingFormData, string>> = {};
@@ -166,16 +192,7 @@ const BookingSection = ({
         if (!formData.departureCity) newErrors.departureCity = t('errors.required');
         if (!formData.arrivalCity) newErrors.arrivalCity = t('errors.required');
         if (!formData.date) newErrors.date = t('errors.required');
-        else {
-            // Проверка даты: не раньше сегодняшней
-            const [dd, mm, yyyy] = formData.date.split(/[./-]/).map(Number);
-            if (yyyy && mm && dd) {
-                const selected = new Date(yyyy, mm - 1, dd);
-                const today = new Date();
-                today.setHours(0, 0, 0, 0);
-                if (selected < today) newErrors.date = t('errors.dateInPast');
-            }
-        }
+        else if (dateInPast) newErrors.date = t('errors.dateInPast');
         if (!formData.fullName) newErrors.fullName = t('errors.required');
         if (!formData.phone) newErrors.phone = t('errors.required');
 
@@ -209,20 +226,20 @@ const BookingSection = ({
                 return;
             }
             // Отправка формы на API
-            fetch('/api/send-booking', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            })
-                .then(async (res) => {
-                    if (!res.ok) throw new Error('Send failed');
-                    alert(t('alert.submitted'));
-                    const slug = `${fromCity.slug}-${toCity.slug}`;
-                    router.push(`/book/${slug}`);
-                })
-                .catch(() => {
-                    alert(t('error'));
+            try {
+                setSubmitting(true);
+                const res = await fetch('/api/send-booking', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
                 });
+                if (!res.ok) throw new Error('Send failed');
+                setSent(true);
+            } catch {
+                alert(t('error'));
+            } finally {
+                setSubmitting(false);
+            }
             return;
         }
 
@@ -239,6 +256,21 @@ const BookingSection = ({
         if (!toCity) newErrors.arrivalCity = t('errors.invalidCity');
         setErrors(newErrors);
     };
+
+    if (sent) {
+        return (
+            <section id="booking" className="py-8 w-full">
+                <div className="">
+                    <div className="w-full">
+                        <div className="bg-white rounded-[10px] p-6 max-w-3xl mx-auto text-center border border-green-200">
+                            <h2 className="text-[28px] text-green-700 mb-2">{t('success.title')}</h2>
+                            <p className="text-foreground/80">{t('success.text')}</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+    }
 
     return (
         <section id="booking" className="py-8 w-full">
@@ -320,7 +352,7 @@ const BookingSection = ({
                                 placeholder={t('fields.date.placeholder')}
                                 value={formData.date}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('date', e.target.value)}
-                                error={errors.date}
+                                error={errors.date || (dateInPast ? t('errors.dateInPast') : '')}
                                 required
                             />
 
@@ -348,9 +380,9 @@ const BookingSection = ({
                                     type="submit"
                                     size='sm'
                                     className="w-full"
-                                    disabled={hasErrors || invalidDirection}
+                                    disabled={hasErrors || invalidDirection || dateInPast || submitting}
                                 >
-                                    {t('submitLabel')}
+                                    {submitting ? tCommon('loading') : t('submitLabel')}
                                 </Button>
                             </div>
                         </div>

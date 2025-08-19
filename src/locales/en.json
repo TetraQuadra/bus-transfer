@@ -132,6 +132,10 @@
     },
     "log": { "submitted": "Form submitted:" },
     "alert": { "submitted": "Form submitted! (this is a placeholder for now)" },
+    "success": {
+      "title": "Thank you! Your request has been sent.",
+      "text": "Our manager will contact you shortly."
+    },
     "countryTexts": {
       "title": "About the direction: {direction}",
       "poland": {
