@@ -126,7 +126,9 @@
     "errors": {
       "required": "This field is required",
       "invalidCity": "City not recognized",
-      "directionConstraint": "Only directions Ukraine ↔ Europe are allowed"
+      "directionConstraint": "Only directions Ukraine ↔ Europe are allowed",
+      "dateInPast": "Date cannot be earlier than today",
+      "cityCountryMismatch": "City does not belong to the selected country"
     },
     "log": { "submitted": "Form submitted:" },
     "alert": { "submitted": "Form submitted! (this is a placeholder for now)" },

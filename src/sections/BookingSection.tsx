@@ -6,8 +6,9 @@ import DatePicker from '@/components/DatePicker';
 import AutoCompleteInput from '@/components/AutoCompleteInput';
 import Button from '@/components/Button';
 import { useTranslations } from '@/hooks/useTranslations';
-import { findCityByName, isUkraineCity, normalizeToken } from '@/const/cities';
+import { ALL_CITIES, findCityByName, isUkraineCity, normalizeToken } from '@/const/cities';
 import { useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 
 // TODO: СДЕЛАТЬ ВСЕ ЭТО
 
@@ -57,10 +58,36 @@ const BookingSection = ({
     }, [initialDepartureCountry, initialArrivalCountry, initialDepartureCity, initialArrivalCity]);
 
     const [errors, setErrors] = useState<Partial<Record<keyof BookingFormData, string>>>({});
+    const hasErrors = useMemo(() => Object.values(errors).some(Boolean), [errors]);
 
     // Списки для автодополнения из локалей
     const countries = t.raw('suggestions.countries') as string[];
-    const cities = t.raw('suggestions.cities') as string[];
+    const locale = useLocale();
+    const supported = ['uk', 'ru', 'en'] as const;
+    const lang = (supported as readonly string[]).includes(locale) ? (locale as 'uk' | 'ru' | 'en') : 'uk';
+
+    // Маппинг code -> локализованное имя страны (индексация по массиву countries)
+    const countryDisplayNameByCode = useMemo(() => {
+        const indexMap: Record<'ukraine' | 'poland' | 'germany' | 'belgium' | 'netherlands', number> = {
+            ukraine: 0,
+            poland: 1,
+            germany: 2,
+            netherlands: 3,
+            belgium: 4
+        };
+        return (code: string) => countries[indexMap[code as keyof typeof indexMap]] ?? '';
+    }, [countries]);
+
+    // Локализованные названия городов по странам
+    const allCityNames = useMemo(() => ALL_CITIES.map(c => c.names[lang]), [lang]);
+    const cityNamesByCountry = useMemo(() => {
+        return ALL_CITIES.reduce<Record<string, string[]>>((acc, city) => {
+            const list = acc[city.country] ?? [];
+            list.push(city.names[lang]);
+            acc[city.country] = list;
+            return acc;
+        }, {});
+    }, [lang]);
 
     const countryMap = useMemo(() => {
         const entries = [
@@ -90,6 +117,47 @@ const BookingSection = ({
         }
     };
 
+    // Подсказки для городов зависят от введённой страны
+    const departureCountryCode = useMemo(() => countryMap.get(normalizeToken(formData.departureCountry || '')), [countryMap, formData.departureCountry]);
+    const arrivalCountryCode = useMemo(() => countryMap.get(normalizeToken(formData.arrivalCountry || '')), [countryMap, formData.arrivalCountry]);
+
+    const departureCitySuggestions = useMemo(() => {
+        if (departureCountryCode && cityNamesByCountry[departureCountryCode]) return cityNamesByCountry[departureCountryCode];
+        return allCityNames;
+    }, [departureCountryCode, cityNamesByCountry, allCityNames]);
+
+    const arrivalCitySuggestions = useMemo(() => {
+        if (arrivalCountryCode && cityNamesByCountry[arrivalCountryCode]) return cityNamesByCountry[arrivalCountryCode];
+        return allCityNames;
+    }, [arrivalCountryCode, cityNamesByCountry, allCityNames]);
+
+    const invalidDirection = useMemo(() => {
+        if (!departureCountryCode || !arrivalCountryCode) return false;
+        const depIsUa = departureCountryCode === 'ukraine';
+        const arrIsUa = arrivalCountryCode === 'ukraine';
+        // обоe EU или обе Ukraine — запрещено
+        return (depIsUa && arrIsUa) || (!depIsUa && !arrIsUa);
+    }, [departureCountryCode, arrivalCountryCode]);
+
+    // Live: проверка соответствия города выбранной стране
+    const resolveCity = useMemo(() => (value: string) => ALL_CITIES.find(c => c.names[lang] === value) || findCityByName(value || ''), [lang]);
+    const depSelectedCity = useMemo(() => resolveCity(formData.departureCity), [formData.departureCity, resolveCity]);
+    const arrSelectedCity = useMemo(() => resolveCity(formData.arrivalCity), [formData.arrivalCity, resolveCity]);
+    const depCityMismatch = useMemo(() => !!(depSelectedCity && departureCountryCode && depSelectedCity.country !== departureCountryCode), [depSelectedCity, departureCountryCode]);
+    const arrCityMismatch = useMemo(() => !!(arrSelectedCity && arrivalCountryCode && arrSelectedCity.country !== arrivalCountryCode), [arrSelectedCity, arrivalCountryCode]);
+
+    // Live: проверка даты в прошлом
+    const dateInPast = useMemo(() => {
+        const raw = formData.date;
+        if (!raw) return false;
+        const [dd, mm, yyyy] = raw.split(/[./-]/).map(Number);
+        if (!yyyy || !mm || !dd) return false;
+        const selected = new Date(yyyy, mm - 1, dd);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        return selected < today;
+    }, [formData.date]);
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
@@ -98,6 +166,16 @@ const BookingSection = ({
         if (!formData.departureCity) newErrors.departureCity = t('errors.required');
         if (!formData.arrivalCity) newErrors.arrivalCity = t('errors.required');
         if (!formData.date) newErrors.date = t('errors.required');
+        else {
+            // Проверка даты: не раньше сегодняшней
+            const [dd, mm, yyyy] = formData.date.split(/[./-]/).map(Number);
+            if (yyyy && mm && dd) {
+                const selected = new Date(yyyy, mm - 1, dd);
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                if (selected < today) newErrors.date = t('errors.dateInPast');
+            }
+        }
         if (!formData.fullName) newErrors.fullName = t('errors.required');
         if (!formData.phone) newErrors.phone = t('errors.required');
 
@@ -106,8 +184,22 @@ const BookingSection = ({
             return;
         }
 
-        const fromCity = findCityByName(formData.departureCity || '');
-        const toCity = findCityByName(formData.arrivalCity || '');
+        const fromCity = ALL_CITIES.find(c => c.names[lang] === formData.departureCity) || findCityByName(formData.departureCity || '');
+        const toCity = ALL_CITIES.find(c => c.names[lang] === formData.arrivalCity) || findCityByName(formData.arrivalCity || '');
+
+        // Сопоставление города и выбранной страны
+        const depCode = countryMap.get(normalizeToken(formData.departureCountry || ''));
+        const arrCode = countryMap.get(normalizeToken(formData.arrivalCountry || ''));
+        if (fromCity && depCode && fromCity.country !== depCode) {
+            newErrors.departureCity = t('errors.cityCountryMismatch');
+        }
+        if (toCity && arrCode && toCity.country !== arrCode) {
+            newErrors.arrivalCity = t('errors.cityCountryMismatch');
+        }
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
 
         if (fromCity && toCity) {
             const fromIsUa = isUkraineCity(fromCity);
@@ -123,9 +215,6 @@ const BookingSection = ({
         }
 
         // если города не распознаны, пробуем по странам
-        const depCode = countryMap.get(normalizeToken(formData.departureCountry || ''));
-        const arrCode = countryMap.get(normalizeToken(formData.arrivalCountry || ''));
-
         if ((depCode === 'ukraine' && arrCode && arrCode !== 'ukraine') || (arrCode === 'ukraine' && depCode && depCode !== 'ukraine')) {
             const direction = (depCode === 'ukraine' ? arrCode : depCode) as string;
             router.push(`/book/${direction}`);
@@ -157,6 +246,7 @@ const BookingSection = ({
                                 onSuggestionSelect={(suggestion: string) => handleInputChange('departureCountry', suggestion)}
                                 suggestions={countries}
                                 error={errors.departureCountry}
+                                required
                             />
 
                             <AutoCompleteInput
@@ -164,9 +254,16 @@ const BookingSection = ({
                                 placeholder={t('fields.departureCity.placeholder')}
                                 value={formData.departureCity}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('departureCity', e.target.value)}
-                                onSuggestionSelect={(suggestion: string) => handleInputChange('departureCity', suggestion)}
-                                suggestions={cities}
-                                error={errors.departureCity}
+                                onSuggestionSelect={(suggestion: string) => {
+                                    handleInputChange('departureCity', suggestion);
+                                    const city = ALL_CITIES.find(c => c.names[lang] === suggestion) || findCityByName(suggestion);
+                                    if (city) {
+                                        handleInputChange('departureCountry', countryDisplayNameByCode(city.country));
+                                    }
+                                }}
+                                suggestions={departureCitySuggestions}
+                                error={errors.departureCity || (depCityMismatch ? t('errors.cityCountryMismatch') : '')}
+                                required
                             />
 
                             <AutoCompleteInput
@@ -177,6 +274,7 @@ const BookingSection = ({
                                 onSuggestionSelect={(suggestion: string) => handleInputChange('arrivalCountry', suggestion)}
                                 suggestions={countries}
                                 error={errors.arrivalCountry}
+                                required
                             />
 
                             <AutoCompleteInput
@@ -184,10 +282,24 @@ const BookingSection = ({
                                 placeholder={t('fields.arrivalCity.placeholder')}
                                 value={formData.arrivalCity}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('arrivalCity', e.target.value)}
-                                onSuggestionSelect={(suggestion: string) => handleInputChange('arrivalCity', suggestion)}
-                                suggestions={cities}
-                                error={errors.arrivalCity}
+                                onSuggestionSelect={(suggestion: string) => {
+                                    handleInputChange('arrivalCity', suggestion);
+                                    const city = ALL_CITIES.find(c => c.names[lang] === suggestion) || findCityByName(suggestion);
+                                    if (city) {
+                                        handleInputChange('arrivalCountry', countryDisplayNameByCode(city.country));
+                                    }
+                                }}
+                                suggestions={arrivalCitySuggestions}
+                                error={errors.arrivalCity || (arrCityMismatch ? t('errors.cityCountryMismatch') : '')}
+                                required
                             />
+                            {(invalidDirection || dateInPast) && (
+                                <div className="md:col-span-2 lg:col-span-4 -mt-2">
+                                    <div className="w-full rounded-md border border-red-300 bg-red-50 text-red-700 text-sm px-3 py-2" role="alert" aria-live="polite">
+                                        {invalidDirection ? t('errors.directionConstraint') : t('errors.dateInPast')}
+                                    </div>
+                                </div>
+                            )}
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -197,6 +309,7 @@ const BookingSection = ({
                                 value={formData.date}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('date', e.target.value)}
                                 error={errors.date}
+                                required
                             />
 
                             <BaseInput
@@ -205,6 +318,7 @@ const BookingSection = ({
                                 value={formData.fullName}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('fullName', e.target.value)}
                                 error={errors.fullName}
+                                required
                             />
 
                             <BaseInput
@@ -214,6 +328,7 @@ const BookingSection = ({
                                 value={formData.phone}
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('phone', e.target.value)}
                                 error={errors.phone}
+                                required
                             />
 
                             <div className="flex items-end">
@@ -221,6 +336,7 @@ const BookingSection = ({
                                     type="submit"
                                     size='sm'
                                     className="w-full"
+                                    disabled={hasErrors || invalidDirection}
                                 >
                                     {t('submitLabel')}
                                 </Button>
