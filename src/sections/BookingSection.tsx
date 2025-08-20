@@ -354,6 +354,7 @@ const BookingSection = ({
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('fullName', e.target.value)}
                                 error={errors.fullName}
                                 required
+                                name="fullName"
                             />
 
                             <BaseInput
@@ -364,6 +365,7 @@ const BookingSection = ({
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('phone', e.target.value)}
                                 error={errors.phone}
                                 required
+                                name="phone"
                             />
 
                             <div className="flex items-end">
