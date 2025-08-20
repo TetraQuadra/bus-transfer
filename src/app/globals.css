@@ -189,6 +189,21 @@ body {
     scroll-behavior: smooth;
 }
 
+/* Background image on body (non-intrusive, fixed, no layout shift) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url('/bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    /* Prevent extra painting on scroll */
+    will-change: transform;
+}
+
 /* Custom container class */
 .container-custom {
     max-width: 1264px;

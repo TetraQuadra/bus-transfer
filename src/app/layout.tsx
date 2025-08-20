@@ -4,7 +4,6 @@ import './globals.css';
 import Topbar from '@/components/Topbar';
 import Header from '@/sections/Header';
 import Footer from '@/sections/Footer';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default async function RootLayout({
     children
