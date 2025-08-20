@@ -13,10 +13,6 @@ export default async function RootLayout({
 }) {
     const locale = await getLocale();
     const messages = await getMessages();
-
-    // TODO: pages with routes
-
-    // TODO: set locale from user system settings
     return (
         <html lang={locale}>
             <body className="antialiased">

@@ -10,8 +10,6 @@ import { ALL_CITIES, findCityByName, isUkraineCity, normalizeToken } from '@/con
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 
-// TODO: СДЕЛАТЬ ВСЕ ЭТО
-
 type BookingFormData = {
     departureCountry: string;
     departureCity: string;
@@ -165,12 +163,6 @@ const BookingSection = ({
         return null;
     };
 
-    const debugLog = (...args: unknown[]) => {
-        if (process.env.NODE_ENV !== 'production') {
-            console.log('[Booking][date]', ...args);
-        }
-    };
-
     const dateInPast = useMemo(() => {
         const p = parseDateParts(formData.date);
         const today = new Date();
@@ -180,7 +172,6 @@ const BookingSection = ({
         const nSel = p ? p.y * 10000 + p.m * 100 + p.d : NaN;
         const nToday = y * 10000 + m * 100 + d;
         const result = !!p && nSel < nToday;
-        debugLog('liveCheck', { raw: formData.date, parts: p, today: { y, m, d }, nSel, nToday, result });
         return result;
     }, [formData.date]);
 

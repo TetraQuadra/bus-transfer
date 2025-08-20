@@ -82,7 +82,7 @@ const Footer = async () => {
                             {t('social.title')}
                         </h3>
                         <div className="grid grid-cols-3 grid-rows-2 border border-white overflow-hidden max-lg:w-fit max-lg:mx-auto ">
-                            <a href="#" className="flex items-center justify-center p-3 border-r border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                            <a href="viber://chat?number=%2B380982275197" className="flex items-center justify-center p-3 border-r border-b border-gray-300 hover:bg-gray-50 transition-colors" aria-label="Viber">
                                 <Image
                                     src="/icons/Viber.png"
                                     alt={t('social.alt.viber')}
@@ -91,7 +91,7 @@ const Footer = async () => {
                                     className="object-contain"
                                 />
                             </a>
-                            <a href="#" className="flex items-center justify-center p-3 border-r border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                            <a href="https://t.me/svit_perevezen" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-3 border-r border-b border-gray-300 hover:bg-gray-50 transition-colors" aria-label="Telegram">
                                 <Image
                                     src="/icons/Telegram.png"
                                     alt={t('social.alt.telegram')}
@@ -109,7 +109,7 @@ const Footer = async () => {
                                     className="object-contain"
                                 />
                             </a>
-                            <a href="#" className="flex items-center justify-center p-3 border-r border-gray-300 hover:bg-gray-50 transition-colors">
+                            <a href="https://api.whatsapp.com/send?phone=380982275197" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-3 border-r border-gray-300 hover:bg-gray-50 transition-colors" aria-label="WhatsApp">
                                 <Image
                                     src="/icons/WhatsApp.png"
                                     alt={t('social.alt.whatsapp')}
@@ -127,7 +127,7 @@ const Footer = async () => {
                                     className="object-contain"
                                 />
                             </a>
-                            <a href="#" className="flex items-center justify-center p-3 hover:bg-gray-50 transition-colors">
+                            <a href="https://www.tiktok.com/@svitsuchasnykhperevezen?_t=8rPqANCQSsZ" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-3 hover:bg-gray-50 transition-colors" aria-label="TikTok">
                                 <Image
                                     src="/icons/TikTok.png"
                                     alt={t('social.alt.tiktok')}

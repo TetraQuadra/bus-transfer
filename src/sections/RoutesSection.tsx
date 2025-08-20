@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Button from '@/components/Button';
 import { useTranslations } from '@/hooks/useTranslations';
 
-// TODO: КНОПКА ДЕТАЛЬНІШЕ БУДЕТ ВЕСТИ НА СТРАНИЦУ МАРШРУТА
 
 const ROUTES = [
     { id: 'poland', map: '/main_routes/poland.png' },
