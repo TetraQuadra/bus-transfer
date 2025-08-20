@@ -1,4 +1,5 @@
 import Image from "next/image";
+import LanguageSwitcher from './LanguageSwitcher';
 
 const Topbar = () => {
     //TODO: add links
@@ -24,6 +25,9 @@ const Topbar = () => {
             <a href="https://www.tiktok.com/@svitsuchasnykhperevezen?_t=8rPqANCQSsZ" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                 <Image className="mx-1 sm:mx-2 max-sm:w-4 max-sm:h-4" quality={100} alt="tiktok logo" src="/icons/TikTok.png" width={32} height={32} />
             </a>
+            <div className="pr-2 max-[1000px]:hidden">
+                <LanguageSwitcher size="sm" variant="white" />
+            </div>
         </div>
     );
 };

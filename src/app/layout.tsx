@@ -17,9 +17,6 @@ export default async function RootLayout({
         <html lang={locale}>
             <body className="antialiased">
                 <NextIntlClientProvider locale={locale} messages={messages}>
-                    <div className="fixed top-3 right-3 z-[9999]">
-                        <LanguageSwitcher />
-                    </div>
                     <Topbar />
                     <div className="container-custom mx-auto">
                         <Header />

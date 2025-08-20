@@ -2,15 +2,15 @@
 
 import { useLocale } from 'next-intl';
 
-const languageNames: Record<string, string> = {
-    uk: 'Українська',
-    ru: 'Русский',
-    en: 'English'
-};
-
 const supported = ['uk', 'ru', 'en'];
 
-export default function LanguageSwitcher() {
+type Props = {
+    size?: 'sm' | 'lg';
+    variant?: 'default' | 'white';
+    className?: string;
+};
+
+export default function LanguageSwitcher({ size = 'sm', variant = 'default', className = '' }: Props) {
     const locale = useLocale();
 
     const handleLanguageChange = (newLocale: string) => {
@@ -20,19 +20,25 @@ export default function LanguageSwitcher() {
         window.location.href = window.location.pathname;
     };
 
+    const containerGap = size === 'lg' ? 'gap-4' : 'gap-3';
+    const textSize = size === 'lg' ? 'text-xl' : 'text-md';
+    const baseColor = variant === 'white' ? 'text-white' : 'text-foreground';
+    const hoverColor = variant === 'white' ? 'hover:text-white/80' : 'hover:text-[var(--color-primary)]';
+    const activeStyle = 'underline decoration-current';
+
     return (
-        <div className="relative">
-            <select
-                value={locale}
-                onChange={(e) => handleLanguageChange(e.target.value)}
-                className="appearance-none bg-transparent border border-gray-300 rounded px-3 py-1 text-sm focus:outline-none focus:border-blue-500"
-            >
-                {supported.map((loc) => (
-                    <option key={loc} value={loc}>
-                        {languageNames[loc]}
-                    </option>
-                ))}
-            </select>
+        <div className={`flex items-center ${containerGap} ${className}`}>
+            {supported.map((loc) => (
+                <button
+                    key={loc}
+                    onClick={() => handleLanguageChange(loc)}
+                    className={`${textSize} lowercase p-2 cursor-pointer transition-colors ${baseColor} ${locale === loc ? activeStyle : hoverColor
+                        }`}
+                    aria-current={locale === loc ? 'true' : undefined}
+                >
+                    {loc === 'uk' ? 'ua' : loc === 'en' ? 'eng' : 'ru'}
+                </button>
+            ))}
         </div>
     );
 }
