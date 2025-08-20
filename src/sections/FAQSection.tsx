@@ -16,7 +16,7 @@ const FAQSection = () => {
     };
 
     return (
-        <section id="faq" className="bg-background py-8">
+        <section id="faq" className="bg-background w-full mb-8 md:mb-16">
             <div className="px-4">
                 <div className="flex flex-col lg:flex-row gap-12 items-start">
                     {/* FAQ Section */}

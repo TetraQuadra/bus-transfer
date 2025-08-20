@@ -25,6 +25,10 @@
       "netherlands": "Netherlands"
     }
   },
+  "bookHero": {
+    "title": "{from} - {to}",
+    "subtitle": "Safety and comfort for everyone"
+  },
   "roadAdvices": {
     "title": "Tips for a comfortable bus trip from Ukraine to the Netherlands",
     "intro": "A bus journey is not just a transfer, but a full travel experience. If you are traveling from cities in Ukraine, use the tips from 'World of Modern Transportation' to make your road pleasant, convenient and interesting.",

@@ -3,7 +3,7 @@ import { getTranslations } from 'next-intl/server';
 const RoadAdvices = async () => {
     const t = await getTranslations('roadAdvices');
     return (
-        <section className="py-8 w-full">
+        <section className="w-full mb-8 md:mb-16">
             <div className="w-full mx-auto">
                 <h2 className="text-[40px] max-md:text-[26px] font-medium text-foreground mb-4 uppercase">
                     {t('title')}

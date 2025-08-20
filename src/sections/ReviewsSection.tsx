@@ -12,7 +12,7 @@ const ReviewsSection = () => {
     const t = useTranslations('reviews');
     const items = t.raw('items') as Array<{ id: number; name: string; date: string; text: string; avatar: string }>;
     return (
-        <section id="reviews">
+        <section id="reviews" className="w-full mb-8 md:mb-16">
             <GallerySlider title={t('title')}>
                 {items.map((review) => (
                     <SwiperSlide key={review.id}>

@@ -14,7 +14,7 @@ const Autopark = () => {
     }));
 
     return (
-        <section id="fleet" className="w-full py-10 sm:py-12 md:py-16">
+        <section id="fleet" className="w-full mb-8 md:mb-[140px]">
             <h2 className="text-[24px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-regular text-center text-foreground mb-8 sm:mb-10 lg:mb-12">{t('title')}</h2>
             <div className="w-full lg:w-[80%] bg-white rounded-[10px] mx-auto px-4 sm:px-6 md:px-8 lg:px-[50px] py-6 sm:py-8 md:py-10 lg:py-[40px] relative lg:min-h-[950px] flex flex-col">
                 <div className="flex flex-col lg:flex-row gap-6 md:gap-10 lg:gap-12 mb-8 md:mb-12">

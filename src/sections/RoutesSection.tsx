@@ -28,7 +28,7 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
     }, [initialRouteId]);
 
     return (
-        <section id="routes" className="py-16 w-full">
+        <section id="routes" className="w-full mb-8 md:mb-16">
             <div className="">
                 <div className="w-full">
                     <div className="flex lg:flex-nowrap gap-8 max-w-7xl mx-auto max-lg:flex-col max-sm:items-center">

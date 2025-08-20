@@ -10,7 +10,7 @@ const BenefitsSection = () => {
         { id: 3, text: t('items.3') },
     ];
     return (
-        <section id="benefits" className="w-full bg-[var(--color-secondary)] rounded-[10px] shadow-lg my-12 py-8 sm:py-10 md:py-12 lg:py-14">
+        <section id="benefits" className="w-full bg-[var(--color-secondary)] rounded-[10px] shadow-lg mb-8 md:mb-16 py-8 sm:py-10 md:py-12 lg:py-14">
             <div className="w-full">
                 <div className="max-w-7xl mx-auto px-4">
                     <h2 className="text-[22px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-medium text-white text-center mb-6 sm:mb-8">

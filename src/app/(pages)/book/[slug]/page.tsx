@@ -4,6 +4,7 @@ import RoutesSection from '@/sections/RoutesSection';
 import TrustSection from '@/sections/TrustSection';
 import FAQSection from '@/sections/FAQSection';
 import AboutRoute from '@/sections/AboutRoute';
+import BookHero from '@/sections/BookHero';
 import { DirectionId, EU_COUNTRIES, UA_CITIES_LIST, EU_CITIES_LIST, citiesBySlug, getDirectionByCity } from '@/const/cities';
 import { getTranslations, getLocale } from 'next-intl/server';
 import RoadAdvices from '@/sections/RoadAdvices';
@@ -136,6 +137,7 @@ export default async function Page({ params }: Props) {
         return notFound();
     }
     const t = await getTranslations('booking');
+    const tHero = await getTranslations('bookHero');
     const locale = await getLocale();
     const countries = t.raw('suggestions.countries') as string[];
     const nameByCode = (code: 'ukraine' | DirectionId) => {
@@ -169,6 +171,7 @@ export default async function Page({ params }: Props) {
     }
     return (
         <div className="space-y-12">
+            <BookHero title={tHero('title', { from: countries[0], to: nameByCode(direction) })} subtitle={tHero('subtitle')} />
             <BookingSection
                 initialDepartureCountry={initialDepartureCountry}
                 initialArrivalCountry={initialArrivalCountry}
