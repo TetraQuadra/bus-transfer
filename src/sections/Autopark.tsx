@@ -35,7 +35,7 @@ const Autopark = () => {
                         </Button>
                     </div>
                     <div className="w-full">
-                        <div className="flex flex-col items-center justify-center gap-5 bg-gray-200 rounded-[10px] min-h-[220px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[400px] lg:w-[500px]">
+                        <div className="flex flex-col items-center justify-center gap-5 bg-gray-200 rounded-[10px] min-h-[220px] sm:min-h-[280px] md:min-h-[340px] lg:min-h-[200px] lg:w-full">
                             {t('videoPlaceholder')}
                         </div>
                     </div>
