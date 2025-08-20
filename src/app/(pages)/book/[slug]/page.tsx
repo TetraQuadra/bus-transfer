@@ -181,7 +181,7 @@ export default async function Page({ params }: Props) {
             <RoutesSection initialRouteId={direction} />
             <WeOfferSection />
             <AboutRoute direction={direction} />
-            <RoadAdvices />
+            <RoadAdvices direction={direction} />
             <TrustSection />
             <BookingSection
                 initialDepartureCountry={initialDepartureCountry}
