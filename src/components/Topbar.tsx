@@ -12,7 +12,9 @@ const Topbar = () => {
                 <Image className="mx-1 sm:mx-2 max-sm:w-4 max-sm:h-4" quality={100} alt="viber logo" src="/icons/viber.png" width={32} height={32} />
             </a>
             <a href="tel:+380982275197" className="text-white text-xs sm:text-sm md:text-base mr-2 sm:mr-9 whitespace-nowrap">+38 (098) 227 51 97</a>
-            <Image className="mx-1 sm:mx-2 max-sm:w-4 max-sm:h-4" quality={100} alt="instagram logo" src="/icons/inst.png" width={32} height={32} />
+            <a href="https://www.instagram.com/svit_perevezen?igsh=M3p1cHJ6Nm9sb2cz" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Image className="mx-1 sm:mx-2 max-sm:w-4 max-sm:h-4" quality={100} alt="instagram logo" src="/icons/inst.png" width={32} height={32} />
+            </a>
             <a href="https://t.me/svit_perevezen" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
                 <Image className="mx-1 sm:mx-2 max-sm:w-4 max-sm:h-4" quality={100} alt="telegram logo" src="/icons/tg.png" width={32} height={32} />
             </a>
