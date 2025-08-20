@@ -1,0 +1,30 @@
+import { getTranslations } from 'next-intl/server';
+
+const RoadAdvices = async () => {
+    const t = await getTranslations('roadAdvices');
+    return (
+        <section className="py-8 w-full">
+            <div className="w-full mx-auto">
+                <h2 className="text-[40px] max-md:text-[26px] font-medium text-foreground mb-4 uppercase">
+                    {t('title')}
+                </h2>
+                <p className="text-[26px] max-md:text-[16px] text-foreground/80 mb-6">
+                    {t('intro')}
+                </p>
+
+                <div className="flex flex-col gap-12">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                        <div key={i}>
+                            <h3 className="text-[26px] max-md:text-[16px] font-medium text-foreground mb-4">{t(`items.${i}.title`)}</h3>
+                            <p className="text-[26px] max-md:text-[16px] text-foreground/80">{t(`items.${i}.text`)}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+};
+
+export default RoadAdvices;
+
+

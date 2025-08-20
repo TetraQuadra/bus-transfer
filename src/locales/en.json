@@ -11,6 +11,46 @@
     "filter": "Filter",
     "sort": "Sort"
   },
+  "aboutRoute": {
+    "title": "Company 'World of Modern Transportation'",
+    "question": "Planning a trip from Ukraine to {country}?",
+    "intro1": "Choose comfortable international transfers from World of Modern Transportation!",
+    "intro2": "We operate routes from different regions of Ukraine to the key cities of the selected country.",
+    "left": { "title": "Destinations to {country}:" },
+    "right": { "title": "Departure from these Ukrainian cities:" },
+    "cases": {
+      "poland": "Poland",
+      "germany": "Germany",
+      "belgium": "Belgium",
+      "netherlands": "Netherlands"
+    }
+  },
+  "roadAdvices": {
+    "title": "Tips for a comfortable bus trip from Ukraine to the Netherlands",
+    "intro": "A bus journey is not just a transfer, but a full travel experience. If you are traveling from cities in Ukraine, use the tips from 'World of Modern Transportation' to make your road pleasant, convenient and interesting.",
+    "items": {
+      "1": {
+        "title": "1. Talk to fellow travelers and locals",
+        "text": "At bus stops or transit points, you can always chat with locals or other passengers. It’s a great way to discover interesting places, cafes, historical sites and walking routes in the Netherlands."
+      },
+      "2": {
+        "title": "2. Take care of comfort on the road",
+        "text": "Bring a light neck pillow, a bottle of water, headphones and warm clothes — especially at night, when air conditioners can make the cabin cool."
+      },
+      "3": {
+        "title": "3. Create your own playlist",
+        "text": "A trip from Ukraine to the Netherlands is a great time to listen to music or audiobooks. Create your own travel playlist to make the time on the road pleasant and fly by faster."
+      },
+      "4": {
+        "title": "4. Don’t forget the documents",
+        "text": "Before departure, check the availability of your passport, visa or a permit to cross the border (if needed). Prepare the documents in advance for border control."
+      },
+      "5": {
+        "title": "5. Save money without losing comfort",
+        "text": "A bus is one of the most cost‑effective ways to travel to the Netherlands. The ticket price depends on the boarding place and destination and does not depend on currency fluctuations or fuel prices."
+      }
+    }
+  },
   "navigation": {
     "home": "Home",
     "about": "About",

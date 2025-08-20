@@ -100,7 +100,7 @@ const Footer = async () => {
                                     className="object-contain"
                                 />
                             </a>
-                            <a href="#" className="flex items-center justify-center p-3 border-b border-gray-300 hover:bg-gray-50 transition-colors">
+                            <a href="https://www.facebook.com/svitperevezen/?locale=uk_UA" className="flex items-center justify-center p-3 border-b border-gray-300 hover:bg-gray-50 transition-colors">
                                 <Image
                                     src="/icons/Facebook.png"
                                     alt={t('social.alt.facebook')}
@@ -118,7 +118,7 @@ const Footer = async () => {
                                     className="object-contain"
                                 />
                             </a>
-                            <a href="#" className="flex items-center justify-center p-3 border-r border-gray-300 hover:bg-gray-50 transition-colors">
+                            <a href="https://www.instagram.com/svit_perevezen?igsh=M3p1cHJ6Nm9sb2cz" className="flex items-center justify-center p-3 border-r border-gray-300 hover:bg-gray-50 transition-colors">
                                 <Image
                                     src="/icons/inst.png"
                                     alt={t('social.alt.instagram')}

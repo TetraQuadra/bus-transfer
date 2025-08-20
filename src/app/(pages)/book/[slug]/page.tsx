@@ -3,8 +3,11 @@ import BookingSection from '@/sections/BookingSection';
 import RoutesSection from '@/sections/RoutesSection';
 import TrustSection from '@/sections/TrustSection';
 import FAQSection from '@/sections/FAQSection';
+import AboutRoute from '@/sections/AboutRoute';
 import { DirectionId, EU_COUNTRIES, UA_CITIES_LIST, EU_CITIES_LIST, citiesBySlug, getDirectionByCity } from '@/const/cities';
 import { getTranslations, getLocale } from 'next-intl/server';
+import RoadAdvices from '@/sections/RoadAdvices';
+import WeOfferSection from '@/sections/WeOfferSection';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -173,13 +176,9 @@ export default async function Page({ params }: Props) {
                 initialArrivalCity={initialArrivalCityName}
             />
             <RoutesSection initialRouteId={direction} />
-            <section className="py-4">
-                <div className="bg-white rounded-[10px] p-6 max-w-5xl mx-auto">
-                    <h2 className="text-[28px] mb-3">{t('countryTexts.title', { direction })}</h2>
-                    <p className="text-foreground/80 mb-2">{t(`countryTexts.${direction}.p1`)}</p>
-                    <p className="text-foreground/80">{t(`countryTexts.${direction}.p2`)}</p>
-                </div>
-            </section>
+            <WeOfferSection />
+            <AboutRoute direction={direction} />
+            <RoadAdvices />
             <TrustSection />
             <BookingSection
                 initialDepartureCountry={initialDepartureCountry}

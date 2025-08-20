@@ -37,11 +37,6 @@ const WeOfferSection = async () => {
                             />
                         ))}
                     </div>
-                    <div className="flex justify-center mt-8">
-                        <Button as="link" href="/#booking" className="max-w-[286px]">
-                            {t('title')}
-                        </Button>
-                    </div>
                 </div>
             </div>
         </section>
