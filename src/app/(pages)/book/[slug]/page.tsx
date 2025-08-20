@@ -9,6 +9,8 @@ import { DirectionId, EU_COUNTRIES, UA_CITIES_LIST, EU_CITIES_LIST, citiesBySlug
 import { getTranslations, getLocale } from 'next-intl/server';
 import RoadAdvices from '@/sections/RoadAdvices';
 import WeOfferSection from '@/sections/WeOfferSection';
+import type { Metadata } from 'next';
+import Script from 'next/script';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -93,7 +95,7 @@ export async function generateStaticParams() {
     return params;
 }
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const t = await getTranslations('booking');
     const locale = await getLocale();
     const { slug } = await params;
@@ -112,10 +114,28 @@ export async function generateMetadata({ params }: Props) {
         return countries[indexMap[code]] ?? '';
     };
 
+    const canonical = `/book/${slug}`;
+    const siteName = locale === 'en' ? 'World of Modern Transportation' : 'Світ Сучасних Перевезень';
+    const ogLocale = locale === 'uk' ? 'uk_UA' : locale === 'ru' ? 'ru_UA' : 'en';
+
+    const dirMap: Record<string, string> = {
+        uk: 'Україна — {direction}',
+        ru: 'Украина — {direction}',
+        en: 'Ukraine — {direction}'
+    };
+    const keywordsBase: Record<string, string[]> = {
+        uk: ['пасажирські перевезення', 'доставка посилок', 'перевезення тварин', 'мікроавтобус', 'квитки автобус'],
+        ru: ['пассажирские перевозки', 'доставка посылок', 'перевозка животных', 'микроавтобус', 'билеты автобус'],
+        en: ['passenger transfers', 'parcel delivery', 'pet transportation', 'minibus', 'bus tickets']
+    };
+    let keywords: string[] = [];
+
     if (isDirectionSlug(slug)) {
         const directionName = nameByCode(slug);
         title = `${t('meta.directionTitlePrefix', { direction: directionName })}`;
         description = `${t('meta.directionDescription', { direction: directionName })}`;
+        const dirPhrase = (dirMap[locale] ?? dirMap.uk).replace('{direction}', directionName);
+        keywords = [...(keywordsBase[locale] ?? keywordsBase.uk), dirPhrase];
     } else {
         const pair = parsePair(slug);
         if (pair && citiesBySlug[pair.from] && citiesBySlug[pair.to]) {
@@ -125,9 +145,33 @@ export async function generateMetadata({ params }: Props) {
             const toName = citiesBySlug[pair.to].names[lang];
             title = `${t('meta.pairTitlePrefix', { from: fromName, to: toName })}`;
             description = `${t('meta.pairDescription', { from: fromName, to: toName })}`;
+            const pairPhrase = `${fromName} — ${toName}`;
+            keywords = [...(keywordsBase[locale] ?? keywordsBase.uk), pairPhrase];
         }
     }
-    return { title, description };
+    const ogImage = '/logo.png';
+    return {
+        title,
+        description,
+        alternates: { canonical },
+        keywords,
+        robots: { index: true, follow: true },
+        openGraph: {
+            title,
+            description,
+            type: 'article',
+            siteName,
+            locale: ogLocale,
+            url: canonical,
+            images: [ogImage]
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+            images: [ogImage]
+        }
+    };
 }
 
 export default async function Page({ params }: Props) {
@@ -169,8 +213,56 @@ export default async function Page({ params }: Props) {
             initialArrivalCityName = toCity.names[lang];
         }
     }
+    const siteUrl = 'https://svitsuchasnykhperevezen.com';
+    const canonicalUrl = `${siteUrl}/book/${slug}`;
+    const serviceName = `${locale === 'en' ? 'Passenger transfers' : locale === 'ru' ? 'Пассажирские перевозки' : 'Пасажирські перевезення'} ${nameByCode('ukraine')} — ${nameByCode(direction)}`;
+    const heroTitle = tHero('title', { from: countries[0], to: nameByCode(direction) });
+
     return (
         <div className="container-custom space-y-12">
+            <Script id="book-breadcrumbs-jsonld" type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'BreadcrumbList',
+                        itemListElement: [
+                            {
+                                '@type': 'ListItem',
+                                position: 1,
+                                name: locale === 'en' ? 'Home' : locale === 'ru' ? 'Главная' : 'Головна',
+                                item: siteUrl
+                            },
+                            {
+                                '@type': 'ListItem',
+                                position: 2,
+                                name: heroTitle,
+                                item: canonicalUrl
+                            }
+                        ]
+                    })
+                }}
+            />
+            <Script id="book-service-jsonld" type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        '@context': 'https://schema.org',
+                        '@type': 'Service',
+                        name: serviceName,
+                        provider: {
+                            '@type': 'Organization',
+                            name: 'Світ Сучасних Перевезень',
+                            url: siteUrl,
+                            logo: `${siteUrl}/logo.png`,
+                            telephone: '+380982275197'
+                        },
+                        areaServed: [nameByCode('ukraine'), nameByCode(direction)],
+                        availableChannel: {
+                            '@type': 'ServiceChannel',
+                            serviceUrl: canonicalUrl
+                        }
+                    })
+                }}
+            />
             <BookHero title={tHero('title', { from: countries[0], to: nameByCode(direction) })} subtitle={tHero('subtitle')} />
             <BookingSection
                 initialDepartureCountry={initialDepartureCountry}
