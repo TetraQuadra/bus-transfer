@@ -11,7 +11,7 @@ const Header = async () => {
         { label: t('navigation.handover'), href: "/#parcels" },
         { label: t('navigation.fleet'), href: "/#fleet" },
         { label: t('navigation.services'), href: "/#services" },
-        { label: t('navigation.about'), href: "/#footer" },
+        { label: t('navigation.about'), href: "/about" },
         { label: t('navigation.contacts'), href: "/#footer" },
         { label: t('navigation.helpful'), href: "/#useful" },
         { label: t('navigation.reviews'), href: "/#reviews" }

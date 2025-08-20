@@ -39,7 +39,7 @@ const Footer = async () => {
                                 <Link href="/#reviews" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.reviews')}
                                 </Link>
-                                <Link href="/#footer" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
+                                <Link href="/about" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.about')}
                                 </Link>
                                 <Link href="/#useful" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">

@@ -25,6 +25,28 @@
       "netherlands": "Netherlands"
     }
   },
+  "aboutCompany": {
+    "title": "ABOUT US",
+    "greeting": "Welcome to ‘World of Modern Transportation’!",
+    "intro": "We are ‘World of Modern Transportation’, providing professional passenger transportation services across Ukraine and to Europe since 2012, as well as delivery of small cargo, parcels and transfers.",
+    "directionsTitle": "Our main directions are:",
+    "directions": {
+      "poland": "Poland",
+      "germany": "Germany",
+      "netherlands": "Netherlands",
+      "belgium": "Belgium"
+    },
+    "comfortTitle": "Comfort and safety are our priority",
+    "comfortIntro": "Our fleet consists of modern minibuses of comfort and luxury classes, equipped with everything needed for a convenient long‑distance journey:",
+    "comfort": {
+      "ac": "air conditioners",
+      "seats": "comfortable seats",
+      "usb": "USB/outlets for charging",
+      "wifi": "free Wi‑Fi",
+      "media": "multimedia systems"
+    },
+    "drivers": "Our drivers have extensive experience in international transportation and always care about the safety and comfort of every passenger."
+  },
   "bookHero": {
     "title": "{from} - {to}",
     "subtitle": "Safety and comfort for everyone"

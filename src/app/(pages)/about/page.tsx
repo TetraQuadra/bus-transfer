@@ -1,7 +1,15 @@
+import AboutCompany from '@/sections/AboutCompany';
+import BookingSection from '@/sections/BookingSection';
+import UsefulSection from '@/sections/UsefulSection';
+import AboutGallery from '@/sections/AboutGallery';
+
 export default function AboutPage() {
     return (
-        <main className="min-h-[50vh] flex items-center justify-center">
-            <div>About page (stub)</div>
+        <main className="container-custom">
+            <AboutCompany />
+            <AboutGallery />
+            <BookingSection />
+            <UsefulSection />
         </main>
     );
 }

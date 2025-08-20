@@ -170,7 +170,7 @@ export default async function Page({ params }: Props) {
         }
     }
     return (
-        <div className="space-y-12">
+        <div className="container-custom space-y-12">
             <BookHero title={tHero('title', { from: countries[0], to: nameByCode(direction) })} subtitle={tHero('subtitle')} />
             <BookingSection
                 initialDepartureCountry={initialDepartureCountry}
