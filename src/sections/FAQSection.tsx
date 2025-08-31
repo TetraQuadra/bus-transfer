@@ -3,13 +3,19 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from '@/hooks/useTranslations';
+import type { DirectionId } from '@/const/cities';
 
 // TODO: ТУТ ХЕРНЯ НАПИСАНА НАДО ВСТАВИТЬ НОРМАЛЬНЫЕ ТЕКСТА
 
-const FAQSection = () => {
+type Props = { direction?: DirectionId };
+
+const FAQSection = ({ direction }: Props) => {
     const t = useTranslations('faq');
     const faqData = t.raw('items') as Array<{ title: string; description: string }>;
     const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+    const toWhereMap = t.raw('toWhere') as Record<'europe' | DirectionId, string>;
+    const toWhere = direction ? toWhereMap[direction] : toWhereMap.europe;
 
     const toggleAccordion = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -33,7 +39,7 @@ const FAQSection = () => {
                                         className="w-full flex items-center justify-between text-left min-h-[70px]"
                                     >
                                         <span className="text-[26px] font-regular text-foreground p-4 max-sm:p-1 max-md:text-[20px]">
-                                            {item.title}
+                                            {item.title.replaceAll('{toWhere}', toWhere)}
                                         </span>
                                         <div
                                             className="w-8 h-8 rounded-full flex items-center justify-center min-w-[32px]"
@@ -63,7 +69,7 @@ const FAQSection = () => {
                                         <div className="">
                                             <div className="bg-white p-4">
                                                 <p className="text-[20px] font-regular text-foreground  max-md:text-[20px]">
-                                                    {item.description}
+                                                    {item.description.replaceAll('{toWhere}', toWhere)}
                                                 </p>
                                             </div>
                                         </div>

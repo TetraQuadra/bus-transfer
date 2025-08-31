@@ -281,7 +281,7 @@ export default async function Page({ params }: Props) {
                 initialDepartureCity={initialDepartureCityName}
                 initialArrivalCity={initialArrivalCityName}
             />
-            <FAQSection />
+            <FAQSection direction={direction} />
         </div>
     );
 }

@@ -531,42 +531,41 @@
     }
   },
   "faq": {
-    "title": "FREQUENTLY ASKED QUESTIONS FROM OUR CLIENTS",
+    "title": "Frequently asked questions from our clients",
     "alt": {
       "phone": "Instagram profile"
     },
+    "toWhere": {
+      "europe": "to Europe",
+      "poland": "to Poland",
+      "germany": "to Germany",
+      "netherlands": "to the Netherlands",
+      "belgium": "to Belgium"
+    },
     "items": [
       {
-        "title": "How long does transportation to Europe take?",
-        "description": "It depends on the destination country. For example, to Poland — 1–2 days, to Germany — 2–3 days, to Italy or France — up to 5 days."
+        "title": "How is package delivery {toWhere} carried out?",
+        "description": "We pick up the package from a collection point and deliver to Poland, Germany, the Netherlands and Belgium. We accept boxes, electronics, documents, children's items, etc. Photo confirmation is available."
       },
       {
-        "title": "What documents are required for the trip?",
-        "description": "You need a foreign passport, visa (if required), insurance, and other documents depending on the destination country."
+        "title": "What documents are required for transporting pets abroad?",
+        "description": "To transport pets to EU countries, you need: a veterinary passport, a valid rabies vaccination, a microchip, and a certificate from a state veterinary clinic. We help with the paperwork and ensure a comfortable trip for your pet {toWhere}."
       },
       {
-        "title": "Can I transport pets?",
-        "description": "Yes, we provide pet transportation services. Relevant documents and veterinary certificates are required."
+        "title": "How much does the transportation of belongings or packages {toWhere} cost?",
+        "description": "The price depends on the destination, volume and type of items. We provide individual quotes — leave a request and we will provide the exact cost. All rates are transparent, with no hidden fees."
       },
       {
-        "title": "What vehicles are used for transportation?",
-        "description": "We use comfort and luxury class vehicles to ensure maximum passenger comfort."
+        "title": "How to order transportation or package delivery?",
+        "description": "Contact us by phone, in a messenger, or via the form on the website. Our manager will clarify the details, help with the paperwork, and reserve a seat or shipment. We work quickly, responsibly, and with respect for every client."
       },
       {
-        "title": "Can I order a private transfer?",
-        "description": "Yes, we provide private transfer services upon prior request."
+        "title": "How many passengers are in the minibus?",
+        "description": "Trips {toWhere} are carried out in premium and luxury class minibuses designed for 8 passengers. This provides more space, quiet, and maximum comfort during the journey."
       },
       {
-        "title": "How do I book a trip?",
-        "description": "Booking can be made via our website, by calling us, or by writing in messengers."
-      },
-      {
-        "title": "Do you provide package delivery services?",
-        "description": "Yes, we also provide package delivery services between Ukraine and European countries."
-      },
-      {
-        "title": "Which countries do you serve?",
-        "description": "We serve routes Ukraine — Poland — Germany — Netherlands — Belgium and other European countries."
+        "title": "How often do minibuses run {toWhere}?",
+        "description": "Trips {toWhere} from Ukraine operate several times a week. You can check the schedule at +380982275197"
       }
     ]
   },
