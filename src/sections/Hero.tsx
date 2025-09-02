@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations } from 'next-intl/server';
+import styles from './Hero.module.css';
 
 //TODO: 900-1000px говняк пофиксить
 
@@ -27,7 +28,7 @@ const Hero = async () => {
         <section id="hero" className="bg-background w-full mb-8 md:mb-16">
             <div className="">
                 <div className="flex justify-between items-start gap-2 max-[900px]:flex-col ">
-                    <div className="flex flex-col h-full max-[900px]:w-full max-[900px]:items-start max-[900px]:flex-row max-[900px]:gap-4 max-md:flex-col">
+                    <div className="flex flex-col h-full max-[900px]:w-full max-[900px]:items-start max-[900px]:flex-col max-[900px]:gap-4 max-md:flex-col">
                         <div className="max-[900px]:text-center max-[900px]:w-[80%]">
                             <h1 className="text-[62px] leading-[1.01] text-foreground mb-4 lg:max-w-[580px] lg:w-full max-[1200px]:text-[40px] max-[900px]:text-start max-[900px]:text-[50px] max-[900px]:font-medium max-sm:text-[45px]">
                                 {titleLine1}<br />
@@ -41,10 +42,10 @@ const Hero = async () => {
 
                         <div className="bg-white border border-gray-300 rounded-lg p-5 w-fit max-[900px]:w-full max-[900px]:items-start max-[900px]:p-3 max-md:w-auto max-md:mx-auto max-md:mb-4">
                             <p className="text-foreground font-medium mb-2 text-[20px]">{label}</p>
-                            <div className="flex items-center gap-3 max-[1200px]:grid max-[1200px]:grid-cols-2 max-md:flex max-sm:grid max-sm:grid-cols-2">
-                                {destinations.map((destination, index) => (
-                                    <div key={index} className="flex items-center justify-start gap-3 max-[900px]:gap-1">
-                                        {(
+                            <div className={styles.itemsWrap}>
+                                <div className={`${styles.items} ${styles.marquee}`}>
+                                    {destinations.map((destination, index) => (
+                                        <div key={index} className={styles.item}>
                                             <Image
                                                 src="/icons/arrowRight.svg"
                                                 alt="arrow"
@@ -52,12 +53,28 @@ const Hero = async () => {
                                                 height={8}
                                                 className="max-[900px]:w-[20px] max-[900px]:h-[8px] max-md:w-[35px] max-md:h-[8px]"
                                             />
-                                        )}
-                                        <span className="text-foreground font-regular text-[16px]">
-                                            {destination}
-                                        </span>
-                                    </div>
-                                ))}
+                                            <span className="text-foreground font-regular text-[16px]">
+                                                {destination}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div aria-hidden="true" className={`${styles.items} ${styles.marquee}`}>
+                                    {destinations.map((destination, index) => (
+                                        <div key={index} className={styles.item}>
+                                            <Image
+                                                src="/icons/arrowRight.svg"
+                                                alt="arrow"
+                                                width={35}
+                                                height={8}
+                                                className="max-[900px]:w-[20px] max-[900px]:h-[8px] max-md:w-[35px] max-md:h-[8px]"
+                                            />
+                                            <span className="text-foreground font-regular text-[16px]">
+                                                {destination}
+                                            </span>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>

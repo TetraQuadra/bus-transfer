@@ -1,0 +1,70 @@
+.itemsWrap {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 24px;
+    width: 400px;
+}
+
+.itemsWrap::before,
+.itemsWrap::after {
+    content: "";
+    height: 100%;
+    top: 0;
+    width: 10%;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.itemsWrap::before {
+    left: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.itemsWrap::after {
+    right: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.items {
+    flex-shrink: 0;
+    display: flex;
+    gap: 24px;
+    justify-content: flex-start;
+    min-width: 100%;
+}
+
+.item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.marquee {
+    animation: scroll 20s linear infinite;
+    animation-direction: reverse;
+}
+
+
+.itemsWrap:hover .marquee {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - 24px));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee {
+        animation: none;
+    }
+}
