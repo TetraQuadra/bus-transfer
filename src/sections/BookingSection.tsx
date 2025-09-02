@@ -186,6 +186,13 @@ const BookingSection = ({
         else if (dateInPast) newErrors.date = t('errors.dateInPast');
         if (!formData.fullName) newErrors.fullName = t('errors.required');
         if (!formData.phone) newErrors.phone = t('errors.required');
+        else {
+            // Разрешаем цифры, пробелы, +, -, (, )
+            const allowed = /^[0-9()+\-\s]*$/;
+            if (!allowed.test(formData.phone)) {
+                newErrors.phone = t('errors.phoneLettersNotAllowed');
+            }
+        }
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
@@ -328,7 +335,7 @@ const BookingSection = ({
                                 error={errors.arrivalCity || (arrCityMismatch ? t('errors.cityCountryMismatch') : '')}
                                 required
                             />
-                            {(invalidDirection || dateInPast) && (
+                            {(invalidDirection) && (
                                 <div className="md:col-span-2 lg:col-span-4 -mt-2">
                                     <div className="w-full rounded-md border border-red-300 bg-red-50 text-red-700 text-sm px-3 py-2" role="alert" aria-live="polite">
                                         {invalidDirection ? t('errors.directionConstraint') : t('errors.dateInPast')}
@@ -354,7 +361,6 @@ const BookingSection = ({
                                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('fullName', e.target.value)}
                                 error={errors.fullName}
                                 required
-                                name="fullName"
                             />
 
                             <BaseInput

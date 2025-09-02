@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-// import nodemailer from "nodemailer"; // ENABLE WHEN REAL SENDING IS NEEDED
+import nodemailer from "nodemailer"; // ENABLE WHEN REAL SENDING IS NEEDED
 
 type BookingPayload = {
   departureCountry: string;
@@ -12,11 +12,11 @@ type BookingPayload = {
 };
 
 // ENABLE WHEN REAL SENDING IS NEEDED
-// function requiredEnv(name: string): string {
-//   const v = process.env[name];
-//   if (!v) throw new Error(`Missing env ${name}`);
-//   return v;
-// }
+function requiredEnv(name: string): string {
+  const v = process.env[name];
+  if (!v) throw new Error(`Missing env ${name}`);
+  return v;
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -47,10 +47,9 @@ export async function POST(req: NextRequest) {
     }
 
     // TEST MODE: disable actual sending. Uncomment below and remove this line to enable.
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    return NextResponse.json({ ok: true, test: true });
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
+    // return NextResponse.json({ ok: true, test: true });
 
-    /*
     // REAL SENDING
     const smtpUser = requiredEnv("SMTP_USER");
     const smtpPass = requiredEnv("SMTP_PASS");
@@ -74,7 +73,6 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({ ok: true });
-    */
   } catch (e) {
     console.error("send-booking error", e);
     return NextResponse.json(
