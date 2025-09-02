@@ -5,6 +5,14 @@
     user-select: none;
     gap: 24px;
     width: 400px;
+
+
+}
+
+@media screen and (max-width: 768px) {
+    .itemsWrap {
+        width: 100%;
+    }
 }
 
 .itemsWrap::before,
