@@ -655,5 +655,10 @@
   },
   "about": {
     "gallery": "GALLERY"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "It looks like this page doesn’t exist or has been moved.",
+    "backHome": "Back to home"
   }
 }

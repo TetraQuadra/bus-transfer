@@ -1,5 +1,6 @@
 import { getTranslations, getLocale } from 'next-intl/server';
 import { ALL_CITIES, UA_CITIES_LIST, DirectionId } from '@/const/cities';
+import Image from 'next/image';
 
 type Props = {
     direction: DirectionId;
@@ -28,10 +29,19 @@ const AboutRoute = async ({ direction }: Props) => {
                         <h3 className="text-[26px] max-md:text-[16px] font-regular text-foreground mb-3">
                             {t('left.title', { country: countryCase })}
                         </h3>
-                        <ul className="list-disc pl-5 space-y-2 text-[26px] max-md:text-[16px] text-foreground">
+                        <ul className="space-y-2 text-[26px] max-md:text-[16px] text-foreground">
                             {euCities.map((city) => (
-                                <li key={`${city.slug}`}>
-                                    {city.names[lang]} ({city.names.en})
+                                <li key={`${city.slug}`} className="flex items-center gap-2">
+                                    <Image
+                                        src="/icons/triangleRight.svg"
+                                        alt=""
+                                        width={20}
+                                        height={20}
+                                        className="object-contain max-sm:w-[16px] max-sm:h-[16px]"
+                                    />
+                                    <span>
+                                        {city.names[lang]} ({city.names.en})
+                                    </span>
                                 </li>
                             ))}
                         </ul>
@@ -40,9 +50,18 @@ const AboutRoute = async ({ direction }: Props) => {
                         <h3 className="text-[26px] max-md:text-[16px] font-regular text-foreground mb-3">
                             {t('right.title')}
                         </h3>
-                        <ul className="list-disc pl-5 space-y-2 text-[26px] max-md:text-[16px] text-foreground">
+                        <ul className="space-y-2 text-[26px] max-md:text-[16px] text-foreground">
                             {UA_CITIES_LIST.map((city) => (
-                                <li key={`${city.slug}`}>{city.names[lang]}</li>
+                                <li key={`${city.slug}`} className="flex items-center gap-2">
+                                    <Image
+                                        src="/icons/triangleRight.svg"
+                                        alt=""
+                                        width={20}
+                                        height={20}
+                                        className="object-contain max-sm:w-[16px] max-sm:h-[16px]"
+                                    />
+                                    <span>{city.names[lang]}</span>
+                                </li>
                             ))}
                         </ul>
                     </div>
