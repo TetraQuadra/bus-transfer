@@ -5,7 +5,7 @@ import { SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
 import { useTranslations } from '@/hooks/useTranslations';
 
-const IMAGES = ['/about/1.png', '/about/2.png', '/about/3.png'];
+const IMAGES = Array.from({ length: 9 }, (_, i) => `/about/${i + 1}.jpg`);
 
 const AboutGallery = () => {
     const t = useTranslations('about');
