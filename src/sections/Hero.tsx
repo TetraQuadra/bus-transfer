@@ -25,7 +25,7 @@ const Hero = async () => {
     const destinations = t.raw('destinations') as string[];
 
     return (
-        <section id="hero" className="bg-background w-full mb-8 md:mb-16">
+        <section id="hero" className="bg-background w-full mb-15 md:mb-16">
             <div className="">
                 <div className="flex justify-between items-start gap-2 max-[900px]:flex-col ">
                     <div className="flex flex-col h-full max-[900px]:w-full max-[900px]:items-start max-[900px]:flex-row max-[900px]:gap-4 max-md:flex-col">

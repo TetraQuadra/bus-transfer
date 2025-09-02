@@ -40,7 +40,7 @@ const UsefulSection = async ({ title }: Props) => {
     }>).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
     return (
-        <section id='useful' className='w-full mb-8 md:mb-16'>
+        <section id='useful' className='w-full mb-15 md:mb-16'>
             <UsefulArticlesClient title={title ?? t('title')} readMoreLabel={t('readMore')} items={items} />
         </section>
     );

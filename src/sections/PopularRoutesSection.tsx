@@ -8,7 +8,7 @@ const PopularRoutesSection = async () => {
     const countries = t.raw('countries') as string[];
     const cities = t.raw('cities') as string[];
     return (
-        <section id="popular" className="w-full mb-8 md:mb-16 max-sm:px-1">
+        <section id="popular" className="w-full mb-15 md:mb-16 max-sm:px-1">
             <div className="">
                 <div className="w-full">
                     <h2 className="text-[40px] font-regular text-center text-foreground mb-12">

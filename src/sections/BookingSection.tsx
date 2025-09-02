@@ -271,7 +271,7 @@ const BookingSection = ({
     }
 
     return (
-        <section id="booking" className="w-full mb-8 md:mb-16">
+        <section id="booking" className="w-full mb-15 md:mb-16">
             <div className="">
                 <div className="w-full">
                     <h2 className="text-[40px] font-regular text-center text-foreground mb-8 max-sm:text-[30px]">

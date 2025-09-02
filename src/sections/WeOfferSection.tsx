@@ -19,7 +19,7 @@ const services = [
 const WeOfferSection = async () => {
     const t = await getTranslations('weOffer');
     return (
-        <section id="services" className="mb-8 md:mb-16 w-full">
+        <section id="services" className="mb-15 md:mb-16 w-full">
             <div className="">
                 <div className="w-full">
                     <h2 className="text-[40px] font-regular text-center text-foreground mb-12 max-sm:text-[30px]">

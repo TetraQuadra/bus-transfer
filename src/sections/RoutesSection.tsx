@@ -28,12 +28,12 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
     }, [initialRouteId]);
 
     return (
-        <section id="routes" className="w-full mb-8 md:mb-16">
+        <section id="routes" className="w-full mb-15 md:mb-16">
             <div className="">
                 <div className="w-full">
                     <div className="flex lg:flex-nowrap gap-8 max-w-7xl mx-auto max-lg:flex-col max-sm:items-center">
                         <div className="flex flex-col lg:max-w-[290px] gap-6 max-lg:w-full max-lg:order-1">
-                            <h3 className="text-[34px] font-regular text-foreground mb-4 max-sm:text-[30px] max-sm:mb-2 max-sm:text-center">
+                            <h3 className="text-[34px] font-regular text-foreground mb-4 max-sm:text-[30px] max-sm:mb-2 max-lg:text-center">
                                 {t('title')}
                             </h3>
                             <div className='flex flex-col lg:gap-6 max-sm:mx-auto max-lg:flex-row max-lg:justify-between max-lg:w-full max-lg:gap-3 max-[900px]:grid max-[900px]:grid-cols-2'>

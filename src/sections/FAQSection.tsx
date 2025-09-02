@@ -22,7 +22,7 @@ const FAQSection = ({ direction }: Props) => {
     };
 
     return (
-        <section id="faq" className="bg-background w-full mb-8 md:mb-16">
+        <section id="faq" className="bg-background w-full mb-15 md:mb-16">
             <div className="px-4">
                 <div className="flex flex-col lg:flex-row gap-12 items-start">
                     {/* FAQ Section */}

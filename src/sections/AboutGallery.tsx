@@ -10,7 +10,7 @@ const IMAGES = ['/about/1.png', '/about/2.png', '/about/3.png'];
 const AboutGallery = () => {
     const t = useTranslations('about');
     return (
-        <section className="w-full mb-8 md:mb-16">
+        <section className="w-full mb-15 md:mb-16">
             <GallerySlider title={t('gallery')} slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }} showPagination loop autoplay className="">
                 {IMAGES.map((src, idx) => (
                     <SwiperSlide key={idx}>
