@@ -216,7 +216,15 @@ export default async function Page({ params }: Props) {
     const siteUrl = 'https://svitsuchasnykhperevezen.com';
     const canonicalUrl = `${siteUrl}/book/${slug}`;
     const serviceName = `${locale === 'en' ? 'Passenger transfers' : locale === 'ru' ? 'Пассажирские перевозки' : 'Пасажирські перевезення'} ${nameByCode('ukraine')} — ${nameByCode(direction)}`;
-    const heroTitle = tHero('title', { from: countries[0], to: nameByCode(direction) });
+    // Заголовок: если slug содержит пару городов — показываем города; иначе — страна-направление
+    const supported = ['uk', 'ru', 'en'] as const;
+    const lang = (supported as readonly string[]).includes(locale) ? (locale as 'uk' | 'ru' | 'en') : 'uk';
+    let heroTitle = tHero('title', { from: countries[0], to: nameByCode(direction) });
+    if (pair && citiesBySlug[pair.from] && citiesBySlug[pair.to]) {
+        const fromName = citiesBySlug[pair.from].names[lang];
+        const toName = citiesBySlug[pair.to].names[lang];
+        heroTitle = `${fromName} — ${toName}`;
+    }
 
     return (
         <div className="container-custom space-y-12">
@@ -263,7 +271,7 @@ export default async function Page({ params }: Props) {
                     })
                 }}
             />
-            <BookHero title={tHero('title', { from: countries[0], to: nameByCode(direction) })} subtitle={tHero('subtitle')} />
+            <BookHero title={heroTitle} subtitle={tHero('subtitle')} />
             <BookingSection
                 initialDepartureCountry={initialDepartureCountry}
                 initialArrivalCountry={initialArrivalCountry}
