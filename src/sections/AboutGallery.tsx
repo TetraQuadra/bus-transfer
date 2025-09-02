@@ -3,13 +3,15 @@
 import GallerySlider from '@/components/GallerySlider';
 import { SwiperSlide } from 'swiper/react';
 import Image from 'next/image';
+import { useTranslations } from '@/hooks/useTranslations';
 
 const IMAGES = ['/about/1.png', '/about/2.png', '/about/3.png'];
 
 const AboutGallery = () => {
+    const t = useTranslations('about');
     return (
         <section className="w-full mb-8 md:mb-16">
-            <GallerySlider title={undefined} slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }} showPagination loop autoplay className="">
+            <GallerySlider title={t('gallery')} slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }} showPagination loop autoplay className="">
                 {IMAGES.map((src, idx) => (
                     <SwiperSlide key={idx}>
                         <div className="w-full h-full flex items-center justify-center">

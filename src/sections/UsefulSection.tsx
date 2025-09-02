@@ -1,45 +1,47 @@
-'use client'
+import UsefulArticlesClient from './UsefulArticlesClient';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { listArticleSlugs, readArticleFile, type SupportedLocale } from '@/lib/articles-mdx';
 
-import { SwiperSlide } from 'swiper/react';
-import GallerySlider from '@/components/GallerySlider';
-import ArticleCard from '@/components/ArticleCard';
-import { useTranslations } from '@/hooks/useTranslations';
+type Props = { title?: string };
 
-// TODO: ТУТ НАДО ВСТАВИТЬ ТЕКСТА НОРМАЛЬНЫЕ ТУТ ШЛЯПА ЩАС
+const UsefulSection = async ({ title }: Props) => {
+    const t = await getTranslations('useful');
+    const locale = (await getLocale()) as SupportedLocale;
 
-const UsefulSection = () => {
-    const t = useTranslations('useful');
-    const articlesData = t.raw('articles') as Array<{
-        id: number;
+    const slugs = await listArticleSlugs();
+    const order = Array.from(new Set<SupportedLocale>([locale, 'uk', 'ru', 'en'] as SupportedLocale[]));
+
+    const articles = await Promise.all(
+        slugs.map(async (slug) => {
+            for (const loc of order) {
+                try {
+                    const a = await readArticleFile(loc, slug);
+                    return {
+                        id: slug,
+                        image: a.image || '/articles/1.png',
+                        title: a.title,
+                        date: a.date || '',
+                        description: a.description || '',
+                        href: `/articles/${slug}`
+                    };
+                } catch { }
+            }
+            return null;
+        })
+    );
+
+    const items = (articles.filter(Boolean) as Array<{
+        id: string;
         image: string;
         title: string;
         date: string;
         description: string;
         href: string;
-    }>;
+    }>).sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
     return (
         <section id='useful' className='w-full mb-8 md:mb-16'>
-            <GallerySlider
-                title={t('title')}
-                slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }}
-                spaceBetween={20}
-                autoplay={false}
-                showPagination={false}
-            >
-                {articlesData.map((article) => (
-                    <SwiperSlide key={article.id}>
-                        <ArticleCard
-                            id={article.id}
-                            image={article.image}
-                            title={article.title}
-                            date={article.date}
-                            description={article.description}
-                            href={article.href}
-                            buttonLabel={t('readMore')}
-                        />
-                    </SwiperSlide>
-                ))}
-            </GallerySlider>
+            <UsefulArticlesClient title={title ?? t('title')} readMoreLabel={t('readMore')} items={items} />
         </section>
     );
 };

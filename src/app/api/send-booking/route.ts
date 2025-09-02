@@ -47,7 +47,6 @@ export async function POST(req: NextRequest) {
     }
 
     // TEST MODE: disable actual sending. Uncomment below and remove this line to enable.
-    // Добавляем таймаут в 1 секунду для имитации обработки
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return NextResponse.json({ ok: true, test: true });
 

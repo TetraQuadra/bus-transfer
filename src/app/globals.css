@@ -195,13 +195,14 @@ body::before {
     position: fixed;
     inset: 0;
     z-index: -1;
+    width: 100vw;
+    height: 100vh;
     pointer-events: none;
     background-image: url('/bg.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
-    /* Prevent extra painting on scroll */
-    will-change: transform;
+    background-size: cover;
+    will-change: scroll-position;
 }
 
 /* Custom container class */

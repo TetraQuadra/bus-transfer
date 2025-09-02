@@ -3,7 +3,7 @@ import BookingSection from '@/sections/BookingSection';
 import UsefulSection from '@/sections/UsefulSection';
 import AboutGallery from '@/sections/AboutGallery';
 
-export default function AboutPage() {
+export default async function AboutPage() {
     return (
         <main className="container-custom">
             <AboutCompany />

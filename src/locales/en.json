@@ -648,5 +648,11 @@
         "tiktok": "TikTok"
       }
     }
+  },
+  "articles": {
+    "title": "YOU MAY ALSO LIKE"
+  },
+  "about": {
+    "gallery": "GALLERY"
   }
 }

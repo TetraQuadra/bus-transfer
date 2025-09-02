@@ -20,7 +20,9 @@ export default async function RootLayout({
     const locale = await getLocale();
     const messages = await getMessages();
     return (
-        <html lang={locale}>
+        <html lang={locale}
+            suppressHydrationWarning={true}
+            data-lt-installed={true} >
             <body className="antialiased">
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <Script id="organization-jsonld" type="application/ld+json"

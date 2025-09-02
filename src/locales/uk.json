@@ -651,5 +651,11 @@
         "tiktok": "TikTok"
       }
     }
+  },
+  "articles": {
+    "title": "ВАС ТАКОЖ МОЖЕ ЗАЦІКАВИТИ"
+  },
+  "about": {
+    "gallery": "ГАЛЕРЕЯ"
   }
 }
