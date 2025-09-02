@@ -5,8 +5,12 @@
     user-select: none;
     gap: 24px;
     width: 400px;
+}
 
-
+@media screen and (max-width: 900px) {
+    .itemsWrap {
+        width: 50%;
+    }
 }
 
 @media screen and (max-width: 768px) {

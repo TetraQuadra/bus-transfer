@@ -28,7 +28,7 @@ const Hero = async () => {
         <section id="hero" className="bg-background w-full mb-8 md:mb-16">
             <div className="">
                 <div className="flex justify-between items-start gap-2 max-[900px]:flex-col ">
-                    <div className="flex flex-col h-full max-[900px]:w-full max-[900px]:items-start max-[900px]:flex-col max-[900px]:gap-4 max-md:flex-col">
+                    <div className="flex flex-col h-full max-[900px]:w-full max-[900px]:items-start max-[900px]:flex-row max-[900px]:gap-4 max-md:flex-col">
                         <div className="max-[900px]:text-center max-[900px]:w-[80%]">
                             <h1 className="text-[62px] leading-[1.01] text-foreground mb-4 lg:max-w-[580px] lg:w-full max-[1200px]:text-[40px] max-[900px]:text-start max-[900px]:text-[50px] max-[900px]:font-medium max-sm:text-[45px]">
                                 {titleLine1}<br />
