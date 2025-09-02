@@ -84,7 +84,7 @@ const Footer = async () => {
                         <div className="grid grid-cols-3 grid-rows-2 border border-white overflow-hidden max-lg:w-fit max-lg:mx-auto ">
                             <a href="viber://chat?number=%2B380982275197" className="flex items-center justify-center p-3 border-r border-b border-gray-300 hover:bg-gray-50 transition-colors" aria-label="Viber">
                                 <Image
-                                    src="/icons/Viber.png"
+                                    src="/icons/viber.png"
                                     alt={t('social.alt.viber')}
                                     width={42}
                                     height={42}
@@ -111,7 +111,7 @@ const Footer = async () => {
                             </a>
                             <a href="https://api.whatsapp.com/send?phone=380982275197" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center p-3 border-r border-gray-300 hover:bg-gray-50 transition-colors" aria-label="WhatsApp">
                                 <Image
-                                    src="/icons/WhatsApp.png"
+                                    src="/icons/whatsapp.png"
                                     alt={t('social.alt.whatsapp')}
                                     width={42}
                                     height={42}
