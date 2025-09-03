@@ -9,12 +9,6 @@
 
 @media screen and (max-width: 900px) {
     .itemsWrap {
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .itemsWrap {
         width: 100%;
     }
 }

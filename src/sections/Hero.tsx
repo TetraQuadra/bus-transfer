@@ -40,7 +40,7 @@ const Hero = async () => {
                             </p>
                         </div>
 
-                        <div className="bg-white border border-gray-300 rounded-lg p-5 w-fit max-[900px]:w-full max-[900px]:items-start max-[900px]:p-3 max-md:w-full max-md:mx-auto max-md:mb-4">
+                        <div className="bg-white border border-gray-300 rounded-lg p-5 w-fit max-[900px]:w-[50%] max-[900px]:items-start max-[900px]:p-3 max-md:w-full max-md:mx-auto max-md:mb-4">
                             <p className="text-foreground font-medium mb-2 text-[20px]">{label}</p>
                             <div className={styles.itemsWrap}>
                                 <div className={`${styles.items} ${styles.marquee}`}>
