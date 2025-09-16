@@ -28,7 +28,9 @@ const HeaderClient = ({ navigationItems, bookLabel }: HeaderClientProps) => {
     }, []);
 
     useEffect(() => {
-        const onScroll = () => setIsScrolled(window.scrollY > 0);
+        const onScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        }
         onScroll();
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
@@ -38,15 +40,18 @@ const HeaderClient = ({ navigationItems, bookLabel }: HeaderClientProps) => {
 
     if (collapseToMobileBar) {
         return (
-            <header className="py-2 bg-transparent container-custom">
-                <div className="mx-auto">
-                    <div className="flex items-center justify-end">
-                        <div className="min-[1000px]:hidden bg-white shadow-md rounded-md p-1">
-                            <MobileMenu items={navigationItems} />
+            <>
+                <div className="max-sm:h-[17px] sm:h-[42px]"></div>
+                <header className="py-2 bg-transparent container-custom min-h-[50px]">
+                    <div className="mx-auto">
+                        <div className="flex items-center justify-end">
+                            <div className="min-[1000px]:hidden bg-white shadow-md rounded-md p-1">
+                                <MobileMenu items={navigationItems} />
+                            </div>
                         </div>
                     </div>
-                </div>
-            </header>
+                </header>
+            </>
         );
     }
 
