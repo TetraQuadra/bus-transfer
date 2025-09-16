@@ -16,6 +16,19 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 166px;
+}
+
+@media (max-width: 1000px) {
+    html {
+        scroll-padding-top: 72px;
+    }
+}
+
+@media (max-width: 640px) {
+    html {
+        scroll-padding-top: 56px;
+    }
 }
 
 /* Gilroy local font faces */
