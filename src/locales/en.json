@@ -660,5 +660,71 @@
     "title": "Page not found",
     "description": "It looks like this page doesn’t exist or has been moved.",
     "backHome": "Back to home"
+  },
+  "transportRules": {
+    "allowed": {
+      "title": "ALLOWED TO CARRY (FOR PERSONAL USE)",
+      "food": {
+        "title": "Food products (in small quantities for yourself):",
+        "items": [
+          "bread, cookies, rusks",
+          "chocolate, candies, snacks",
+          "tea, coffee",
+          "plant-based preserves (jam, vegetables, mushrooms) — in small volumes",
+          "non-alcoholic drinks (juices, water, lemonades)",
+          "alcohol: up to 1 l of spirits or up to 2 l of wine, or up to 5 l of beer (in total no more than 1 l of spirits per person aged 17+)",
+          "tobacco: up to 200 cigarettes or 50 cigars, or 250 g of tobacco (from 17 years old)"
+        ]
+      },
+      "personal": {
+        "title": "Personal items:",
+        "items": [
+          "clothes, shoes, accessories",
+          "cosmetics and hygiene (in reasonable quantities)",
+          "household electronics for personal use (laptop, phone, camera, etc.)"
+        ]
+      },
+      "medicines": {
+        "title": "Medicines:",
+        "items": ["for personal use (preferably with a prescription if strong)"]
+      },
+      "pets": {
+        "title": "Pets:",
+        "text": {
+          "beforeLink": "allowed, but mandatory: microchip, rabies vaccination, EU-format pet passport; more details via",
+          "linkText": "the link",
+          "linkHref": "/pets"
+        }
+      }
+    },
+    "restricted": {
+      "title": "PROHIBITED OR RESTRICTED",
+      "food": {
+        "title": "Products:",
+        "items": [
+          "meat and meat products (sausage, lard, meat preserves)",
+          "dairy products (milk, cheese, sour cream, yogurts)",
+          "fish (fresh, smoked, canned — subject to restrictions)"
+        ]
+      },
+      "other": {
+        "title": "Other goods:",
+        "items": [
+          "weapons and ammunition",
+          "explosives, pyrotechnics",
+          "narcotics, strong psychotropics",
+          "toxic or dangerous substances",
+          "cultural valuables, antiques without permits",
+          "large amounts of cash (declare over 10,000 EUR)"
+        ]
+      }
+    },
+    "limits": {
+      "title": "WEIGHT AND VALUE LIMITS",
+      "items": [
+        "To Poland duty‑free you may bring goods up to €300 (for land border crossers)",
+        "Baggage — up to 50 kg (if more, you may be asked to confirm it's not for commercial use)"
+      ]
+    }
   }
 }

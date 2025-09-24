@@ -7,8 +7,8 @@ import AboutRoute from '@/sections/AboutRoute';
 import BookHero from '@/sections/BookHero';
 import { DirectionId, EU_COUNTRIES, UA_CITIES_LIST, EU_CITIES_LIST, citiesBySlug, getDirectionByCity } from '@/const/cities';
 import { getTranslations, getLocale } from 'next-intl/server';
-import RoadAdvices from '@/sections/RoadAdvices';
 import WeOfferSection from '@/sections/WeOfferSection';
+import TransportationRules from '@/sections/TransportationRules';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 
@@ -281,7 +281,8 @@ export default async function Page({ params }: Props) {
             <RoutesSection initialRouteId={direction} />
             <WeOfferSection />
             <AboutRoute direction={direction} />
-            <RoadAdvices direction={direction} />
+            {/* <RoadAdvices direction={direction} /> commented out for now */}
+            <TransportationRules />
             <TrustSection />
             <BookingSection
                 initialDepartureCountry={initialDepartureCountry}
