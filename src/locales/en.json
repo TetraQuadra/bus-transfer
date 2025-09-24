@@ -653,6 +653,73 @@
   "articles": {
     "title": "YOU MAY ALSO LIKE"
   },
+  "pets": {
+    "title": "Pet transportation to Europe",
+    "subtitle": "to Europe"
+  },
+  "petsServiceAdvantages": {
+    "items": {
+      "1": {
+        "title": "European level of service",
+        "description": "Like in European transport companies"
+      },
+      "2": {
+        "title": "Optimized routes",
+        "description": "We choose only reliable and proven roads to ensure fast delivery without delays."
+      },
+      "3": {
+        "title": "Modern transport",
+        "description": "Each vehicle undergoes a thorough inspection and maintenance before departure, which guarantees reliability on the road."
+      }
+    }
+  },
+  "petsSecurity": {
+    "title": "SAFETY AND COMFORT",
+    "text": "Transportation with the World of Modern Transportation company is carried out by experienced drivers on buses from the reliable global manufacturer Mercedes. Driver experience — from 5 years. All minibuses undergo mandatory technical maintenance before each trip and are serviced only with original spare parts. Cabins are designed for 8 passenger seats instead of the standard 14, which provides more space for comfort on the road."
+  },
+  "petsComfort": {
+    "title": "COMFORTABLE CONDITIONS FOR PEOPLE AND THEIR PETS",
+    "items": {
+      "1": {
+        "title": "Travel together",
+        "description": "Your pets travel with you under the owner's supervision. This guarantees peace of mind and reduces stress."
+      },
+      "2": {
+        "title": "Convenient stops",
+        "description": "Regular breaks for rest, walking and feeding ensure a comfortable journey for everyone."
+      },
+      "3": {
+        "title": "Climate control",
+        "description": "The cabin maintains an optimal temperature so the trip is comfortable for both people and pets."
+      },
+      "4": {
+        "title": "Comfort on the road",
+        "description": "We take care of cleanliness, space and all necessary amenities so that the trip is pleasant for both people and pets."
+      }
+    }
+  },
+  "petsRules": {
+    "title": "RULES FOR PET TRANSPORTATION TO THE EU",
+    "subtitle": "Current requirements apply to cats and dogs. To ensure a trouble‑free trip, your pet must have:",
+    "items": {
+      "1": {
+        "title": "Microchip",
+        "description": "The animal must be chipped and correctly identified with a microchip."
+      },
+      "2": {
+        "title": "Vaccination",
+        "description": "Mandatory rabies vaccination performed according to current veterinary regulations."
+      },
+      "3": {
+        "title": "Rabies test",
+        "description": "A valid rabies antibody test result (titer test) is required."
+      },
+      "4": {
+        "title": "Pet passport",
+        "description": "An EU‑format veterinary passport or certificate confirming compliance with EU requirements. If the pet travels with an escort, confirmation may be requested."
+      }
+    }
+  },
   "about": {
     "gallery": "GALLERY"
   },
