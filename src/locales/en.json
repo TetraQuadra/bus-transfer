@@ -161,6 +161,7 @@
   },
   "booking": {
     "title": "SEAT BOOKING",
+    "bookSeatTitle": "Book a seat",
     "submitLabel": "Book now",
     "meta": {
       "directionTitlePrefix": "Bus tickets Ukraine — {direction}",
@@ -187,7 +188,15 @@
         "label": "Full name",
         "placeholder": "Enter your full name"
       },
-      "phone": { "label": "Phone number", "placeholder": "+380" }
+      "phone": { "label": "Phone number", "placeholder": "+380" },
+      "petTypeAndWeight": {
+        "label": "Animal and weight",
+        "placeholder": "e.g., cat, 4 kg"
+      },
+      "parcelWeight": {
+        "label": "Parcel weight",
+        "placeholder": "e.g., 12 kg"
+      }
     },
     "errors": {
       "required": "This field is required",

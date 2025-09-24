@@ -161,6 +161,7 @@
   },
   "booking": {
     "title": "БРОНИРОВАНИЕ МЕСТ",
+    "bookSeatTitle": "Забронировать место",
     "submitLabel": "Забронировать",
     "meta": {
       "directionTitlePrefix": "Автобусные билеты Украина — {direction}",
@@ -190,7 +191,15 @@
         "label": "Имя и фамилия",
         "placeholder": "Введите полное имя"
       },
-      "phone": { "label": "Номер телефона", "placeholder": "+380" }
+      "phone": { "label": "Номер телефона", "placeholder": "+380" },
+      "petTypeAndWeight": {
+        "label": "Какое животное и вес?",
+        "placeholder": "Например: кот, 4 кг"
+      },
+      "parcelWeight": {
+        "label": "Вес посылки",
+        "placeholder": "Например: 12 кг"
+      }
     },
     "errors": {
       "required": "Обязательное поле",

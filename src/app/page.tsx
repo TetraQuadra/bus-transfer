@@ -10,6 +10,7 @@ import ReviewsSection from "@/sections/ReviewsSection";
 import FAQSection from "@/sections/FAQSection";
 import UsefulSection from "@/sections/UsefulSection";
 import BookingSection from "@/sections/BookingSection";
+import { getTranslations } from 'next-intl/server';
 import RoutesSection from "@/sections/RoutesSection";
 import type { Metadata } from 'next';
 import { getLocale } from 'next-intl/server';
@@ -54,16 +55,17 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export default function HomePage() {
+export default async function HomePage() {
+    const tBooking = await getTranslations('booking');
     return (
         <main>
             <Hero />
-            <BookingSection />
+            <BookingSection title={tBooking('title')} dateInputType="date" />
             <WeOfferSection />
             <RoutesSection />
             <BenefitsSection />
             <PopularRoutesSection />
-            <BookingSection />
+            <BookingSection title={tBooking('title')} dateInputType="date" />
             <Autopark />
             <AdvantagesSection />
             <ReviewsSection />

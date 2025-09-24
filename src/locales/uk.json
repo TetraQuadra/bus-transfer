@@ -161,6 +161,7 @@
   },
   "booking": {
     "title": "БРОНЮВАННЯ МІСЦЬ",
+    "bookSeatTitle": "Забронювати місце",
     "submitLabel": "Забронювати",
     "meta": {
       "directionTitlePrefix": "Автобусні квитки Україна — {direction}",
@@ -190,7 +191,15 @@
         "label": "Ім'я та прізвище",
         "placeholder": "Введіть повне ім'я"
       },
-      "phone": { "label": "Номер телефону", "placeholder": "+380" }
+      "phone": { "label": "Номер телефону", "placeholder": "+380" },
+      "petTypeAndWeight": {
+        "label": "Яка тварина та вага?",
+        "placeholder": "Наприклад: кіт, 4 кг"
+      },
+      "parcelWeight": {
+        "label": "Вага посилки",
+        "placeholder": "Наприклад: 12 кг"
+      }
     },
     "errors": {
       "required": "Обов'язкове поле",

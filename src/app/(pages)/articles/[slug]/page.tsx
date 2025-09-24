@@ -1,8 +1,6 @@
 import { getLocale, getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
-import rehypeSlug from 'rehype-slug';
 import { listArticleSlugs, readArticleFile, type SupportedLocale } from '@/lib/articles-mdx';
 import { notFound } from 'next/navigation';
 import styles from './Article.module.css';
@@ -53,6 +51,7 @@ export default async function ArticlePage({ params }: Props) {
     }
     if (!article) return notFound();
     const t = await getTranslations('articles');
+    const tBooking = await getTranslations('booking');
     return (
         <main className="container-custom py-8 min-h-screen">
             <article className={styles.article}>
@@ -65,7 +64,7 @@ export default async function ArticlePage({ params }: Props) {
                     source={article.content}
                 />
             </article>
-            <BookingSection />
+            <BookingSection title={tBooking('title')} dateInputType="date" />
             <UsefulSection title={t('title')} />
         </main>
     );

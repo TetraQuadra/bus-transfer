@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { sendErrorReport } from "@/lib/errorTracker";
 
-type BookingPayload = {
+type ParcelBookingPayload = {
   departureCountry: string;
   departureCity: string;
   arrivalCountry: string;
@@ -10,9 +10,9 @@ type BookingPayload = {
   date: string;
   fullName: string;
   phone: string;
+  parcelWeight: string;
 };
 
-// ENABLE WHEN REAL SENDING IS NEEDED
 function requiredEnv(name: string): string {
   const v = process.env[name];
   if (!v) throw new Error(`Missing env ${name}`);
@@ -21,8 +21,7 @@ function requiredEnv(name: string): string {
 
 export async function POST(req: NextRequest) {
   try {
-    const body = (await req.json()) as Partial<BookingPayload>;
-
+    const body = (await req.json()) as Partial<ParcelBookingPayload>;
     const {
       departureCountry,
       departureCity,
@@ -31,18 +30,21 @@ export async function POST(req: NextRequest) {
       date,
       fullName,
       phone,
+      parcelWeight,
     } = body;
+
     const missing: string[] = [];
     if (!departureCountry) missing.push("departureCountry");
     if (!departureCity) missing.push("departureCity");
     if (!arrivalCountry) missing.push("arrivalCountry");
     if (!arrivalCity) missing.push("arrivalCity");
-    if (!date) missing.push("date");
     if (!fullName) missing.push("fullName");
     if (!phone) missing.push("phone");
+    if (!parcelWeight) missing.push("parcelWeight");
+
     if (missing.length > 0) {
       await sendErrorReport({
-        endpoint: "/api/send-booking",
+        endpoint: "/api/send-booking-parcel",
         error: `Invalid payload: missing fields ${missing.join(", ")}`,
         status: 400,
         payload: body,
@@ -60,11 +62,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // TEST MODE: disable actual sending. Uncomment below and remove this line to enable.
-    // await new Promise((resolve) => setTimeout(resolve, 1000));
-    // return NextResponse.json({ ok: true, test: true });
-
-    // REAL SENDING
     const smtpUser = requiredEnv("SMTP_USER");
     const smtpPass = requiredEnv("SMTP_PASS");
     const mailTo = requiredEnv("BOOKING_MAIL_TO");
@@ -76,20 +73,19 @@ export async function POST(req: NextRequest) {
       auth: { user: smtpUser, pass: smtpPass },
     });
 
-    const subject = `Booking request: ${departureCity} → ${arrivalCity} (${date})`;
-    const text = `New booking request\n\nFrom: ${departureCountry}, ${departureCity}\nTo: ${arrivalCountry}, ${arrivalCity}\nDate: ${date}\nName: ${fullName}\nPhone: ${phone}`;
+    const subject = `Parcel delivery request: ${departureCity} → ${arrivalCity}${
+      date ? ` (${date})` : ""
+    }`;
+    const text = `New PARCEL request\n\nFrom: ${departureCountry}, ${departureCity}\nTo: ${arrivalCountry}, ${arrivalCity}${
+      date ? `\nDate: ${date}` : ""
+    }\nName: ${fullName}\nPhone: ${phone}\n\nParcel weight: ${parcelWeight}`;
 
-    await transporter.sendMail({
-      from: smtpUser,
-      to: mailTo,
-      subject,
-      text,
-    });
+    await transporter.sendMail({ from: smtpUser, to: mailTo, subject, text });
 
     return NextResponse.json({ ok: true });
   } catch (e) {
     await sendErrorReport({
-      endpoint: "/api/send-booking",
+      endpoint: "/api/send-booking-parcel",
       error: e instanceof Error ? e.message : "Unknown error",
       status: 500,
       timestamp: new Date().toISOString(),

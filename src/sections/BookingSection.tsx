@@ -18,6 +18,8 @@ type BookingFormData = {
     date: string;
     fullName: string;
     phone: string;
+    petTypeAndWeight?: string;
+    parcelWeight?: string;
 };
 
 type BookingSectionProps = {
@@ -25,6 +27,9 @@ type BookingSectionProps = {
     initialArrivalCountry?: string;
     initialDepartureCity?: string;
     initialArrivalCity?: string;
+    title?: string;
+    dateInputType?: 'date' | 'text';
+    mode?: 'default' | 'pets' | 'parcel';
 };
 
 const BookingSection = ({
@@ -32,6 +37,9 @@ const BookingSection = ({
     initialArrivalCountry,
     initialDepartureCity,
     initialArrivalCity,
+    title,
+    dateInputType,
+    mode,
 }: BookingSectionProps) => {
     const t = useTranslations('booking');
     const tCommon = useTranslations('common');
@@ -182,8 +190,16 @@ const BookingSection = ({
 
         if (!formData.departureCity) newErrors.departureCity = t('errors.required');
         if (!formData.arrivalCity) newErrors.arrivalCity = t('errors.required');
-        if (!formData.date) newErrors.date = t('errors.required');
-        else if (dateInPast) newErrors.date = t('errors.dateInPast');
+        if ((mode ?? 'default') === 'default') {
+            if (!formData.date) newErrors.date = t('errors.required');
+            else if (dateInPast) newErrors.date = t('errors.dateInPast');
+        }
+        if ((mode ?? 'default') === 'pets') {
+            if (!formData.petTypeAndWeight) (newErrors as Partial<Record<keyof BookingFormData, string>>).petTypeAndWeight = t('errors.required');
+        }
+        if ((mode ?? 'default') === 'parcel') {
+            if (!formData.parcelWeight) (newErrors as Partial<Record<keyof BookingFormData, string>>).parcelWeight = t('errors.required');
+        }
         if (!formData.fullName) newErrors.fullName = t('errors.required');
         if (!formData.phone) newErrors.phone = t('errors.required');
         else {
@@ -226,14 +242,15 @@ const BookingSection = ({
             // Отправка формы на API
             try {
                 setSubmitting(true);
-                const res = await fetch('/api/send-booking', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-                if (!res.ok) throw new Error('Send failed');
+                const endpoint = (mode ?? 'default') === 'pets' ? '/api/send-booking-pets' : (mode ?? 'default') === 'parcel' ? '/api/send-booking-parcel' : '/api/send-booking';
+                const payload: BookingFormData = { ...formData };
+                const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                if (!res.ok) {
+                    const errText = await res.text().catch(() => '');
+                    throw new Error(`Send failed: ${res.status}`);
+                }
                 setSent(true);
-            } catch {
+            } catch (e) {
                 alert(t('error'));
             } finally {
                 setSubmitting(false);
@@ -245,7 +262,6 @@ const BookingSection = ({
         if ((depCode === 'ukraine' && arrCode && arrCode !== 'ukraine') || (arrCode === 'ukraine' && depCode && depCode !== 'ukraine')) {
             const direction = (depCode === 'ukraine' ? arrCode : depCode) as string;
             router.push(`/book/${direction}`);
-            console.log(t('log.submitted'), formData);
             return;
         }
 
@@ -275,7 +291,7 @@ const BookingSection = ({
             <div className="">
                 <div className="w-full">
                     <h2 className="text-[40px] font-regular text-center text-foreground mb-8 max-sm:text-[30px]">
-                        {t('title')}
+                        {title ?? t('title')}
                     </h2>
 
                     <form onSubmit={handleSubmit} className="w-full">
@@ -345,14 +361,43 @@ const BookingSection = ({
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            <DatePicker
-                                label={t('fields.date.label')}
-                                placeholder={t('fields.date.placeholder')}
-                                value={formData.date}
-                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('date', e.target.value)}
-                                error={errors.date || (dateInPast ? t('errors.dateInPast') : '')}
-                                required
-                            />
+                            {(mode ?? 'default') === 'default' ? (
+                                (dateInputType ?? 'date') === 'date' ? (
+                                    <DatePicker
+                                        label={t('fields.date.label')}
+                                        placeholder={t('fields.date.placeholder')}
+                                        value={formData.date}
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('date', e.target.value)}
+                                        error={errors.date || (dateInPast ? t('errors.dateInPast') : '')}
+                                        required
+                                    />
+                                ) : (
+                                    <BaseInput
+                                        label={t('fields.date.label')}
+                                        placeholder={t('fields.date.placeholder')}
+                                        value={formData.date}
+                                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('date', e.target.value)}
+                                        error={errors.date || (dateInPast ? t('errors.dateInPast') : '')}
+                                        required
+                                    />
+                                )
+                            ) : (mode === 'pets' ? (
+                                <BaseInput
+                                    label={t('fields.petTypeAndWeight.label')}
+                                    placeholder={t('fields.petTypeAndWeight.placeholder')}
+                                    value={formData.petTypeAndWeight || ''}
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('petTypeAndWeight', e.target.value)}
+                                    required
+                                />
+                            ) : (
+                                <BaseInput
+                                    label={t('fields.parcelWeight.label')}
+                                    placeholder={t('fields.parcelWeight.placeholder')}
+                                    value={formData.parcelWeight || ''}
+                                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange('parcelWeight', e.target.value)}
+                                    required
+                                />
+                            ))}
 
                             <BaseInput
                                 label={t('fields.fullName.label')}

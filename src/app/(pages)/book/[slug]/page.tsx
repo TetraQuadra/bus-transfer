@@ -277,6 +277,8 @@ export default async function Page({ params }: Props) {
                 initialArrivalCountry={initialArrivalCountry}
                 initialDepartureCity={initialDepartureCityName}
                 initialArrivalCity={initialArrivalCityName}
+                dateInputType="date"
+                title={t('title')}
             />
             <RoutesSection initialRouteId={direction} />
             <WeOfferSection />
@@ -289,6 +291,8 @@ export default async function Page({ params }: Props) {
                 initialArrivalCountry={initialArrivalCountry}
                 initialDepartureCity={initialDepartureCityName}
                 initialArrivalCity={initialArrivalCityName}
+                dateInputType="date"
+                title={t('title')}
             />
             <FAQSection direction={direction} />
         </div>
