@@ -743,6 +743,52 @@
       }
     }
   },
+  "parcels": {
+    "title": "Parcel delivery",
+    "subtitle": "to {country} from Ukraine",
+    "meta": {
+      "title": "Parcel delivery to {country} from Ukraine | Світ Сучасних Перевезень",
+      "description": "Fast and reliable parcel delivery from Ukraine to {country}. Express delivery in 3 days, optimized routes, modern transport. Safe delivery of cargo and parcels.",
+      "keywords": [
+        "parcel delivery",
+        "parcels to {country}",
+        "express delivery",
+        "delivery from Ukraine",
+        "cargo transportation",
+        "fast delivery"
+      ]
+    },
+    "countries": {
+      "poland": {
+        "name": "Poland"
+      },
+      "germany": {
+        "name": "Germany"
+      },
+      "belgium": {
+        "name": "Belgium"
+      },
+      "netherlands": {
+        "name": "Netherlands"
+      }
+    }
+  },
+  "parcelAdvantages": {
+    "items": {
+      "1": {
+        "title": "Faster than mail",
+        "description": "Delivery takes up to three days, as our buses run constantly, and border delays are minimized."
+      },
+      "2": {
+        "title": "Optimized routes",
+        "description": "We choose only reliable and proven routes to ensure fast delivery without delays."
+      },
+      "3": {
+        "title": "Modern transport",
+        "description": "Each vehicle undergoes thorough inspection and technical maintenance at a service station before departure, which guarantees reliability on the road."
+      }
+    }
+  },
   "about": {
     "gallery": "GALLERY"
   },
