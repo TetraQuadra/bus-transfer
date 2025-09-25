@@ -38,7 +38,7 @@ const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
                     {...props}
                 />
                 {error && (
-                    <span className="text-red-500 text-sm mt-1">
+                    <span className="text-red-500 text-sm h-[0px]">
                         {error}
                     </span>
                 )}

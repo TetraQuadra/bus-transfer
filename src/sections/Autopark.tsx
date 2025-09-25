@@ -59,8 +59,8 @@ const Autopark = () => {
                     </Button>
                 </div>
 
-                <Image src="/autopark/armchair.png" alt={t('alt.armchair')} width={450} height={450} className="absolute bottom-[-110px] left-[-310px] max-lg:hidden" />
-                <Image src="/autopark/armchair.png" alt={t('alt.armchair')} width={450} height={450} className="absolute bottom-[-110px] right-[-350px] scale-x-[-1] max-lg:hidden" />
+                {/* <Image src="/autopark/armchair.png" alt={t('alt.armchair')} width={450} height={450} className="absolute bottom-[-110px] left-[-310px] max-lg:hidden" />
+                <Image src="/autopark/armchair.png" alt={t('alt.armchair')} width={450} height={450} className="absolute bottom-[-110px] right-[-350px] scale-x-[-1] max-lg:hidden" /> */}
 
             </div>
         </section>
