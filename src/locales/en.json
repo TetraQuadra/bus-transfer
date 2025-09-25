@@ -664,7 +664,21 @@
   },
   "pets": {
     "title": "Pet transportation to Europe",
-    "subtitle": "to Europe"
+    "subtitle": "to Europe",
+    "meta": {
+      "title": "Pet Transportation to Europe | Світ Сучасних Перевезень",
+      "description": "Safe pet transportation from Ukraine to Europe. Professional services for transporting dogs, cats and other pets. Comfortable conditions, compliance with all rules and requirements. Online booking.",
+      "keywords": [
+        "pet transportation",
+        "pets to Europe",
+        "dog transport",
+        "cat transport",
+        "pets",
+        "pet passport",
+        "microchip",
+        "vaccination"
+      ]
+    }
   },
   "petsServiceAdvantages": {
     "items": {
