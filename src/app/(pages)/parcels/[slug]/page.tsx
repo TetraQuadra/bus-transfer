@@ -3,7 +3,10 @@ import { getTranslations } from 'next-intl/server';
 import type { Metadata } from 'next';
 import ParcelTitle from '@/sections/ParcelTitle';
 import ParcelAdvantages from '@/sections/ParcelAdvantages';
+import ParcelRules from '@/sections/ParcelRules';
+import ParcelInfo from '@/sections/ParcelInfo';
 import BookingSection from '@/sections/BookingSection';
+import HowWeWorkSection from '@/sections/HowWeWorkSection';
 
 type DirectionId = 'poland' | 'germany' | 'belgium' | 'netherlands';
 
@@ -25,7 +28,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
     const title = t('title', { country: tCountry('name') });
     const description = t('description', { country: tCountry('name') });
-    const keywords = t('keywords') as unknown as string[];
+
+    // Генерируем keywords динамически, передавая country как параметр
+    const countryName = tCountry('name');
+    const keywords = [
+        t('keywords.0'),
+        t('keywords.1', { country: countryName }),
+        t('keywords.2'),
+        t('keywords.3'),
+        t('keywords.4'),
+        t('keywords.5')
+    ];
 
     return {
         title,
@@ -69,11 +82,14 @@ export default async function ParcelsPage({ params }: { params: Promise<{ slug: 
                     subtitle={t('subtitle', { country: tCountry('name') })}
                 />
                 <ParcelAdvantages />
+                <ParcelRules country={tCountry('name')} />
+                <HowWeWorkSection />
                 <BookingSection
                     title={tBooking('bookSeatTitle')}
                     dateInputType="text"
                     mode="parcel"
                 />
+                <ParcelInfo country={tCountry('name')} />
             </div>
         </main>
     );

@@ -161,7 +161,7 @@
   },
   "booking": {
     "title": "SEAT BOOKING",
-    "bookSeatTitle": "Book a seat",
+    "bookSeatTitle": "Book a seat for parcel delivery",
     "submitLabel": "Book now",
     "meta": {
       "directionTitlePrefix": "Bus tickets Ukraine — {direction}",
@@ -749,14 +749,14 @@
     "meta": {
       "title": "Parcel delivery to {country} from Ukraine | Світ Сучасних Перевезень",
       "description": "Fast and reliable parcel delivery from Ukraine to {country}. Express delivery in 3 days, optimized routes, modern transport. Safe delivery of cargo and parcels.",
-      "keywords": [
-        "parcel delivery",
-        "parcels to {country}",
-        "express delivery",
-        "delivery from Ukraine",
-        "cargo transportation",
-        "fast delivery"
-      ]
+      "keywords": {
+        "0": "parcel delivery",
+        "1": "parcels to {country}",
+        "2": "express delivery",
+        "3": "delivery from Ukraine",
+        "4": "cargo transportation",
+        "5": "fast delivery"
+      }
     },
     "countries": {
       "poland": {
@@ -788,6 +788,50 @@
         "description": "Each vehicle undergoes thorough inspection and technical maintenance at a service station before departure, which guarantees reliability on the road."
       }
     }
+  },
+  "parcelRules": {
+    "title": "WHAT CAN BE TRANSPORTED TO {country}?",
+    "subtitle": "The list may be incomplete – please check with the dispatcher",
+    "allowed": {
+      "title": "ALLOWED:",
+      "items": {
+        "0": "Suitcases, bags and backpacks",
+        "1": "Money and documents",
+        "2": "Clothes and shoes",
+        "3": "Household appliances",
+        "4": "Bicycles",
+        "5": "Baby strollers",
+        "6": "Musical instruments",
+        "7": "Spare parts and wheels",
+        "8": "Furniture"
+      }
+    },
+    "forbidden": {
+      "title": "FORBIDDEN:",
+      "items": {
+        "0": "Meat products",
+        "1": "Dairy products",
+        "2": "Fresh vegetables and fruits",
+        "3": "Canned goods and honey",
+        "4": "Cigarettes (incl. electronic)",
+        "5": "Weapons",
+        "6": "Drugs",
+        "7": "Alcohol"
+      }
+    },
+    "disclaimer": "The company is not responsible for violations of transportation rules.",
+    "coordination": "Please coordinate the list with the manager.",
+    "phone": "+38 (098) 227 51 97"
+  },
+  "parcelInfo": {
+    "title": "Need to quickly send a parcel or luggage to {country}? With us, it's easy!",
+    "intro": "World of Modern Transportation delivers personal belongings, suitcases, parcels and various-sized cargo using comfortable minibuses. {country} has become a second home for many Ukrainians today. That's why we organized convenient and regular flights so everyone can quickly and safely transfer things to their loved ones. We approach each client individually, offering the best solution for luggage delivery from Ukraine to {country} and back. Our drivers have years of international transportation experience and care for the safety of your belongings during transport. We value our clients' trust, so we guarantee timely delivery and careful attention to every parcel. Sending luggage with World of Modern Transportation is fast, convenient and reliable. We help with packing, labeling and choosing the optimal route so your belongings arrive without damage and exactly on time.",
+    "imageAlt": "World of Modern Transportation fleet",
+    "description": "Each shipment has its own characteristics — weight, dimensions, packaging method. That's why we always select individual transportation conditions for each client. It doesn't matter if you need to deliver a small parcel or transport large luggage by bus from Ukraine to {country} — World of Modern Transportation will provide optimal transport and reliable delivery. Your belongings are always safe from the moment of acceptance until arrival at the destination. Sending a parcel by bus from Ukraine to {country} is a fast, economical and proven delivery method. Our team controls all stages of transportation so your belongings arrive exactly on schedule and in perfect condition. Thanks to professional drivers and well-established logistics, you get confidence in every kilometer of the route. Contact our managers today to learn all the details about sending luggage and parcels to {country}. We guarantee comfortable service, reliability and transparent cooperation. World of Modern Transportation – your reliable partner in international deliveries",
+    "details": "",
+    "guarantee": "",
+    "contact": "",
+    "tagline": ""
   },
   "about": {
     "gallery": "GALLERY"
