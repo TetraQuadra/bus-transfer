@@ -56,8 +56,8 @@ const HeaderClient = ({ navigationItems, bookLabel }: HeaderClientProps) => {
     }
 
     return (
-        <header className="py-2 bg-white shadow-sm container-custom">
-            <div className="mx-auto">
+        <header className="py-2 bg-white shadow-sm w-full">
+            <div className="mx-auto container-custom">
                 <div className="flex items-center justify-between">
                     <Logo />
                     <Navigation items={navigationItems} />

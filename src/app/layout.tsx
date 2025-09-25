@@ -50,11 +50,7 @@ export default async function RootLayout({
                     />
                     <div className="sticky top-0 z-50 mb-4">
                         <Topbar />
-                        <div className="">
-                            <div className="mx-auto">
-                                <Header />
-                            </div>
-                        </div>
+                        <Header />
                     </div>
                     <div className="container-custom mx-auto">
                         {children}
