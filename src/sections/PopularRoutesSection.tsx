@@ -1,12 +1,29 @@
-import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
-
-// TODO: ВОЗМОЖНО КЛИКАБЕЛЬНЫЕ ССЫЛКИ НА МАРШРУТЫ
+import RouteDropdown from '@/components/RouteDropdown';
 
 const PopularRoutesSection = async () => {
     const t = await getTranslations('popularRoutes');
     const countries = t.raw('countries') as string[];
     const cities = t.raw('cities') as string[];
+
+    // Маппинг названий стран на их слаги для всех языков
+    const countryMapping: Record<string, 'poland' | 'germany' | 'netherlands' | 'belgium'> = {
+        // Украинский
+        'Польща': 'poland',
+        'Німеччина': 'germany',
+        'Нідерланди': 'netherlands',
+        'Бельгія': 'belgium',
+        // Русский
+        'Польша': 'poland',
+        'Германия': 'germany',
+        'Нидерланды': 'netherlands',
+        'Бельгия': 'belgium',
+        // Английский
+        'Poland': 'poland',
+        'Germany': 'germany',
+        'Netherlands': 'netherlands',
+        'Belgium': 'belgium'
+    };
     return (
         <section id="popular" className="w-full mb-15 md:mb-16 max-sm:px-1">
             <div className="">
@@ -24,18 +41,12 @@ const PopularRoutesSection = async () => {
 
                                 <div className="space-y-[20px]">
                                     {cities.map((city, index) => (
-                                        <div key={index} className="flex items-center gap-2 max-sm:gap-1">
-                                            <Image
-                                                src="/icons/triangleRight.svg"
-                                                alt=""
-                                                width={20}
-                                                height={20}
-                                                className="object-contain max-sm:w-[16px] max-sm:h-[16px]"
-                                            />
-                                            <span className="text-[16px] font-regular text-foreground max-sm:text-[12px]">
-                                                {city} - {country}
-                                            </span>
-                                        </div>
+                                        <RouteDropdown
+                                            key={index}
+                                            city={city}
+                                            country={country}
+                                            countrySlug={countryMapping[country as keyof typeof countryMapping]}
+                                        />
                                     ))}
                                 </div>
                             </div>

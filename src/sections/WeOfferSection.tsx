@@ -5,14 +5,17 @@ const services = [
     {
         id: 'passengers',
         image: '/we_offer/passengers.png',
+        href: '/#routes', // Ссылка на секцию маршрутов
     },
     {
         id: 'packages',
         image: '/we_offer/packages.png',
+        href: '/parcels/poland', // Ссылка на страницу посылок (по умолчанию Польша)
     },
     {
         id: 'pets',
         image: '/we_offer/pets.png',
+        href: '/pets', // Ссылка на страницу перевозки животных
     }
 ];
 
@@ -32,7 +35,7 @@ const WeOfferSection = async () => {
                                 key={service.id}
                                 title={t(`services.${service.id}`)}
                                 image={service.image}
-
+                                href={service.href}
                             />
                         ))}
                     </div>

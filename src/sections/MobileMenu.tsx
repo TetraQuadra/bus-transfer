@@ -4,14 +4,16 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import ParcelDropdown from '@/components/ParcelDropdown';
+import Button from '@/components/Button';
 
 type NavItem = { label: string; href: string; isDropdown?: boolean };
 
 type Props = {
     items: NavItem[];
+    bookLabel?: string;
 };
 
-const MobileMenu = ({ items }: Props) => {
+const MobileMenu = ({ items, bookLabel }: Props) => {
     const [open, setOpen] = useState(false);
     const rootRef = useRef<HTMLDivElement | null>(null);
 
@@ -64,7 +66,21 @@ const MobileMenu = ({ items }: Props) => {
                             );
                         })}
                     </nav>
-                    <div className="mt-3 pt-3 border-t border-gray-200 flex justify-center">
+                    {bookLabel && (
+                        <div className="mt-3 pt-3 border-t border-gray-200">
+                            <Button
+                                as="link"
+                                href="/#booking"
+                                className="w-full mb-3"
+                                variant="primary"
+                                size="sm"
+                                onClick={() => setOpen(false)}
+                            >
+                                {bookLabel}
+                            </Button>
+                        </div>
+                    )}
+                    <div className="flex justify-center">
                         <LanguageSwitcher size="lg" />
                     </div>
                 </div>

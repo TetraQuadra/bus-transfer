@@ -13,7 +13,18 @@ export async function generateMetadata(): Promise<Metadata> {
 
     const title = t('title');
     const description = t('description');
-    const keywords = t('keywords') as unknown as string[];
+
+    // Генерируем keywords массив из отдельных объектов
+    const keywords = [
+        t('keywords.0'),
+        t('keywords.1'),
+        t('keywords.2'),
+        t('keywords.3'),
+        t('keywords.4'),
+        t('keywords.5'),
+        t('keywords.6'),
+        t('keywords.7')
+    ];
 
     return {
         title,

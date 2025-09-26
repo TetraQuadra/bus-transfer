@@ -46,7 +46,7 @@ const HeaderClient = ({ navigationItems, bookLabel }: HeaderClientProps) => {
                     <div className="mx-auto">
                         <div className="flex items-center justify-end">
                             <div className="min-[1000px]:hidden bg-white shadow-md rounded-md p-1">
-                                <MobileMenu items={navigationItems} />
+                                <MobileMenu items={navigationItems} bookLabel={bookLabel} />
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ const HeaderClient = ({ navigationItems, bookLabel }: HeaderClientProps) => {
                         </Button>
                     </div>
                     <div className="min-[1000px]:hidden">
-                        <MobileMenu items={navigationItems} />
+                        <MobileMenu items={navigationItems} bookLabel={bookLabel} />
                     </div>
                 </div>
             </div>
