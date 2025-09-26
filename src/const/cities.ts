@@ -8,17 +8,16 @@ export type CountryId =
 export type DirectionId = "poland" | "germany" | "belgium" | "netherlands";
 
 export interface City {
-  slug: string; // латиница, нижний регистр, без пробелов/дефисов/апострофов
+  slug: string;
   country: CountryId;
   names: {
     uk: string;
     ru: string;
     en: string;
   };
-  synonyms: string[]; // все варианты (ua/ru/en), которые нужно распознавать из формы/URL
+  synonyms: string[];
 }
 
-// Нормализация для сравнения: в нижний регистр, без диакритики, пробелов, дефисов и апострофов
 export function normalizeToken(input: string): string {
   return input
     .toLowerCase()
@@ -216,7 +215,6 @@ export const synonymsIndex: Record<string, City> = ALL_CITIES.reduce(
     for (const name of city.synonyms) {
       acc[normalizeToken(name)] = city;
     }
-    // добавим латинское имя без диакритики/пробелов как синоним
     acc[normalizeToken(city.names.en)] = city;
     return acc;
   },

@@ -43,7 +43,6 @@ const AutoCompleteInput = forwardRef<HTMLInputElement, AutoCompleteInputProps>(
             setActiveIndex(res.length ? 0 : -1);
         }, [normalizedSuggestions, maxItems]);
 
-        // Обновлять список при смене набора подсказок (например, сменили страну)
         useEffect(() => {
             const isFocused = typeof window !== 'undefined' && inputRef.current === document.activeElement;
             if (!isFocused) return;
@@ -83,7 +82,6 @@ const AutoCompleteInput = forwardRef<HTMLInputElement, AutoCompleteInputProps>(
             <div className="relative">
                 <BaseInput
                     ref={(node) => {
-                        // безопасная передача ref без any
                         if (typeof ref === 'function') ref(node as HTMLInputElement | null);
                         else if (ref && 'current' in (ref as { current: HTMLInputElement | null })) (ref as { current: HTMLInputElement | null }).current = node;
                         inputRef.current = node;

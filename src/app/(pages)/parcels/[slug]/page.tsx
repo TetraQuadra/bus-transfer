@@ -29,7 +29,6 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     const title = t('title', { country: tCountry('name') });
     const description = t('description', { country: tCountry('name') });
 
-    // Генерируем keywords динамически, передавая country как параметр
     const countryName = tCountry('name');
     const keywords = [
         t('keywords.0'),
