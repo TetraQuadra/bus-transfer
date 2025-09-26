@@ -6,7 +6,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   // ПОЛЬША (9 городов)
   // ========================================
 
-  // Умань → все польские города (170€ комфорт, 210€ люкс)
+  // Умань - все польские города (170€ комфорт, 210€ люкс)
   "uman-przemysl": { comfort: 170, luxury: 210 },
   "uman-krakow": { comfort: 170, luxury: 210 },
   "uman-katowice": { comfort: 170, luxury: 210 },
@@ -17,7 +17,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "uman-szczecin": { comfort: 170, luxury: 210 },
   "uman-gorzowwielkopolski": { comfort: 170, luxury: 210 },
 
-  // Біла Церква → все польские города (150€ комфорт, 190€ люкс)
+  // Біла Церква - все польские города (150€ комфорт, 190€ люкс)
   "bilatserkva-przemysl": { comfort: 150, luxury: 190 },
   "bilatserkva-krakow": { comfort: 150, luxury: 190 },
   "bilatserkva-katowice": { comfort: 150, luxury: 190 },
@@ -28,7 +28,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "bilatserkva-szczecin": { comfort: 150, luxury: 190 },
   "bilatserkva-gorzowwielkopolski": { comfort: 150, luxury: 190 },
 
-  // Київ → все польские города (150€ комфорт, 190€ люкс)
+  // Київ - все польские города (150€ комфорт, 190€ люкс)
   "kyiv-przemysl": { comfort: 150, luxury: 190 },
   "kyiv-krakow": { comfort: 150, luxury: 190 },
   "kyiv-katowice": { comfort: 150, luxury: 190 },
@@ -39,7 +39,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "kyiv-szczecin": { comfort: 150, luxury: 190 },
   "kyiv-gorzowwielkopolski": { comfort: 150, luxury: 190 },
 
-  // Житомир → все польские города (150€ комфорт, 190€ люкс)
+  // Житомир - все польские города (150€ комфорт, 190€ люкс)
   "zhytomyr-przemysl": { comfort: 150, luxury: 190 },
   "zhytomyr-krakow": { comfort: 150, luxury: 190 },
   "zhytomyr-katowice": { comfort: 150, luxury: 190 },
@@ -50,7 +50,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "zhytomyr-szczecin": { comfort: 150, luxury: 190 },
   "zhytomyr-gorzowwielkopolski": { comfort: 150, luxury: 190 },
 
-  // Вінниця → все польские города (150€ комфорт, 190€ люкс)
+  // Вінниця - все польские города (150€ комфорт, 190€ люкс)
   "vinnytsia-przemysl": { comfort: 150, luxury: 190 },
   "vinnytsia-krakow": { comfort: 150, luxury: 190 },
   "vinnytsia-katowice": { comfort: 150, luxury: 190 },
@@ -61,7 +61,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "vinnytsia-szczecin": { comfort: 150, luxury: 190 },
   "vinnytsia-gorzowwielkopolski": { comfort: 150, luxury: 190 },
 
-  // Тернопіль → все польские города (150€ комфорт, 190€ люкс)
+  // Тернопіль - все польские города (150€ комфорт, 190€ люкс)
   "ternopil-przemysl": { comfort: 150, luxury: 190 },
   "ternopil-krakow": { comfort: 150, luxury: 190 },
   "ternopil-katowice": { comfort: 150, luxury: 190 },
@@ -72,7 +72,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "ternopil-szczecin": { comfort: 150, luxury: 190 },
   "ternopil-gorzowwielkopolski": { comfort: 150, luxury: 190 },
 
-  // Рівне → все польские города (150€ комфорт, 190€ люкс)
+  // Рівне - все польские города (150€ комфорт, 190€ люкс)
   "rivne-przemysl": { comfort: 150, luxury: 190 },
   "rivne-krakow": { comfort: 150, luxury: 190 },
   "rivne-katowice": { comfort: 150, luxury: 190 },
@@ -83,7 +83,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "rivne-szczecin": { comfort: 150, luxury: 190 },
   "rivne-gorzowwielkopolski": { comfort: 150, luxury: 190 },
 
-  // Хмельницький → все польские города (150€ комфорт, 190€ люкс)
+  // Хмельницький - все польские города (150€ комфорт, 190€ люкс)
   "khmelnytskyi-przemysl": { comfort: 150, luxury: 190 },
   "khmelnytskyi-krakow": { comfort: 150, luxury: 190 },
   "khmelnytskyi-katowice": { comfort: 150, luxury: 190 },
@@ -94,7 +94,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "khmelnytskyi-szczecin": { comfort: 150, luxury: 190 },
   "khmelnytskyi-gorzowwielkopolski": { comfort: 150, luxury: 190 },
 
-  // Луцьк → все польские города (150€ комфорт, 190€ люкс)
+  // Луцьк - все польские города (150€ комфорт, 190€ люкс)
   "lutsk-przemysl": { comfort: 150, luxury: 190 },
   "lutsk-krakow": { comfort: 150, luxury: 190 },
   "lutsk-katowice": { comfort: 150, luxury: 190 },
@@ -105,7 +105,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "lutsk-szczecin": { comfort: 150, luxury: 190 },
   "lutsk-gorzowwielkopolski": { comfort: 150, luxury: 190 },
 
-  // Львів → все польские города (140€ комфорт, 180€ люкс)
+  // Львів - все польские города (140€ комфорт, 180€ люкс)
   "lviv-przemysl": { comfort: 140, luxury: 180 },
   "lviv-krakow": { comfort: 140, luxury: 180 },
   "lviv-katowice": { comfort: 140, luxury: 180 },
@@ -120,7 +120,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   // ГЕРМАНИЯ (22 города)
   // ========================================
 
-  // Умань → все немецкие города (190€ комфорт, 230€ люкс)
+  // Умань - все немецкие города (190€ комфорт, 230€ люкс)
   "uman-berlin": { comfort: 190, luxury: 230 },
   "uman-magdeburg": { comfort: 190, luxury: 230 },
   "uman-hannover": { comfort: 190, luxury: 230 },
@@ -145,7 +145,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "uman-bonn": { comfort: 190, luxury: 230 },
   "uman-aachen": { comfort: 190, luxury: 230 },
 
-  // Біла Церква → все немецкие города (170€ комфорт, 210€ люкс)
+  // Біла Церква - все немецкие города (170€ комфорт, 210€ люкс)
   "bilatserkva-berlin": { comfort: 170, luxury: 210 },
   "bilatserkva-magdeburg": { comfort: 170, luxury: 210 },
   "bilatserkva-hannover": { comfort: 170, luxury: 210 },
@@ -170,7 +170,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "bilatserkva-bonn": { comfort: 170, luxury: 210 },
   "bilatserkva-aachen": { comfort: 170, luxury: 210 },
 
-  // Київ → все немецкие города (170€ комфорт, 210€ люкс)
+  // Київ - все немецкие города (170€ комфорт, 210€ люкс)
   "kyiv-berlin": { comfort: 170, luxury: 210 },
   "kyiv-magdeburg": { comfort: 170, luxury: 210 },
   "kyiv-hannover": { comfort: 170, luxury: 210 },
@@ -195,7 +195,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "kyiv-bonn": { comfort: 170, luxury: 210 },
   "kyiv-aachen": { comfort: 170, luxury: 210 },
 
-  // Житомир → все немецкие города (170€ комфорт, 210€ люкс)
+  // Житомир - все немецкие города (170€ комфорт, 210€ люкс)
   "zhytomyr-berlin": { comfort: 170, luxury: 210 },
   "zhytomyr-magdeburg": { comfort: 170, luxury: 210 },
   "zhytomyr-hannover": { comfort: 170, luxury: 210 },
@@ -220,7 +220,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "zhytomyr-bonn": { comfort: 170, luxury: 210 },
   "zhytomyr-aachen": { comfort: 170, luxury: 210 },
 
-  // Вінниця → все немецкие города (170€ комфорт, 210€ люкс)
+  // Вінниця - все немецкие города (170€ комфорт, 210€ люкс)
   "vinnytsia-berlin": { comfort: 170, luxury: 210 },
   "vinnytsia-magdeburg": { comfort: 170, luxury: 210 },
   "vinnytsia-hannover": { comfort: 170, luxury: 210 },
@@ -245,7 +245,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "vinnytsia-bonn": { comfort: 170, luxury: 210 },
   "vinnytsia-aachen": { comfort: 170, luxury: 210 },
 
-  // Тернопіль → все немецкие города (170€ комфорт, 210€ люкс)
+  // Тернопіль - все немецкие города (170€ комфорт, 210€ люкс)
   "ternopil-berlin": { comfort: 170, luxury: 210 },
   "ternopil-magdeburg": { comfort: 170, luxury: 210 },
   "ternopil-hannover": { comfort: 170, luxury: 210 },
@@ -270,7 +270,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "ternopil-bonn": { comfort: 170, luxury: 210 },
   "ternopil-aachen": { comfort: 170, luxury: 210 },
 
-  // Рівне → все немецкие города (170€ комфорт, 210€ люкс)
+  // Рівне - все немецкие города (170€ комфорт, 210€ люкс)
   "rivne-berlin": { comfort: 170, luxury: 210 },
   "rivne-magdeburg": { comfort: 170, luxury: 210 },
   "rivne-hannover": { comfort: 170, luxury: 210 },
@@ -295,7 +295,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "rivne-bonn": { comfort: 170, luxury: 210 },
   "rivne-aachen": { comfort: 170, luxury: 210 },
 
-  // Хмельницький → все немецкие города (170€ комфорт, 210€ люкс)
+  // Хмельницький - все немецкие города (170€ комфорт, 210€ люкс)
   "khmelnytskyi-berlin": { comfort: 170, luxury: 210 },
   "khmelnytskyi-magdeburg": { comfort: 170, luxury: 210 },
   "khmelnytskyi-hannover": { comfort: 170, luxury: 210 },
@@ -320,7 +320,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "khmelnytskyi-bonn": { comfort: 170, luxury: 210 },
   "khmelnytskyi-aachen": { comfort: 170, luxury: 210 },
 
-  // Луцьк → все немецкие города (170€ комфорт, 210€ люкс)
+  // Луцьк - все немецкие города (170€ комфорт, 210€ люкс)
   "lutsk-berlin": { comfort: 170, luxury: 210 },
   "lutsk-magdeburg": { comfort: 170, luxury: 210 },
   "lutsk-hannover": { comfort: 170, luxury: 210 },
@@ -345,7 +345,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "lutsk-bonn": { comfort: 170, luxury: 210 },
   "lutsk-aachen": { comfort: 170, luxury: 210 },
 
-  // Львів → все немецкие города (160€ комфорт, 200€ люкс для первых 11 городов, 170€ комфорт, 190€ люкс для остальных)
+  // Львів - все немецкие города (160€ комфорт, 200€ люкс для первых 11 городов, 170€ комфорт, 190€ люкс для остальных)
   "lviv-berlin": { comfort: 160, luxury: 200 },
   "lviv-magdeburg": { comfort: 160, luxury: 200 },
   "lviv-hannover": { comfort: 160, luxury: 200 },
@@ -374,7 +374,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   // НИДЕРЛАНДЫ (32 города)
   // ========================================
 
-  // Умань → все 32 города Нидерландов (190€ комфорт, 230€ люкс)
+  // Умань - все 32 города Нидерландов (190€ комфорт, 230€ люкс)
   "uman-almelo": { comfort: 190, luxury: 230 },
   "uman-enschede": { comfort: 190, luxury: 230 },
   "uman-zwolle": { comfort: 190, luxury: 230 },
@@ -408,7 +408,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "uman-bergenopzoom": { comfort: 190, luxury: 230 },
   "uman-middelburg": { comfort: 190, luxury: 230 },
 
-  // 8 украинских городов → 25 городов Нидерландов (блок 1) - 170€ комфорт, 210€ люкс
+  // 8 украинских городов - 25 городов Нидерландов (блок 1) - 170€ комфорт, 210€ люкс
   // Біла Церква
   "bilatserkva-almelo": { comfort: 170, luxury: 210 },
   "bilatserkva-enschede": { comfort: 170, luxury: 210 },
@@ -625,7 +625,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "lutsk-venlo": { comfort: 170, luxury: 210 },
   "lutsk-arnhem": { comfort: 170, luxury: 210 },
 
-  // 8 украинских городов → 7 городов Нидерландов (блок 2) - 180€ комфорт, 210€ люкс
+  // 8 украинских городов - 7 городов Нидерландов (блок 2) - 180€ комфорт, 210€ люкс
   // Біла Церква
   "bilatserkva-groningen": { comfort: 180, luxury: 210 },
   "bilatserkva-alkmaar": { comfort: 180, luxury: 210 },
@@ -698,7 +698,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "lutsk-bergenopzoom": { comfort: 180, luxury: 210 },
   "lutsk-middelburg": { comfort: 180, luxury: 210 },
 
-  // Львів → 25 городов Нидерландов (блок 1) - 160€ комфорт, 200€ люкс
+  // Львів - 25 городов Нидерландов (блок 1) - 160€ комфорт, 200€ люкс
   "lviv-almelo": { comfort: 160, luxury: 200 },
   "lviv-enschede": { comfort: 160, luxury: 200 },
   "lviv-zwolle": { comfort: 160, luxury: 200 },
@@ -725,7 +725,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "lviv-venlo": { comfort: 160, luxury: 200 },
   "lviv-arnhem": { comfort: 160, luxury: 200 },
 
-  // Львів → 7 городов Нидерландов (блок 2) - 170€ комфорт, 210€ люкс
+  // Львів - 7 городов Нидерландов (блок 2) - 170€ комфорт, 210€ люкс
   "lviv-groningen": { comfort: 170, luxury: 210 },
   "lviv-alkmaar": { comfort: 170, luxury: 210 },
   "lviv-dordrecht": { comfort: 170, luxury: 210 },
@@ -738,7 +738,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   // БЕЛЬГИЯ (20 городов)
   // ========================================
 
-  // Умань → 14 городов Бельгии (блок 1) - 190€ комфорт, 230€ люкс
+  // Умань - 14 городов Бельгии (блок 1) - 190€ комфорт, 230€ люкс
   "uman-bruxelles": { comfort: 190, luxury: 230 },
   "uman-antwerpen": { comfort: 190, luxury: 230 },
   "uman-gent": { comfort: 190, luxury: 230 },
@@ -754,7 +754,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "uman-mechelen": { comfort: 190, luxury: 230 },
   "uman-zaventem": { comfort: 190, luxury: 230 },
 
-  // Умань → 6 городов Бельгии (блок 2) - 200€ комфорт, 240€ люкс
+  // Умань - 6 городов Бельгии (блок 2) - 200€ комфорт, 240€ люкс
   "uman-namur": { comfort: 200, luxury: 240 },
   "uman-charleroi": { comfort: 200, luxury: 240 },
   "uman-mons": { comfort: 200, luxury: 240 },
@@ -762,7 +762,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "uman-oostende": { comfort: 200, luxury: 240 },
   "uman-brugge": { comfort: 200, luxury: 240 },
 
-  // 8 украинских городов → 14 городов Бельгии (блок 1) - 180€ комфорт, 220€ люкс
+  // 8 украинских городов - 14 городов Бельгии (блок 1) - 180€ комфорт, 220€ люкс
   // Біла Церква
   "bilatserkva-bruxelles": { comfort: 180, luxury: 220 },
   "bilatserkva-antwerpen": { comfort: 180, luxury: 220 },
@@ -891,7 +891,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "lutsk-mechelen": { comfort: 180, luxury: 220 },
   "lutsk-zaventem": { comfort: 180, luxury: 220 },
 
-  // 8 украинских городов → 6 городов Бельгии (блок 2) - 190€ комфорт, 230€ люкс
+  // 8 украинских городов - 6 городов Бельгии (блок 2) - 190€ комфорт, 230€ люкс
   // Біла Церква
   "bilatserkva-namur": { comfort: 190, luxury: 230 },
   "bilatserkva-charleroi": { comfort: 190, luxury: 230 },
@@ -956,7 +956,7 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "lutsk-oostende": { comfort: 190, luxury: 230 },
   "lutsk-brugge": { comfort: 190, luxury: 230 },
 
-  // Львів → 14 городов Бельгии (блок 1) - 160€ комфорт, 200€ люкс
+  // Львів - 14 городов Бельгии (блок 1) - 160€ комфорт, 200€ люкс
   "lviv-bruxelles": { comfort: 160, luxury: 200 },
   "lviv-antwerpen": { comfort: 160, luxury: 200 },
   "lviv-liege": { comfort: 160, luxury: 200 },
@@ -967,14 +967,14 @@ export const PRICE_DATA: Record<string, { comfort: number; luxury: number }> = {
   "lviv-mechelen": { comfort: 160, luxury: 200 },
   "lviv-zaventem": { comfort: 160, luxury: 200 },
 
-  // Львів → переопределения для 5 городов - 170€ комфорт, 210€ люкс
+  // Львів - переопределения для 5 городов - 170€ комфорт, 210€ люкс
   "lviv-gent": { comfort: 170, luxury: 210 },
   "lviv-dendermonde": { comfort: 170, luxury: 210 },
   "lviv-aalst": { comfort: 170, luxury: 210 },
   "lviv-oudenaarde": { comfort: 170, luxury: 210 },
   "lviv-geraardsbergen": { comfort: 170, luxury: 210 },
 
-  // Львів → 6 городов Бельгии (блок 2) - 180€ комфорт, 220€ люкс
+  // Львів - 6 городов Бельгии (блок 2) - 180€ комфорт, 220€ люкс
   "lviv-namur": { comfort: 180, luxury: 220 },
   "lviv-charleroi": { comfort: 180, luxury: 220 },
   "lviv-mons": { comfort: 180, luxury: 220 },
