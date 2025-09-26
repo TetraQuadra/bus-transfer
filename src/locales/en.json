@@ -163,6 +163,7 @@
     "title": "SEAT BOOKING",
     "bookSeatTitle": "Book a seat for parcel delivery",
     "submitLabel": "Book now",
+    "swapRoutes": "Swap direction",
     "bookingRoute": {
       "route": "ROUTE",
       "information": "Information",

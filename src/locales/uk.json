@@ -163,6 +163,7 @@
     "title": "БРОНЮВАННЯ МІСЦЬ",
     "bookSeatTitle": "Забронювати місце для відправлення передачі",
     "submitLabel": "Забронювати",
+    "swapRoutes": "Змінити напрямок",
     "bookingRoute": {
       "route": "МАРШРУТ",
       "information": "Інформація",

@@ -13,7 +13,7 @@ const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
         return (
             <div className="flex flex-col">
                 {label && (
-                    <label className="text-foreground font-medium mb-2 text-sm">
+                    <label className="text-foreground font-medium mb-2 text-sm pl-4">
                         {label}
                     </label>
                 )}

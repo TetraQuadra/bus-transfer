@@ -135,6 +135,18 @@ const BookingSection = ({
         }
     };
 
+    const handleSwapRoutes = () => {
+        setFormData(prev => ({
+            ...prev,
+            departureCountry: prev.arrivalCountry,
+            departureCity: prev.arrivalCity,
+            arrivalCountry: prev.departureCountry,
+            arrivalCity: prev.departureCity,
+        }));
+        // Очищаем ошибки при смене маршрута
+        setErrors({});
+    };
+
     // Подсказки для городов зависят от введённой страны
     const departureCountryCode = useMemo(() => countryMap.get(normalizeToken(formData.departureCountry || '')), [countryMap, formData.departureCountry]);
     const arrivalCountryCode = useMemo(() => countryMap.get(normalizeToken(formData.arrivalCountry || '')), [countryMap, formData.arrivalCountry]);
@@ -306,12 +318,15 @@ const BookingSection = ({
         <section id="booking" className="w-full mb-15 md:mb-16">
             <div className="">
                 <div className="w-full">
-                    <h2 className="text-[40px] font-regular text-center text-foreground mb-8 max-sm:text-[30px]">
-                        {title ?? t('title')}
-                    </h2>
+                    <div className="relative flex items-center justify-center mb-8">
+                        <h2 className="text-[40px] font-regular text-center text-foreground max-sm:text-[30px]">
+                            {title ?? t('title')}
+                        </h2>
+
+                    </div>
 
                     <form onSubmit={handleSubmit} className="w-full">
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6 relative">
                             <AutoCompleteInput
                                 label={t('fields.departureCountry.label')}
                                 placeholder={t('fields.departureCountry.placeholder')}
@@ -369,6 +384,26 @@ const BookingSection = ({
                                 maxItems={50}
                                 required
                             />
+                            <button
+                                type="button"
+                                onClick={handleSwapRoutes}
+                                className="absolute right-1/2 top-1/2 -translate-y-1/5 translate-x-1/2 group flex items-center justify-center w-12 h-12 bg-white border-2 border-gray-300 rounded-full hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 max-lg:right-[50%]"
+                                title={t('swapRoutes')}
+                            >
+                                <svg
+                                    className="w-6 h-6 text-gray-600 group-hover:text-white transition-colors duration-300"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
+                                    />
+                                </svg>
+                            </button>
                             {(invalidDirection) && (
                                 <div className="md:col-span-2 lg:col-span-4 -mt-2">
                                     <div className="w-full rounded-md border border-red-300 bg-red-50 text-red-700 text-sm px-3 py-2" role="alert" aria-live="polite">
