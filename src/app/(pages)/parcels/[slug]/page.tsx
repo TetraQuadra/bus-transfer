@@ -16,6 +16,12 @@ function isValidCountrySlug(slug: string): slug is DirectionId {
     return validCountries.includes(slug as DirectionId);
 }
 
+export async function generateStaticParams() {
+    return validCountries.map((slug) => ({
+        slug
+    }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
 
@@ -51,13 +57,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             title,
             description,
             type: 'website',
-            images: ['/logo.png']
+            images: ['/logo.png'],
+            url: `/parcels/${slug}`
         },
         twitter: {
             card: 'summary_large_image',
             title,
             description,
             images: ['/logo.png']
+        },
+        alternates: {
+            canonical: `/parcels/${slug}`
         }
     };
 }
