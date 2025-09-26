@@ -222,6 +222,9 @@ export const synonymsIndex: Record<string, City> = ALL_CITIES.reduce(
 );
 
 export function findCityByName(input: string): City | undefined {
+  if (!input || typeof input !== "string") {
+    return undefined;
+  }
   return synonymsIndex[normalizeToken(input)];
 }
 

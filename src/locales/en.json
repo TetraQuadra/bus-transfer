@@ -163,6 +163,22 @@
     "title": "SEAT BOOKING",
     "bookSeatTitle": "Book a seat for parcel delivery",
     "submitLabel": "Book now",
+    "bookingRoute": {
+      "route": "ROUTE",
+      "information": "Information",
+      "cost": "Cost",
+      "travelTime": "Travel time",
+      "travelTimeValue": "12-20 hours",
+      "stops": "Stops",
+      "stopsValue": "every 3-4 hours",
+      "passengers": "Passengers",
+      "passengersValue": "8",
+      "bookNow": "BOOK NOW",
+      "luxury": "LUXURY",
+      "comfort": "COMFORT",
+      "routeNotFound": "Route not found",
+      "routeNotFoundDescription": "Please check the URL or try another route"
+    },
     "meta": {
       "directionTitlePrefix": "Bus tickets Ukraine — {direction}",
       "directionDescription": "Transfers and tickets for Ukraine — {direction}. Buy tickets online.",

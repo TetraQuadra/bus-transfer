@@ -163,6 +163,22 @@
     "title": "БРОНИРОВАНИЕ МЕСТ",
     "bookSeatTitle": "Забронировать место для отправления передачи",
     "submitLabel": "Забронировать",
+    "bookingRoute": {
+      "route": "МАРШРУТ",
+      "information": "Информация",
+      "cost": "Стоимость",
+      "travelTime": "Время поездки",
+      "travelTimeValue": "12-20 часов",
+      "stops": "Остановки",
+      "stopsValue": "каждые 3-4 часа",
+      "passengers": "Кол-во пассажиров",
+      "passengersValue": "8",
+      "bookNow": "ЗАБРОНИРОВАТЬ",
+      "luxury": "ЛЮКС",
+      "comfort": "КОМФОРТ",
+      "routeNotFound": "Маршрут не найден",
+      "routeNotFoundDescription": "Проверьте правильность URL или попробуйте другой маршрут"
+    },
     "meta": {
       "directionTitlePrefix": "Автобусные билеты Украина — {direction}",
       "directionDescription": "Перевозки и билеты по направлению Украина — {direction}. Покупка билетов онлайн.",

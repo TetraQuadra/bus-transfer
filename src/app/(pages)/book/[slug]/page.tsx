@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import BookingSection from '@/sections/BookingSection';
-import RoutesSection from '@/sections/RoutesSection';
+import BookingRouteDetails from '@/components/BookingRouteDetails';
 import TrustSection from '@/sections/TrustSection';
 import FAQSection from '@/sections/FAQSection';
 import AboutRoute from '@/sections/AboutRoute';
@@ -280,7 +280,7 @@ export default async function Page({ params }: Props) {
                 dateInputType="date"
                 title={t('title')}
             />
-            <RoutesSection initialRouteId={direction} />
+            <BookingRouteDetails routeSlug={slug} />
             <WeOfferSection />
             <AboutRoute direction={direction} />
             {/* <RoadAdvices direction={direction} /> commented out for now */}

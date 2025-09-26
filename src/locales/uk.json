@@ -163,6 +163,22 @@
     "title": "БРОНЮВАННЯ МІСЦЬ",
     "bookSeatTitle": "Забронювати місце для відправлення передачі",
     "submitLabel": "Забронювати",
+    "bookingRoute": {
+      "route": "МАРШРУТ",
+      "information": "Інформація",
+      "cost": "Вартість",
+      "travelTime": "Час поїздки",
+      "travelTimeValue": "12-20 годин",
+      "stops": "Зупинки",
+      "stopsValue": "кожні 3-4 години",
+      "passengers": "К-сть пасажирів",
+      "passengersValue": "8",
+      "bookNow": "ЗАБРОНЮВАТИ",
+      "luxury": "ЛЮКС",
+      "comfort": "КОМФОРТ",
+      "routeNotFound": "Маршрут не знайдено",
+      "routeNotFoundDescription": "Перевірте правильність URL або спробуйте інший маршрут"
+    },
     "meta": {
       "directionTitlePrefix": "Автобусні квитки Україна — {direction}",
       "directionDescription": "Перевезення та квитки за напрямком Україна — {direction}. Купити квитки онлайн.",
