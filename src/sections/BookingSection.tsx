@@ -9,6 +9,7 @@ import { useTranslations } from '@/hooks/useTranslations';
 import { ALL_CITIES, findCityByName, isUkraineCity, normalizeToken } from '@/const/cities';
 import { useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
+import { useRouteValidation } from '@/hooks/useRouteValidation';
 
 type BookingFormData = {
     departureCountry: string;
@@ -68,6 +69,14 @@ const BookingSection = ({
 
     const [errors, setErrors] = useState<Partial<Record<keyof BookingFormData, string>>>({});
     const hasErrors = useMemo(() => Object.values(errors).some(Boolean), [errors]);
+
+    // Лайв-валидация маршрута для обновления контекста
+    useRouteValidation({
+        departureCountry: formData.departureCountry,
+        departureCity: formData.departureCity,
+        arrivalCountry: formData.arrivalCountry,
+        arrivalCity: formData.arrivalCity,
+    });
 
     // Списки для автодополнения из локалей
     const countries = t.raw('suggestions.countries') as string[];
@@ -217,6 +226,14 @@ const BookingSection = ({
 
         const fromCity = ALL_CITIES.find(c => c.names[lang] === formData.departureCity) || findCityByName(formData.departureCity || '');
         const toCity = ALL_CITIES.find(c => c.names[lang] === formData.arrivalCity) || findCityByName(formData.arrivalCity || '');
+
+        // Проверка существования городов
+        if (!fromCity) {
+            newErrors.departureCity = t('errors.cityNotFound');
+        }
+        if (!toCity) {
+            newErrors.arrivalCity = t('errors.cityNotFound');
+        }
 
         // Сопоставление города и выбранной страны
         const depCode = countryMap.get(normalizeToken(formData.departureCountry || ''));

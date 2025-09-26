@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { getPriceByRoute } from '@/lib/priceClient';
@@ -8,6 +8,7 @@ import { PriceResult } from '@/lib/prices';
 import { findCityByName } from '@/const/cities';
 import CompactGallery from './CompactGallery';
 import { SwiperSlide } from 'swiper/react';
+import { useOptionalBookingContext } from '@/contexts/BookingContext';
 
 interface BookingRouteDetailsProps {
     routeSlug: string;
@@ -18,24 +19,42 @@ type ServiceClass = 'comfort' | 'luxury';
 export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsProps) {
     const t = useTranslations('booking.bookingRoute');
     const locale = useLocale();
+    const context = useOptionalBookingContext();
+    const selectedRoute = context?.selectedRoute;
+    const lastValidRoute = context?.lastValidRoute;
     const [serviceClass, setServiceClass] = useState<ServiceClass>('comfort');
     const [priceData, setPriceData] = useState<PriceResult | null>(null);
     const [loading, setLoading] = useState(true);
 
+    // Стабилизируем routeToUse чтобы избежать бесконечных циклов
+    const routeToUse = useMemo(() => {
+        return selectedRoute || lastValidRoute;
+    }, [selectedRoute, lastValidRoute]);
+
+    // Создаем стабильный targetRouteSlug
+    const targetRouteSlug = useMemo(() => {
+        if (routeToUse && (!routeSlug.includes('-') || routeSlug.split('-').length !== 2)) {
+            return `${routeToUse.fromCity.slug}-${routeToUse.toCity.slug}`;
+        }
+        return routeSlug;
+    }, [routeSlug, routeToUse]);
+
     useEffect(() => {
         async function fetchPrice() {
             try {
-                const price = await getPriceByRoute(routeSlug);
+                const price = await getPriceByRoute(targetRouteSlug);
                 setPriceData(price);
             } catch (error) {
                 console.error('Error fetching price:', error);
+                // Если не удалось загрузить цены, сбрасываем данные
+                setPriceData(null);
             } finally {
                 setLoading(false);
             }
         }
 
         fetchPrice();
-    }, [routeSlug]);
+    }, [targetRouteSlug, routeToUse]);
 
     // Парсим маршрут из слага
     if (!routeSlug || typeof routeSlug !== 'string') {
@@ -57,10 +76,22 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
     const fromCity = findCityByName(fromSlug);
     const toCity = findCityByName(toSlug);
 
-    if (!fromCity || !toCity) {
+    // Если нет городов в слаге, но есть данные в контексте - продолжаем
+    // Если нет ни того, ни другого - показываем заглушку
+    if ((!fromCity || !toCity) && !selectedRoute) {
         return (
-            <>
-            </>
+            <div className="p-8">
+                <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-lg">
+                    <div className="text-center">
+                        <h3 className="text-xl font-semibold text-gray-600 mb-2">
+                            {t('selectRoute')}
+                        </h3>
+                        <p className="text-gray-500">
+                            {t('selectRouteDescription')}
+                        </p>
+                    </div>
+                </div>
+            </div>
         );
     }
 
@@ -74,8 +105,30 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
         }
     };
 
+    // Используем данные из контекста, если доступны, иначе из routeSlug
+    // Если текущий маршрут не валиден, показываем последний валидный
+    const displayFromCity = routeToUse?.fromCity || fromCity;
+    const displayToCity = routeToUse?.toCity || toCity;
     const currentPrice = serviceClass === 'comfort' ? priceData?.comfort : priceData?.luxury;
     const images = Array.from({ length: 5 }, (_, i) => `/booking/${serviceClass}/${i + 1}.png`);
+
+    // Показываем заглушку только если нет данных ни в контексте, ни в слаге
+    if (!displayFromCity || !displayToCity) {
+        return (
+            <div className="p-8">
+                <div className="bg-gray-50 border border-gray-200 rounded-2xl p-8 shadow-lg">
+                    <div className="text-center">
+                        <h3 className="text-xl font-semibold text-gray-600 mb-2">
+                            {t('selectRoute')}
+                        </h3>
+                        <p className="text-gray-500">
+                            {t('selectRouteDescription')}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="p-8 gap-4 flex flex-col lg:flex-row">
@@ -85,7 +138,7 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                         {t('route')}
                     </h2>
                     <div className="text-3xl font-bold text-gray-900 uppercase ">
-                        {getCityName(fromCity)} - {getCityName(toCity)}
+                        {getCityName(displayFromCity)} - {getCityName(displayToCity)}
                     </div>
                 </div>
 

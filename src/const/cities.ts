@@ -216,6 +216,8 @@ export const synonymsIndex: Record<string, City> = ALL_CITIES.reduce(
       acc[normalizeToken(name)] = city;
     }
     acc[normalizeToken(city.names.en)] = city;
+    acc[normalizeToken(city.names.ru)] = city;
+    acc[normalizeToken(city.names.uk)] = city;
     return acc;
   },
   {} as Record<string, City>

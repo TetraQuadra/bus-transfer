@@ -177,7 +177,9 @@
       "luxury": "ЛЮКС",
       "comfort": "КОМФОРТ",
       "routeNotFound": "Маршрут не найден",
-      "routeNotFoundDescription": "Проверьте правильность URL или попробуйте другой маршрут"
+      "routeNotFoundDescription": "Проверьте правильность URL или попробуйте другой маршрут",
+      "selectRoute": "Выберите маршрут",
+      "selectRouteDescription": "Заполните форму выше, чтобы увидеть информацию о маршруте"
     },
     "meta": {
       "directionTitlePrefix": "Автобусные билеты Украина — {direction}",
@@ -220,6 +222,7 @@
     "errors": {
       "required": "Обязательное поле",
       "invalidCity": "Город не распознан",
+      "cityNotFound": "Город не найден в списке доступных направлений",
       "directionConstraint": "Доступны только направления Украина ↔ Европа",
       "dateInPast": "Дата не может быть раньше сегодня",
       "cityCountryMismatch": "Город не принадлежит выбранной стране",

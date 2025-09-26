@@ -177,7 +177,9 @@
       "luxury": "ЛЮКС",
       "comfort": "КОМФОРТ",
       "routeNotFound": "Маршрут не знайдено",
-      "routeNotFoundDescription": "Перевірте правильність URL або спробуйте інший маршрут"
+      "routeNotFoundDescription": "Перевірте правильність URL або спробуйте інший маршрут",
+      "selectRoute": "Оберіть маршрут",
+      "selectRouteDescription": "Заповніть форму вище, щоб побачити інформацію про маршрут"
     },
     "meta": {
       "directionTitlePrefix": "Автобусні квитки Україна — {direction}",
@@ -220,6 +222,7 @@
     "errors": {
       "required": "Обов'язкове поле",
       "invalidCity": "Місто не розпізнано",
+      "cityNotFound": "Місто не знайдено в списку доступних напрямків",
       "directionConstraint": "Доступні лише напрямки Україна ↔ Європа",
       "dateInPast": "Дата не може бути раніше сьогодні",
       "cityCountryMismatch": "Місто не належить обраній країні",

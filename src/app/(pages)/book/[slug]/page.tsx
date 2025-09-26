@@ -11,6 +11,7 @@ import WeOfferSection from '@/sections/WeOfferSection';
 import TransportationRules from '@/sections/TransportationRules';
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { BookingProvider } from '@/contexts/BookingContext';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -272,28 +273,30 @@ export default async function Page({ params }: Props) {
                 }}
             />
             <BookHero title={heroTitle} subtitle={tHero('subtitle')} />
-            <BookingSection
-                initialDepartureCountry={initialDepartureCountry}
-                initialArrivalCountry={initialArrivalCountry}
-                initialDepartureCity={initialDepartureCityName}
-                initialArrivalCity={initialArrivalCityName}
-                dateInputType="date"
-                title={t('title')}
-            />
-            <BookingRouteDetails routeSlug={slug} />
-            <WeOfferSection />
-            <AboutRoute direction={direction} />
-            {/* <RoadAdvices direction={direction} /> commented out for now */}
-            <TransportationRules />
-            <TrustSection />
-            <BookingSection
-                initialDepartureCountry={initialDepartureCountry}
-                initialArrivalCountry={initialArrivalCountry}
-                initialDepartureCity={initialDepartureCityName}
-                initialArrivalCity={initialArrivalCityName}
-                dateInputType="date"
-                title={t('title')}
-            />
+            <BookingProvider>
+                <BookingSection
+                    initialDepartureCountry={initialDepartureCountry}
+                    initialArrivalCountry={initialArrivalCountry}
+                    initialDepartureCity={initialDepartureCityName}
+                    initialArrivalCity={initialArrivalCityName}
+                    dateInputType="date"
+                    title={t('title')}
+                />
+                <BookingRouteDetails routeSlug={slug} />
+                <WeOfferSection />
+                <AboutRoute direction={direction} />
+                {/* <RoadAdvices direction={direction} /> commented out for now */}
+                <TransportationRules />
+                <TrustSection />
+                <BookingSection
+                    initialDepartureCountry={initialDepartureCountry}
+                    initialArrivalCountry={initialArrivalCountry}
+                    initialDepartureCity={initialDepartureCityName}
+                    initialArrivalCity={initialArrivalCityName}
+                    dateInputType="date"
+                    title={t('title')}
+                />
+            </BookingProvider>
             <FAQSection direction={direction} />
         </div>
     );
