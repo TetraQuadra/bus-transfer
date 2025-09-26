@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "node scripts/validate-articles.mjs && next build",
+    "build": "node scripts/validate-articles.mjs && node scripts/test-prices.mjs && next build",
     "build:ssg:full": "cross-env LOG_SSG_BOOK=full next build",
     "build:ssg:summary": "cross-env LOG_SSG_BOOK=summary next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:prices": "node scripts/test-prices.mjs"
   },
   "dependencies": {
     "next": "15.4.6",
