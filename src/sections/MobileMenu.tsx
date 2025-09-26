@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import ParcelDropdown from '@/components/ParcelDropdown';
 
-type NavItem = { label: string; href: string };
+type NavItem = { label: string; href: string; isDropdown?: boolean };
 
 type Props = {
     items: NavItem[];
@@ -52,11 +53,16 @@ const MobileMenu = ({ items }: Props) => {
             {open && (
                 <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 z-50 p-3">
                     <nav className="flex flex-col gap-2">
-                        {items.map((item) => (
-                            <Link key={item.href} href={item.href} className="px-3 py-2 rounded-md hover:bg-gray-50" onClick={() => setOpen(false)}>
-                                {item.label}
-                            </Link>
-                        ))}
+                        {items.map((item, index) => {
+                            if (item.isDropdown) {
+                                return <ParcelDropdown key={index} isMobile={true} />;
+                            }
+                            return (
+                                <Link key={item.href} href={item.href} className="px-3 py-2 rounded-md hover:bg-gray-50" onClick={() => setOpen(false)}>
+                                    {item.label}
+                                </Link>
+                            );
+                        })}
                     </nav>
                     <div className="mt-3 pt-3 border-t border-gray-200 flex justify-center">
                         <LanguageSwitcher size="lg" />

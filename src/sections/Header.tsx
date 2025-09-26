@@ -5,7 +5,7 @@ const Header = async () => {
     const t = await getTranslations('header');
 
     const navigationItems = [
-        { label: t('navigation.handover'), href: "/#parcels" },
+        { label: t('navigation.handover'), href: "/#parcels", isDropdown: true },
         { label: t('navigation.fleet'), href: "/#fleet" },
         { label: t('navigation.services'), href: "/#services" },
         { label: t('navigation.about'), href: "/about" },

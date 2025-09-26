@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import FooterParcelDropdown from '@/components/FooterParcelDropdown';
 
 //TODO: Добавить ссылки на страницы
 
@@ -53,9 +54,7 @@ const Footer = async () => {
                                 <Link href="/#routes" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.routes')}
                                 </Link>
-                                <Link href="/parcels" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
-                                    {t('info.links.parcels')}
-                                </Link>
+                                <FooterParcelDropdown />
                                 <Link href="/#routes" className="block text-[18px] font-regular text-foreground hover:text-[var(--color-primary)] transition-colors">
                                     {t('info.links.prices')}
                                 </Link>
