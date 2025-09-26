@@ -246,11 +246,10 @@ const BookingSection = ({
                 const payload: BookingFormData = { ...formData };
                 const res = await fetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
                 if (!res.ok) {
-                    const errText = await res.text().catch(() => '');
                     throw new Error(`Send failed: ${res.status}`);
                 }
                 setSent(true);
-            } catch (e) {
+            } catch {
                 alert(t('error'));
             } finally {
                 setSubmitting(false);
@@ -321,6 +320,7 @@ const BookingSection = ({
                                 }}
                                 suggestions={departureCitySuggestions}
                                 error={errors.departureCity || (depCityMismatch ? t('errors.cityCountryMismatch') : '')}
+                                maxItems={50}
                                 required
                             />
 
@@ -349,6 +349,7 @@ const BookingSection = ({
                                 }}
                                 suggestions={arrivalCitySuggestions}
                                 error={errors.arrivalCity || (arrCityMismatch ? t('errors.cityCountryMismatch') : '')}
+                                maxItems={50}
                                 required
                             />
                             {(invalidDirection) && (
