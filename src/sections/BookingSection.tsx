@@ -70,6 +70,11 @@ const BookingSection = ({
     const [errors, setErrors] = useState<Partial<Record<keyof BookingFormData, string>>>({});
     const hasErrors = useMemo(() => Object.values(errors).some(Boolean), [errors]);
 
+    // Отслеживаем заполненность полей для анимации кнопки
+    const hasRouteFields = useMemo(() => {
+        return !!(formData.departureCountry || formData.departureCity || formData.arrivalCountry || formData.arrivalCity);
+    }, [formData.departureCountry, formData.departureCity, formData.arrivalCountry, formData.arrivalCity]);
+
     // Лайв-валидация маршрута для обновления контекста
     useRouteValidation({
         departureCountry: formData.departureCountry,
@@ -387,7 +392,10 @@ const BookingSection = ({
                             <button
                                 type="button"
                                 onClick={handleSwapRoutes}
-                                className="absolute right-1/2 top-1/2 -translate-y-1/5 translate-x-1/2 group flex items-center justify-center w-12 h-12 bg-white border-2 border-gray-300 rounded-full hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-110 max-lg:right-[50%]"
+                                className={`absolute right-1/2 top-1/2 -translate-y-1/5 translate-x-1/2 group flex items-center justify-center w-12 h-12 bg-white border-2 border-gray-300 rounded-full hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)] transition-all duration-500 shadow-lg hover:shadow-xl transform hover:scale-110 max-lg:right-[50%] ${hasRouteFields
+                                    ? 'opacity-100 scale-100'
+                                    : 'opacity-0 scale-0 pointer-events-none'
+                                    }`}
                                 title={t('swapRoutes')}
                             >
                                 <svg
