@@ -488,38 +488,57 @@
     "items": [
       {
         "id": 1,
-        "name": "Viktoriia Vitaliivna",
-        "date": "15.12.24",
-        "avatar": "/reviews/avatar.png",
-        "text": "Very satisfied with the cooperation with 'World of Modern Transportation'. Fast, organized, without unnecessary hassle. The driver arrived on time, communication was clear and prompt. The items were delivered intact and undamaged, well packaged. The price is reasonable. I recommend this company to anyone looking for a reliable carrier."
+        "name": "Mykola Korobenko",
+        "date": "26.08.2025",
+        "text": "Very good and reliable carrier, my family has been using it for more than a year. Reliable and proven. I recommend it to everyone."
       },
       {
         "id": 2,
-        "name": "Oleksandr Petrovych",
-        "date": "08.12.24",
-        "avatar": "/reviews/avatar.png",
-        "text": "Excellent service! The driver arrived exactly at the appointed time, the vehicle was clean and comfortable. The trip went smoothly, and the rest stops were convenient. The price is fair for such quality service. I will definitely use it again."
+        "name": "Iryna Ivakhnenko",
+        "date": "29.08.2025",
+        "text": "I want to thank World of Modern Transportation from the bottom of my heart! Everything as usual at the highest level! Safe, convenient, comfortable! Special thanks to driver Kola. The right person in the right place! I've been traveling for 3 years and recommend it to everyone! Thank you"
       },
       {
         "id": 3,
-        "name": "Mariia Ivanivna",
-        "date": "01.12.24",
-        "avatar": "/reviews/avatar.png",
-        "text": "I traveled with the company for the first time and was very satisfied. The driver was professional and attentive, and the route was optimal. The bus was modern and had all the necessary amenities. I recommend it for trips to Europe."
+        "name": "Daryna Kohutenko",
+        "date": "31.08.2025",
+        "text": "Best carrier! The bus is always clean and comfortable, drivers are attentive and friendly. Very grateful for the care and service! I recommend it to everyone who is looking for safe and reliable transportation abroad!"
       },
       {
         "id": 4,
-        "name": "Andrii Serhiiovych",
-        "date": "24.11.24",
-        "avatar": "/reviews/avatar.png",
-        "text": "A great company for transportation! The driver was experienced, and the vehicle was in excellent condition. The trip was comfortable, with stops in convenient places. The price is reasonable for such quality service."
+        "name": "Tanya Shylo",
+        "date": "02.09.2025",
+        "text": "Fast, quality, convenient. Drivers are polite, ready to help, with humor. 100% positive, 0% negative. We will continue to travel and recommend you. You are the best. Thank you."
       },
       {
         "id": 5,
-        "name": "Tetiana Oleksandrivna",
-        "date": "17.11.24",
-        "avatar": "/reviews/avatar.png",
-        "text": "Very satisfied with the quality of service. The driver was polite and professional, and arrived on time. The bus was clean and comfortable. The trip went without problems. I recommend this company to everyone."
+        "name": "Yulia Tarasova",
+        "date": "05.09.2025",
+        "text": "I've been traveling abroad with such buses for more than 10 years and I will be pleasantly surprised to finally see luxury service: clean, soft comfortable seats in the cabin (important for a long journey), Wi-Fi and most importantly, a sensitive, kind, quick-witted, patient, cheerful driver Nikolay!"
+      },
+      {
+        "id": 6,
+        "name": "Yana Kolosa",
+        "date": "07.09.2025",
+        "text": "I am very grateful to the World of Modern Transportation route and recommend it to everyone. Very comfortable, has Wi-Fi, air conditioning, reclining seats, it's very comfortable to sleep, the driver is 24/7 positive, humane, with humor and very pleasant, and most importantly, fulfills all passengers' wishes. I am immensely grateful to this company. With such comfort, I have been traveling for 15 years and am always satisfied"
+      },
+      {
+        "id": 7,
+        "name": "Oksana Yarmolenko",
+        "date": "09.09.2025",
+        "text": "Very satisfied with the trip! The driver is polite and punctual, the luxury class bus is simply incredible. The trip went quickly and without problems. I will definitely travel again"
+      },
+      {
+        "id": 8,
+        "name": "Svitlana Korobenko",
+        "date": "11.09.2025",
+        "text": "Best carrier. We have used them repeatedly, they live up to expectations, the cars are comfortable and convenient, the drivers are attentive, pleasant. Highly recommend."
+      },
+      {
+        "id": 9,
+        "name": "Katrin Manita",
+        "date": "12.09.2025",
+        "text": "The trip was pleasant. Nikolay, thank you, you are the best driver!"
       }
     ]
   },

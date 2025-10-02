@@ -10,7 +10,7 @@ import { useTranslations } from '@/hooks/useTranslations';
 
 const ReviewsSection = () => {
     const t = useTranslations('reviews');
-    const items = t.raw('items') as Array<{ id: number; name: string; date: string; text: string; avatar: string }>;
+    const items = t.raw('items') as Array<{ id: number; name: string; date: string; text: string }>;
     return (
         <section id="reviews" className="w-full mb-15 md:mb-16">
             <GallerySlider title={t('title')}>
@@ -21,7 +21,6 @@ const ReviewsSection = () => {
                             name={review.name}
                             date={review.date}
                             text={review.text}
-                            avatar={review.avatar}
                         />
                     </SwiperSlide>
                 ))}
