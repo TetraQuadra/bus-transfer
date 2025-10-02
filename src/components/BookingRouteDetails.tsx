@@ -189,7 +189,8 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                             width: 36,
                             height: 36,
                             label: t('cost'),
-                            value: loading ? '...' : `${currentPrice}€`
+                            value: loading ? '...' : `${currentPrice}€`,
+                            note: t('bookingNote')
                         },
                         {
                             icon: "/icons/clock.png",
@@ -217,22 +218,29 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                         }
                     ].map((item, index) => (
                         <div key={index} className="flex items-center gap-3 max-sm:gap-1">
-                            <div className='w-[42px] h-[42px] flex items-center justify-center max-sm:w-[36px] max-sm:h-[36px]'>
+                            <div className='w-[42px] h-[42px] flex items-center justify-center max-sm:w-[36px] max-sm:h-[36px] flex-shrink-0'>
                                 <Image
                                     src={item.icon}
                                     alt={item.alt}
                                     width={item.width}
                                     height={item.height}
-                                    className="object-contain max-sm:scale-75"
+                                    className="object-contain max-sm:scale-75 w-full h-full"
                                 />
                             </div>
-                            <div className="">
-                                <span className="text-[16px] max-sm:text-[16px]">
-                                    {item.label}: &nbsp;
-                                </span>
-                                <span className="text-foreground text-[16px] max-sm:text-[16px] max-sm:w-[110px]">
-                                    {item.value}
-                                </span>
+                            <div className="flex flex-col">
+                                <div className="">
+                                    <span className="text-[16px] max-sm:text-[16px]">
+                                        {item.label}: &nbsp;
+                                    </span>
+                                    <span className="text-foreground text-[16px] max-sm:text-[16px] max-sm:w-[110px]">
+                                        {item.value}
+                                    </span>
+                                </div>
+                                {item.note && (
+                                    <span className="text-gray-500 text-sm max-sm:text-[10px]">
+                                        {item.note}
+                                    </span>
+                                )}
                             </div>
                         </div>
                     ))}

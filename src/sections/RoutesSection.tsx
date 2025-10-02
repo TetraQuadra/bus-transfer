@@ -84,7 +84,8 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
                                             alt: t('alt.price'),
                                             width: 36,
                                             height: 36,
-                                            value: t(`routes.${selectedRouteId}.info.price`)
+                                            value: t(`routes.${selectedRouteId}.info.price`),
+                                            note: t('bookingNote')
                                         },
                                         {
                                             icon: "/icons/clock.png",
@@ -109,18 +110,25 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
                                         }
                                     ].map((item, index) => (
                                         <div key={index} className="flex items-center gap-3 max-sm:gap-1">
-                                            <div className='w-[42px] h-[42px] flex items-center justify-center max-sm:w-[36px] max-sm:h-[36px]'>
+                                            <div className='w-[42px] h-[42px] flex items-center justify-center max-sm:w-[36px] max-sm:h-[36px] flex-shrink-0'>
                                                 <Image
                                                     src={item.icon}
                                                     alt={item.alt}
                                                     width={item.width}
                                                     height={item.height}
-                                                    className="object-contain max-sm:scale-75"
+                                                    className="object-contain max-sm:scale-75 w-full h-full"
                                                 />
                                             </div>
-                                            <span className="text-foreground max-sm:text-[12px] max-sm:w-[110px]">
-                                                {item.value}
-                                            </span>
+                                            <div className="flex flex-col">
+                                                <span className="text-foreground max-sm:text-[12px] max-sm:w-[110px]">
+                                                    {item.value}
+                                                </span>
+                                                {item.note && (
+                                                    <span className="text-gray-500 text-sm max-sm:text-[10px]">
+                                                        {item.note}
+                                                    </span>
+                                                )}
+                                            </div>
                                         </div>
                                     ))}
                                 </div>

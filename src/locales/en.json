@@ -180,7 +180,8 @@
       "routeNotFound": "Route not found",
       "routeNotFoundDescription": "Please check the URL or try another route",
       "selectRoute": "Select route",
-      "selectRouteDescription": "Fill out the form above to see route information"
+      "selectRouteDescription": "Fill out the form above to see route information",
+      "bookingNote": "specific seat booking costs additional 20€"
     },
     "meta": {
       "directionTitlePrefix": "Bus tickets Ukraine — {direction}",
@@ -399,7 +400,8 @@
           "frequency": "Stops: every 3-4 hours"
         }
       }
-    }
+    },
+    "bookingNote": "specific seat booking costs additional 20€"
   },
   "benefits": {
     "title": "From this moment, you no longer need to:",
