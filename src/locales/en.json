@@ -711,6 +711,11 @@
     "smallAnimal": "A small animal can travel in your arms — an additional fee is 50€.",
     "largeAnimal": "If the animal is larger (up to 7 kg), you must purchase a separate seat."
   },
+  "parcelsAdditionalInfo": {
+    "minimumCost": "Minimum delivery cost is 50€, weight up to 25 kg, if more – 2€ per kg.",
+    "rules": "Rules: Packaging must be in a suitcase or a bag. It is not necessary to wrap luggage with film or tape, because each parcel is checked by the border service. Before handing over, you must attach all recipient's data with full address and phone number. You send us the list of parcel contents via messenger.",
+    "deliveryTime": "Delivery time is from 24 hours to 4 days. In Europe, we pick up from the address, in Ukraine we work with Nova Poshta."
+  },
   "petsServiceAdvantages": {
     "items": {
       "1": {

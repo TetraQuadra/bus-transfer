@@ -4,7 +4,6 @@ import PetsRules from "@/sections/PetsRules";
 import PetsSecurity from "@/sections/PetsSecurity";
 import PetsServiceAdvantages from "@/sections/PetsServiceAdvantages";
 import PetsTitle from "../../../sections/PetsTitle";
-import PetsAdditionalInfo from "@/sections/PetsAdditionalInfo";
 import PetsPricing from "@/sections/PetsPricing";
 import { getTranslations } from "next-intl/server";
 import BookingSection from "@/sections/BookingSection";

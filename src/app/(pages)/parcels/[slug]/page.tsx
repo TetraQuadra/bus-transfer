@@ -7,6 +7,7 @@ import ParcelRules from '@/sections/ParcelRules';
 import ParcelInfo from '@/sections/ParcelInfo';
 import BookingSection from '@/sections/BookingSection';
 import HowWeWorkSection from '@/sections/HowWeWorkSection';
+import ParcelsAdditionalInfo from '@/sections/ParcelsAdditionalInfo';
 
 type DirectionId = 'poland' | 'germany' | 'belgium' | 'netherlands';
 
@@ -93,6 +94,7 @@ export default async function ParcelsPage({ params }: { params: Promise<{ slug: 
                 <ParcelAdvantages />
                 <ParcelRules country={tCountry('name')} />
                 <HowWeWorkSection translationKey="howWeWorkParcels" />
+                <ParcelsAdditionalInfo />
                 <BookingSection
                     title={tBooking('bookSeatTitle')}
                     dateInputType="text"
