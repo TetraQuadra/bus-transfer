@@ -531,7 +531,7 @@
     },
     "cards": {
       "first": {
-        "title": "7 years on the market",
+        "title": "on the market since 2013",
         "description": "We have extensive experience and thousands of successful trips across Ukraine and Europe."
       },
       "second": {
@@ -872,8 +872,8 @@
           "tea, coffee",
           "plant-based preserves (jam, vegetables, mushrooms) — in small volumes",
           "non-alcoholic drinks (juices, water, lemonades)",
-          "alcohol: up to 1 l of spirits or up to 2 l of wine, or up to 5 l of beer (in total no more than 1 l of spirits per person aged 17+)",
-          "tobacco: up to 200 cigarettes or 50 cigars, or 250 g of tobacco (from 17 years old)"
+          "alcohol: up to 1 l of spirits or up to 2 l of wine, or up to 5 l of beer (in total no more than 1 l of spirits per person aged 18+)",
+          "tobacco: 40 cigarettes (two packs) (from 18 years old)"
         ]
       },
       "personal": {
@@ -925,6 +925,35 @@
         "To Poland duty‑free you may bring goods up to €300 (for land border crossers)",
         "Baggage — up to 50 kg (if more, you may be asked to confirm it's not for commercial use)"
       ]
+    }
+  },
+  "howWeWorkParcels": {
+    "title": "HOW WE WORK",
+    "steps": {
+      "1": {
+        "title": "You submit a request",
+        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram"
+      },
+      "2": {
+        "title": "We contact you",
+        "description": "A manager clarifies transfer details, answers all questions, and reserves a seat"
+      },
+      "3": {
+        "title": "Payment for services",
+        "description": "Your parcel arrives at our location, and you pay the shipping cost"
+      },
+      "4": {
+        "title": "We carry out the transfer",
+        "description": "After passing customs control, the driver calls the recipient and delivers the items upon arrival at the agreed location"
+      },
+      "5": {
+        "title": "Customer support",
+        "description": "24/7 support from Mon-Fri before, during, and after the trip — we are in touch with you"
+      },
+      "6": {
+        "title": "Loyalty program",
+        "description": "Come back again and get discounts, bonuses, or priority booking."
+      }
     }
   }
 }

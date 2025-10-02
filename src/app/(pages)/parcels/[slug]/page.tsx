@@ -92,7 +92,7 @@ export default async function ParcelsPage({ params }: { params: Promise<{ slug: 
                 />
                 <ParcelAdvantages />
                 <ParcelRules country={tCountry('name')} />
-                <HowWeWorkSection />
+                <HowWeWorkSection translationKey="howWeWorkParcels" />
                 <BookingSection
                     title={tBooking('bookSeatTitle')}
                     dateInputType="text"

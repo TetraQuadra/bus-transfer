@@ -10,8 +10,12 @@ const STEPS_META = [
     { id: '6', number: '6', icon: '/how-we-work/6.png' }
 ];
 
-const HowWeWorkSection = async () => {
-    const t = await getTranslations('howWeWork');
+interface HowWeWorkSectionProps {
+    translationKey?: string;
+}
+
+const HowWeWorkSection = async ({ translationKey = 'howWeWork' }: HowWeWorkSectionProps) => {
+    const t = await getTranslations(translationKey);
     return (
         <section id="how-we-work" className="w-full mb-15 md:mb-16">
             <h2 className="text-[40px] font-regular text-center text-foreground mb-12">
@@ -37,7 +41,7 @@ const HowWeWorkSection = async () => {
                             />
                         </div>
 
-                        <div className="pr-16">
+                        <div className="">
                             <h3 className="text-[26px] font-medium text-foreground mb-3">
                                 {t(`steps.${item.id}.title`)}
                             </h3>
