@@ -5,9 +5,9 @@ const Header = async () => {
     const t = await getTranslations('header');
 
     const navigationItems = [
-        { label: t('navigation.handover'), href: "/#parcels", isDropdown: true },
+        { label: t('navigation.handover'), href: "/#parcels", isDropdown: true, dropdownType: 'parcels' },
         { label: t('navigation.fleet'), href: "/#fleet" },
-        { label: t('navigation.services'), href: "/#services" },
+        { label: t('navigation.services'), href: "/#services", isDropdown: true, dropdownType: 'services' },
         { label: t('navigation.about'), href: "/about" },
         { label: t('navigation.contacts'), href: "/#footer" },
         { label: t('navigation.helpful'), href: "/#useful" },

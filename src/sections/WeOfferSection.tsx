@@ -5,17 +5,17 @@ const services = [
     {
         id: 'passengers',
         image: '/we_offer/passengers.png',
-        href: '/#routes', // Ссылка на секцию маршрутов
+        href: '/#routes',
     },
     {
         id: 'packages',
         image: '/we_offer/packages.png',
-        href: '/parcels/poland', // Ссылка на страницу посылок (по умолчанию Польша)
+        href: '/parcels/poland',
     },
     {
         id: 'pets',
         image: '/we_offer/pets.png',
-        href: '/pets', // Ссылка на страницу перевозки животных
+        href: '/pets',
     }
 ];
 

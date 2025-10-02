@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 type NavigationItem = {
     label: string;
     href: string;
+    isDropdown?: boolean;
+    dropdownType?: string;
 };
 
 interface HeaderClientProps {

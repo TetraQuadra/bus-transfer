@@ -4,9 +4,10 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import ParcelDropdown from '@/components/ParcelDropdown';
+import ServicesDropdown from '@/components/ServicesDropdown';
 import Button from '@/components/Button';
 
-type NavItem = { label: string; href: string; isDropdown?: boolean };
+type NavItem = { label: string; href: string; isDropdown?: boolean; dropdownType?: string };
 
 type Props = {
     items: NavItem[];
@@ -56,8 +57,11 @@ const MobileMenu = ({ items, bookLabel }: Props) => {
                 <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 z-50 p-3">
                     <nav className="flex flex-col gap-2">
                         {items.map((item, index) => {
-                            if (item.isDropdown) {
+                            if (item.isDropdown && item.dropdownType === 'parcels') {
                                 return <ParcelDropdown key={index} isMobile={true} />;
+                            }
+                            if (item.isDropdown && item.dropdownType === 'services') {
+                                return <ServicesDropdown key={index} isMobile={true} />;
                             }
                             return (
                                 <Link key={item.href} href={item.href} className="px-3 py-2 rounded-md hover:bg-gray-50" onClick={() => setOpen(false)}>

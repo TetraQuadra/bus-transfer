@@ -1,11 +1,13 @@
 import Link from "next/link";
 import ParcelDropdown from "./ParcelDropdown";
+import ServicesDropdown from "./ServicesDropdown";
 
 interface NavItem {
     label: string;
     href: string;
     isActive?: boolean;
     isDropdown?: boolean;
+    dropdownType?: string;
 }
 
 interface NavigationProps {
@@ -17,8 +19,11 @@ const Navigation = ({ items, className = "" }: NavigationProps) => {
     return (
         <nav className={`hidden max-[1000px]:hidden min-[1000px]:flex items-center gap-[18px] ${className}`}>
             {items.map((item, index) => {
-                if (item.isDropdown) {
+                if (item.isDropdown && item.dropdownType === 'parcels') {
                     return <ParcelDropdown key={index} />;
+                }
+                if (item.isDropdown && item.dropdownType === 'services') {
+                    return <ServicesDropdown key={index} />;
                 }
                 return (
                     <Link
