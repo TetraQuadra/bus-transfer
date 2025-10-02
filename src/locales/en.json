@@ -702,6 +702,15 @@
       }
     }
   },
+  "petsAdditionalInfo": {
+    "title": "ADDITIONAL INFORMATION",
+    "description": "Current requirements apply to cats and dogs. For your trip with your pet to go smoothly, you must have all necessary documents and follow transportation rules."
+  },
+  "petsPricing": {
+    "title": "PET TRANSPORTATION COST",
+    "smallAnimal": "A small animal can travel in your arms — an additional fee is 50€.",
+    "largeAnimal": "If the animal is larger (up to 7 kg), you must purchase a separate seat."
+  },
   "petsServiceAdvantages": {
     "items": {
       "1": {
