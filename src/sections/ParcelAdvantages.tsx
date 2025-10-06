@@ -19,8 +19,8 @@ const ParcelAdvantages = () => {
                                 key={item.id}
                                 className="w-full md:max-w-[350px] max-md:max-w-[400px] mx-auto"
                             >
-                                <div className="flex items-start">
-                                    <div className="w-[2px] h-[140px] bg-black mr-6 max-md:h-[90px]"></div>
+                                <div className="border-l-2 border-black flex items-start">
+                                    <div className="mr-6 h-full"></div>
                                     <div className="flex-1">
                                         <h3 className="text-[26px] font-medium text-foreground mb-2">
                                             {item.title}
