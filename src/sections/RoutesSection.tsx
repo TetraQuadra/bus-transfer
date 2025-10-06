@@ -31,7 +31,7 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
         <section id="routes" className="w-full mb-15 md:mb-16">
             <div className="">
                 <div className="w-full">
-                    <div className="flex lg:flex-nowrap gap-8 max-w-7xl mx-auto max-lg:flex-col max-sm:items-center">
+                    <div className="flex lg:flex-nowrap gap-8 max-w-7xl mx-auto max-lg:flex-col max-sm:items-center max-lg:gap-4">
                         <div className="flex flex-col lg:max-w-[290px] gap-6 max-lg:w-full max-lg:order-1">
                             <h3 className="text-[34px] font-regular text-foreground mb-4 max-sm:text-[30px] max-sm:mb-2 max-lg:text-center">
                                 {t('title')}
@@ -51,7 +51,7 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
                         </div>
 
                         <div className="flex flex-col gap-4 items-center justify-center bg-white rounded-[10px] lg:w-[560px] max-lg:w-full max-lg:order-3">
-                            <h3 className="text-[26px] font-regular text-foreground mb-4">
+                            <h3 className="text-[26px] font-regular text-foreground mb-4 max-lg:pt-4">
                                 {t(`routes.${selectedRouteId}.name`)}
                             </h3>
                             <div className="relative">
@@ -67,7 +67,7 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
                             </div>
                         </div>
 
-                        <Button as="link" href={`/book/${selectedRouteId}`} className="w-full lg:hidden mt-2 max-lg:order-4">
+                        <Button as="link" href={`/book/${selectedRouteId}`} className="w-full lg:hidden mt-2 max-lg:order-4 max-h-[60px] max-lg:max-w-[290px] max-lg:mx-auto">
                             {t('more')}
                         </Button>
 

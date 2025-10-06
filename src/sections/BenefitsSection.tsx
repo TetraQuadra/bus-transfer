@@ -13,7 +13,7 @@ const BenefitsSection = () => {
         <section id="benefits" className="w-full bg-[var(--color-secondary)] rounded-[10px] shadow-lg mb-15 md:mb-16 py-8 sm:py-10 md:py-12 lg:py-14">
             <div className="w-full">
                 <div className="max-w-7xl mx-auto px-4">
-                    <h2 className="text-[22px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-medium text-white text-center mb-6 sm:mb-8">
+                    <h2 className="text-[30px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-regular text-white text-left mb-6 sm:mb-8">
                         {t('title')}
                     </h2>
 
@@ -21,10 +21,10 @@ const BenefitsSection = () => {
                         {benefits.map((benefit) => (
                             <div
                                 key={benefit.id}
-                                className="flex items-center max-w-full md:max-w-[280px]"
+                                className="flex items-center max-w-[295px]"
                             >
-                                <div className="w-1 h-10 sm:h-12 md:h-16 bg-white mr-4 sm:mr-5 md:mr-6"></div>
-                                <p className="text-white text-[18px] sm:text-[20px] md:text-[22px] lg:text-[26px] font-regular">
+                                <div className="min-w-[2px] h-10 sm:h-12 md:h-16 bg-white mr-4 sm:mr-5 md:mr-6"></div>
+                                <p className="text-white text-[24px] sm:text-[24px] md:text-[24px] lg:text-[26px] font-regular">
                                     {benefit.text}
                                 </p>
                             </div>

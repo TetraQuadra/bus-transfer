@@ -35,7 +35,7 @@ const PopularRoutesSection = async () => {
                     <div className="grid max-sm:grid-cols-2 max-lg:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
                         {countries.map((country) => (
                             <div key={country} className="flex flex-col">
-                                <h3 className="text-[24px] font-medium text-foreground mb-4">
+                                <h3 className="text-[24px] font-medium text-foreground mb-4 max-md:text-[30px]">
                                     {country}
                                 </h3>
 
