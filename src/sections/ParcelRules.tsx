@@ -35,7 +35,7 @@ const ParcelRules = ({ country }: ParcelRulesProps) => {
 
     return (
         <section className="w-full mb-15 md:mb-16">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-8">
                     <h2 className="text-[30px] lg:text-[40px] font-regular text-foreground mb-4 uppercase">
                         {t('title', { country })}

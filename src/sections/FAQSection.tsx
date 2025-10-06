@@ -23,9 +23,8 @@ const FAQSection = ({ direction }: Props) => {
 
     return (
         <section id="faq" className="bg-background w-full mb-15 md:mb-16">
-            <div className="px-4">
+            <div className="">
                 <div className="flex flex-col lg:flex-row gap-12 items-start">
-                    {/* FAQ Section */}
                     <div className="flex-3">
                         <h2 className="text-[30px] lg:text-[40px] font-regular text-foreground mb-4 leading-[30px] uppercase lg:leading-[40px]">
                             {t('title')}

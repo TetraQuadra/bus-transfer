@@ -77,7 +77,7 @@ const CompactGallery = ({
                                             slidesPerView: slidesPerView.tablet,
                                             spaceBetween: spaceBetween,
                                         },
-                                        850: {
+                                        768: {
                                             slidesPerView: slidesPerView.desktop,
                                             spaceBetween: spaceBetween,
                                         },
@@ -100,7 +100,7 @@ const CompactGallery = ({
                         </div>
 
                         {showNavigation && (
-                            <div className="flex justify-center gap-12 mt-4">
+                            <div className="flex justify-center gap-2 xl:gap-8 mt-4">
                                 <button
                                     onClick={handlePrev}
                                     className="w-[60px] h-[60px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200 lg:flex "
@@ -108,8 +108,8 @@ const CompactGallery = ({
                                     <Image
                                         src="/icons/ArrowButtonRight.svg"
                                         alt="Попередні"
-                                        width={20}
-                                        height={20}
+                                        width={34}
+                                        height={34}
                                         quality={100}
                                         className="rotate-180"
                                     />
@@ -121,8 +121,8 @@ const CompactGallery = ({
                                     <Image
                                         src="/icons/ArrowButtonRight.svg"
                                         alt="Наступні"
-                                        width={20}
-                                        height={20}
+                                        width={34}
+                                        height={34}
                                         quality={100}
                                     />
                                 </button>

@@ -7,7 +7,7 @@ const TrustSection = () => {
     const t = useTranslations('trust');
     return (
         <section id="trust" className="mb-15 md:mb-16 w-full">
-            <div className="max-w-7xl mx-auto px-4">
+            <div className="max-w-7xl mx-auto">
                 <h2 className="text-[30px] lg:text-[40px] font-regular text-center text-foreground mb-12 uppercase">
                     {t('title')}
                 </h2>

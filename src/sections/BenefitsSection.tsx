@@ -12,7 +12,7 @@ const BenefitsSection = () => {
     return (
         <section id="benefits" className="w-full bg-[var(--color-secondary)] rounded-[10px] shadow-lg mb-15 md:mb-16 py-8 sm:py-10 md:py-12 lg:py-14">
             <div className="w-full">
-                <div className="max-w-7xl mx-auto px-4">
+                <div className="max-w-7xl mx-auto">
                     <h2 className="text-[30px] sm:text-[28px] md:text-[32px] lg:text-[36px] font-regular text-white text-left mb-6 sm:mb-8">
                         {t('title')}
                     </h2>

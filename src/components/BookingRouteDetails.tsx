@@ -26,12 +26,10 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
     const [priceData, setPriceData] = useState<PriceResult | null>(null);
     const [loading, setLoading] = useState(true);
 
-    // Стабилизируем routeToUse чтобы избежать бесконечных циклов
     const routeToUse = useMemo(() => {
         return selectedRoute || lastValidRoute;
     }, [selectedRoute, lastValidRoute]);
 
-    // Создаем стабильный targetRouteSlug
     const targetRouteSlug = useMemo(() => {
         if (routeToUse && (!routeSlug.includes('-') || routeSlug.split('-').length !== 2)) {
             return `${routeToUse.fromCity.slug}-${routeToUse.toCity.slug}`;
@@ -46,7 +44,6 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                 setPriceData(price);
             } catch (error) {
                 console.error('Error fetching price:', error);
-                // Если не удалось загрузить цены, сбрасываем данные
                 setPriceData(null);
             } finally {
                 setLoading(false);
@@ -56,10 +53,9 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
         fetchPrice();
     }, [targetRouteSlug, routeToUse]);
 
-    // Парсим маршрут из слага
     if (!routeSlug || typeof routeSlug !== 'string') {
         return (
-            <div className="p-8">
+            <div className="p-8 mb-15 md:mb-16">
                 <div className="bg-red-50 border border-red-200 rounded-2xl p-8 shadow-lg">
                     <div className="text-center">
                         <h3 className="text-xl font-semibold text-red-800 mb-2">
@@ -76,8 +72,6 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
     const fromCity = findCityByName(fromSlug);
     const toCity = findCityByName(toSlug);
 
-    // Если нет городов в слаге, но есть данные в контексте - продолжаем
-    // Если нет ни того, ни другого - показываем заглушку
     if ((!fromCity || !toCity) && !selectedRoute) {
         return (
             <div className="p-8">
@@ -105,14 +99,11 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
         }
     };
 
-    // Используем данные из контекста, если доступны, иначе из routeSlug
-    // Если текущий маршрут не валиден, показываем последний валидный
     const displayFromCity = routeToUse?.fromCity || fromCity;
     const displayToCity = routeToUse?.toCity || toCity;
     const currentPrice = serviceClass === 'comfort' ? priceData?.comfort : priceData?.luxury;
     const images = Array.from({ length: 5 }, (_, i) => `/booking/${serviceClass}/${i + 1}.png`);
 
-    // Показываем заглушку только если нет данных ни в контексте, ни в слаге
     if (!displayFromCity || !displayToCity) {
         return (
             <div className="p-8">
@@ -131,120 +122,122 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
     }
 
     return (
-        <div className="p-8 gap-4 flex flex-col lg:flex-row max-md:p-0">
-            <div className="flex flex-col gap-8 min-w-1/5">
+        <div className="gap-4 flex flex-col xl:flex-row max-md:p-0 xl:h-[362px] mb-15 md:mb-16">
+            <div className="flex flex-col gap-8 xl:min-w-[290px] xl:justify-between">
                 <div className="">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-4">
+                    <h2 className="text-[48px] font-regular text-gray-800 mb-4">
                         {t('route')}
                     </h2>
-                    <div className="text-3xl font-bold text-gray-900 uppercase ">
+                    <div className="text-[48px] font-bold text-gray-900 uppercase leading-[48px] xl:leading-[30px] xl:text-[30px]">
                         {getCityName(displayFromCity)} - {getCityName(displayToCity)}
                     </div>
                 </div>
 
-                <div className="space-y-3 max-lg:flex max-lg:space-y-0 max-lg:gap-8">
+                <div className="space-y-3 max-xl:flex max-xl:space-y-0 max-xl:gap-1">
                     <button
                         onClick={() => setServiceClass('luxury')}
-                        className={`w-full p-4 rounded-lg border-2 transition-all ${serviceClass === 'luxury'
-                            ? 'border-green-500 bg-green-500 text-white'
-                            : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                        className={`w-full text-[25px] p-4 rounded-lg  transition-all ${serviceClass === 'luxury'
+                            ? ' bg-[var(--color-primary)] text-white'
+                            : ' bg-white text-foreground'
                             }`}
                     >
-                        <div className="text-lg font-semibold">{t('luxury')}</div>
+                        <div className="text-[25px]">{t('luxury')}</div>
                     </button>
                     <button
                         onClick={() => setServiceClass('comfort')}
-                        className={`w-full p-4 rounded-lg border-2 transition-all ${serviceClass === 'comfort'
-                            ? 'border-green-500 bg-green-500 text-white'
-                            : 'border-gray-300 bg-white text-gray-700 hover:border-gray-400'
+                        className={`w-full  p-4 rounded-lg transition-all ${serviceClass === 'comfort'
+                            ? 'bg-[var(--color-primary)] text-white'
+                            : ' bg-white text-foreground'
                             }`}
                     >
-                        <div className="text-lg font-semibold">{t('comfort')}</div>
+                        <div className="text-[25px]">{t('comfort')}</div>
                     </button>
                 </div>
             </div>
 
-            <div className="w-full lg:w-3/6 bg-white rounded-2xl p-4 pt-8 shadow-lg">
-                <CompactGallery slidesPerView={{ mobile: 1, tablet: 2, desktop: 3 }} showPagination loop autoplay spaceBetween={12} className='max-lg:h-[400px]'>
-                    {images.map((image, index) => (
-                        <SwiperSlide key={index}>
-                            <div className="w-full flex justify-center">
-                                <img src={image} alt="about" width={150} height={200} className="object-cover rounded-xl max-lg:h-[300px] max-lg:w-auto" />
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </CompactGallery>
-            </div>
-
-            <div className="w-full lg:w-80 lg:flex-shrink-0 bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                    {t('information')}
-                </h3>
-
-                <div className='lg:flex lg:flex-col gap-3 max-lg:grid max-lg:grid-cols-2 max-sm:gap-1 max-sm:grid-cols-1'>
-                    {[
-                        {
-                            icon: "/icons/money.png",
-                            alt: "Цена",
-                            width: 36,
-                            height: 36,
-                            label: t('cost'),
-                            value: loading ? '...' : `${currentPrice}€`,
-                            note: t('bookingNote')
-                        },
-                        {
-                            icon: "/icons/clock.png",
-                            alt: "Время",
-                            width: 42,
-                            height: 42,
-                            label: t('travelTime'),
-                            value: t('travelTimeValue')
-                        },
-                        {
-                            icon: "/icons/bus.png",
-                            alt: "Частота",
-                            width: 22,
-                            height: 40,
-                            label: t('stops'),
-                            value: t('stopsValue')
-                        },
-                        {
-                            icon: "/icons/people.png",
-                            alt: "Пассажиры",
-                            width: 40,
-                            height: 28,
-                            label: t('passengers'),
-                            value: t('passengersValue')
-                        }
-                    ].map((item, index) => (
-                        <div key={index} className="flex items-center gap-3 max-sm:gap-1">
-                            <div className='w-[42px] h-[42px] flex items-center justify-center max-sm:w-[36px] max-sm:h-[36px] flex-shrink-0'>
-                                <Image
-                                    src={item.icon}
-                                    alt={item.alt}
-                                    width={item.width}
-                                    height={item.height}
-                                    quality={100}
-                                    className="object-contain max-sm:scale-75 w-full h-full"
-                                />
-                            </div>
-                            <div className="flex flex-col">
-                                <div className="">
-                                    <span className="text-[16px] max-sm:text-[16px]">
-                                        {item.label}: &nbsp;
-                                    </span>
-                                    <span className="text-foreground text-[16px] max-sm:text-[16px] max-sm:w-[110px]">
-                                        {item.value}
-                                    </span>
+            <div className='flex flex-col gap-4 max-xl:justify-center lg:flex-row'>
+                <div className="w-full lg:w-6/10 xl:w-[577px] bg-white rounded-2xl p-0 pt-4 shadow-lg">
+                    <CompactGallery slidesPerView={{ mobile: 2, tablet: 3, desktop: 3 }} showPagination loop autoplay spaceBetween={12} className='max-xl:h-[306px]'>
+                        {images.map((image, index) => (
+                            <SwiperSlide key={index}>
+                                <div className="w-full flex justify-center">
+                                    <img src={image} alt="about" width={150} height={200} className="object-cover rounded-xl h-[207px] w-[155px] xl:h-[240px] xl:w-[180px]" />
                                 </div>
-                                {item.note && (
-                                    <span className="text-gray-500 text-sm max-sm:text-[10px]">
-                                        {item.note}
-                                    </span>
-                                )}
+                            </SwiperSlide>
+                        ))}
+                    </CompactGallery>
+                </div>
+
+                <div className="w-full lg:w-80 xl:w-[290px] lg:flex-shrink-0 bg-white rounded-2xl p-4 shadow-lg">
+                    <h3 className="text-[26px] font-regular mb-6 text-center">
+                        {t('information')}
+                    </h3>
+
+                    <div className='lg:flex lg:flex-col gap-4 max-lg:grid max-lg:grid-cols-2 max-sm:gap-4 max-sm:grid-cols-1'>
+                        {[
+                            {
+                                icon: "/icons/money.png",
+                                alt: "Цена",
+                                width: 36,
+                                height: 36,
+                                label: t('cost'),
+                                value: loading ? '...' : `${currentPrice}€`,
+                                note: t('bookingNote')
+                            },
+                            {
+                                icon: "/icons/clock.png",
+                                alt: "Время",
+                                width: 42,
+                                height: 42,
+                                label: t('travelTime'),
+                                value: t('travelTimeValue')
+                            },
+                            {
+                                icon: "/icons/bus.png",
+                                alt: "Частота",
+                                width: 22,
+                                height: 40,
+                                label: t('stops'),
+                                value: t('stopsValue')
+                            },
+                            {
+                                icon: "/icons/people.png",
+                                alt: "Пассажиры",
+                                width: 40,
+                                height: 28,
+                                label: t('passengers'),
+                                value: t('passengersValue')
+                            }
+                        ].map((item, index) => (
+                            <div key={index} className="flex items-center gap-3 max-sm:gap-1">
+                                <div className='w-[42px] h-[42px] flex items-center justify-center max-sm:w-[42px] max-sm:h-[42px] flex-shrink-0'>
+                                    <Image
+                                        src={item.icon}
+                                        alt={item.alt}
+                                        width={item.width}
+                                        height={item.height}
+                                        quality={100}
+                                        className="object-contain max-sm:scale-75 w-full h-full"
+                                    />
+                                </div>
+                                <div className="flex flex-col">
+                                    <div className="">
+                                        <span className="text-[16px] max-sm:text-[16px]">
+                                            {item.label}: &nbsp;
+                                        </span>
+                                        <span className="text-foreground text-[16px] max-sm:text-[16px] max-sm:w-[110px]">
+                                            {item.value}
+                                        </span>
+                                    </div>
+                                    {item.note && (
+                                        <span className="text-gray-500 text-sm max-sm:text-[10px]">
+                                            {item.note}
+                                        </span>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

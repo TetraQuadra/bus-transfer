@@ -70,12 +70,10 @@ const BookingSection = ({
     const [errors, setErrors] = useState<Partial<Record<keyof BookingFormData, string>>>({});
     const hasErrors = useMemo(() => Object.values(errors).some(Boolean), [errors]);
 
-    // Отслеживаем заполненность полей для анимации кнопки
     const hasRouteFields = useMemo(() => {
         return !!(formData.departureCountry || formData.departureCity || formData.arrivalCountry || formData.arrivalCity);
     }, [formData.departureCountry, formData.departureCity, formData.arrivalCountry, formData.arrivalCity]);
 
-    // Лайв-валидация маршрута для обновления контекста
     useRouteValidation({
         departureCountry: formData.departureCountry,
         departureCity: formData.departureCity,
@@ -83,13 +81,11 @@ const BookingSection = ({
         arrivalCity: formData.arrivalCity,
     });
 
-    // Списки для автодополнения из локалей
     const countries = t.raw('suggestions.countries') as string[];
     const locale = useLocale();
     const supported = ['uk', 'ru', 'en'] as const;
     const lang = (supported as readonly string[]).includes(locale) ? (locale as 'uk' | 'ru' | 'en') : 'uk';
 
-    // Маппинг code -> локализованное имя страны (индексация по массиву countries)
     const countryDisplayNameByCode = useMemo(() => {
         const indexMap: Record<'ukraine' | 'poland' | 'germany' | 'belgium' | 'netherlands', number> = {
             ukraine: 0,
@@ -101,7 +97,6 @@ const BookingSection = ({
         return (code: string) => countries[indexMap[code as keyof typeof indexMap]] ?? '';
     }, [countries]);
 
-    // Локализованные названия городов по странам
     const allCityNames = useMemo(() => ALL_CITIES.map(c => c.names[lang]), [lang]);
     const cityNamesByCountry = useMemo(() => {
         return ALL_CITIES.reduce<Record<string, string[]>>((acc, city) => {
@@ -131,7 +126,6 @@ const BookingSection = ({
             [field]: value
         }));
 
-        // Очищаем ошибку при вводе
         if (errors[field]) {
             setErrors((prev: Partial<Record<keyof BookingFormData, string>>) => ({
                 ...prev,
@@ -148,11 +142,9 @@ const BookingSection = ({
             arrivalCountry: prev.departureCountry,
             arrivalCity: prev.departureCity,
         }));
-        // Очищаем ошибки при смене маршрута
         setErrors({});
     };
 
-    // Подсказки для городов зависят от введённой страны
     const departureCountryCode = useMemo(() => countryMap.get(normalizeToken(formData.departureCountry || '')), [countryMap, formData.departureCountry]);
     const arrivalCountryCode = useMemo(() => countryMap.get(normalizeToken(formData.arrivalCountry || '')), [countryMap, formData.arrivalCountry]);
 
@@ -170,18 +162,15 @@ const BookingSection = ({
         if (!departureCountryCode || !arrivalCountryCode) return false;
         const depIsUa = departureCountryCode === 'ukraine';
         const arrIsUa = arrivalCountryCode === 'ukraine';
-        // обоe EU или обе Ukraine — запрещено
         return (depIsUa && arrIsUa) || (!depIsUa && !arrIsUa);
     }, [departureCountryCode, arrivalCountryCode]);
 
-    // Live: проверка соответствия города выбранной стране
     const resolveCity = useMemo(() => (value: string) => ALL_CITIES.find(c => c.names[lang] === value) || findCityByName(value || ''), [lang]);
     const depSelectedCity = useMemo(() => resolveCity(formData.departureCity), [formData.departureCity, resolveCity]);
     const arrSelectedCity = useMemo(() => resolveCity(formData.arrivalCity), [formData.arrivalCity, resolveCity]);
     const depCityMismatch = useMemo(() => !!(depSelectedCity && departureCountryCode && depSelectedCity.country !== departureCountryCode), [depSelectedCity, departureCountryCode]);
     const arrCityMismatch = useMemo(() => !!(arrSelectedCity && arrivalCountryCode && arrSelectedCity.country !== arrivalCountryCode), [arrSelectedCity, arrivalCountryCode]);
 
-    // Live: проверка даты в прошлом
     const parseDateParts = (raw: string): { y: number; m: number; d: number } | null => {
         if (!raw) return null;
         const s = raw.trim();
@@ -229,7 +218,6 @@ const BookingSection = ({
         if (!formData.fullName) newErrors.fullName = t('errors.required');
         if (!formData.phone) newErrors.phone = t('errors.required');
         else {
-            // Разрешаем цифры, пробелы, +, -, (, )
             const allowed = /^[0-9()+\-\s]*$/;
             if (!allowed.test(formData.phone)) {
                 newErrors.phone = t('errors.phoneLettersNotAllowed');
@@ -244,7 +232,6 @@ const BookingSection = ({
         const fromCity = ALL_CITIES.find(c => c.names[lang] === formData.departureCity) || findCityByName(formData.departureCity || '');
         const toCity = ALL_CITIES.find(c => c.names[lang] === formData.arrivalCity) || findCityByName(formData.arrivalCity || '');
 
-        // Проверка существования городов
         if (!fromCity) {
             newErrors.departureCity = t('errors.cityNotFound');
         }
@@ -252,7 +239,6 @@ const BookingSection = ({
             newErrors.arrivalCity = t('errors.cityNotFound');
         }
 
-        // Сопоставление города и выбранной страны
         const depCode = countryMap.get(normalizeToken(formData.departureCountry || ''));
         const arrCode = countryMap.get(normalizeToken(formData.arrivalCountry || ''));
         if (fromCity && depCode && fromCity.country !== depCode) {
@@ -273,7 +259,6 @@ const BookingSection = ({
                 setErrors(prev => ({ ...prev, arrivalCity: t('errors.directionConstraint') }));
                 return;
             }
-            // Отправка формы на API
             try {
                 setSubmitting(true);
                 const endpoint = (mode ?? 'default') === 'pets' ? '/api/send-booking-pets' : (mode ?? 'default') === 'parcel' ? '/api/send-booking-parcel' : '/api/send-booking';
@@ -291,14 +276,12 @@ const BookingSection = ({
             return;
         }
 
-        // если города не распознаны, пробуем по странам
         if ((depCode === 'ukraine' && arrCode && arrCode !== 'ukraine') || (arrCode === 'ukraine' && depCode && depCode !== 'ukraine')) {
             const direction = (depCode === 'ukraine' ? arrCode : depCode) as string;
             router.push(`/book/${direction}`);
             return;
         }
 
-        // не смогли распознать
         if (!fromCity) newErrors.departureCity = t('errors.invalidCity');
         if (!toCity) newErrors.arrivalCity = t('errors.invalidCity');
         setErrors(newErrors);
