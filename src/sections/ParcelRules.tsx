@@ -71,6 +71,7 @@ const ParcelRules = ({ country }: ParcelRulesProps) => {
                                 alt="Parcel rules illustration"
                                 width={300}
                                 height={200}
+                                quality={100}
                                 className="max-w-full h-auto"
                             />
                         </div>

@@ -224,6 +224,7 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                                     alt={item.alt}
                                     width={item.width}
                                     height={item.height}
+                                    quality={100}
                                     className="object-contain max-sm:scale-75 w-full h-full"
                                 />
                             </div>

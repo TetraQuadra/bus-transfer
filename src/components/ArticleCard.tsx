@@ -19,6 +19,7 @@ const ArticleCard = ({ image, title, date, description, href, buttonLabel }: Art
                     src={image}
                     alt={title}
                     fill
+                    quality={100}
                     className="object-cover"
                 />
             </div>

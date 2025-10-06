@@ -92,7 +92,9 @@ const FAQSection = ({ direction }: Props) => {
                                 src="/faq/1.png"
                                 alt={t('alt.phone')}
                                 width={380}
-                                height={675} className="object-contain max-lg:hidden"
+                                height={675}
+                                quality={100}
+                                className="object-contain max-lg:hidden"
                             />
                         </div>
                     </div>

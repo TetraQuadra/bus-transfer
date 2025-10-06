@@ -51,6 +51,7 @@ const Hero = async () => {
                                                 alt="arrow"
                                                 width={35}
                                                 height={8}
+                                                quality={100}
                                                 className="max-[900px]:w-[20px] max-[900px]:h-[8px] max-md:w-[35px] max-md:h-[8px]"
                                             />
                                             <span className="text-foreground font-regular text-[16px]">
@@ -67,6 +68,7 @@ const Hero = async () => {
                                                 alt="arrow"
                                                 width={35}
                                                 height={8}
+                                                quality={100}
                                                 className="max-[900px]:w-[20px] max-[900px]:h-[8px] max-md:w-[35px] max-md:h-[8px]"
                                             />
                                             <span className="text-foreground font-regular text-[16px]">
@@ -90,6 +92,7 @@ const Hero = async () => {
                                         alt="Hero image 1"
                                         width={207}
                                         height={123}
+                                        quality={100}
                                         className="object-cover max-sm:hidden"
                                         priority
                                     />
@@ -100,6 +103,7 @@ const Hero = async () => {
                                         alt="Hero image 2"
                                         width={207}
                                         height={123}
+                                        quality={100}
                                         className="object-cover"
                                         priority
                                     />
@@ -110,6 +114,7 @@ const Hero = async () => {
                                         alt="Hero image 3"
                                         width={207}
                                         height={123}
+                                        quality={100}
                                         className="object-cover"
                                         priority
                                     />
@@ -125,6 +130,7 @@ const Hero = async () => {
                                             alt="Hero image 4"
                                             width={180}
                                             height={123}
+                                            quality={100}
                                             className="object-cover"
                                         />
                                     </div>
@@ -134,6 +140,7 @@ const Hero = async () => {
                                             alt="Hero image 4"
                                             width={281}
                                             height={123}
+                                            quality={100}
                                             className="object-cover"
                                         />
                                     </div>
@@ -148,6 +155,7 @@ const Hero = async () => {
                                         alt="Hero image 6"
                                         width={207}
                                         height={123}
+                                        quality={100}
                                         className="object-cover max-sm:hidden"
                                     />
                                 </div>
@@ -157,6 +165,7 @@ const Hero = async () => {
                                         alt="Hero image 7"
                                         width={207}
                                         height={123}
+                                        quality={100}
                                         className="object-cover"
                                     />
                                 </div>
@@ -166,6 +175,7 @@ const Hero = async () => {
                                         alt="Hero image 8"
                                         width={207}
                                         height={123}
+                                        quality={100}
                                         className="object-cover"
                                     />
                                 </div>

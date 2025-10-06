@@ -20,6 +20,7 @@ const TrustSection = () => {
                             alt={t('alt.trust1')}
                             width={460}
                             height={120}
+                            quality={100}
                             className="w-full h-auto mb-4 rounded-[8px]"
                         />
                         <h3 className="text-[26px] font-normal text-foreground mb-3">
@@ -52,6 +53,7 @@ const TrustSection = () => {
                                     alt={t('alt.check')}
                                     width={50}
                                     height={50}
+                                    quality={100}
                                     className="flex-shrink-0 max-lg:w-[20px] max-lg:h-[20px]"
                                 />
                                 <p className="text-[18px] font-normal text-foreground">
@@ -64,6 +66,7 @@ const TrustSection = () => {
                                     alt={t('alt.check')}
                                     width={50}
                                     height={50}
+                                    quality={100}
                                     className="flex-shrink-0 max-lg:w-[20px] max-lg:h-[20px]"
                                 />
                                 <p className="text-[18px] font-normal text-foreground">
@@ -76,6 +79,7 @@ const TrustSection = () => {
                                     alt={t('alt.check')}
                                     width={50}
                                     height={50}
+                                    quality={100}
                                     className="flex-shrink-0 max-lg:w-[20px] max-lg:h-[20px]"
                                 />
                                 <p className="text-[18px] font-normal text-foreground">
@@ -123,6 +127,7 @@ const TrustSection = () => {
                             alt={t('alt.trust2')}
                             width={270}
                             height={210}
+                            quality={100}
                             className="rounded-[10px] max-md:hidden max-lg:block max-[1200px]:hidden"
                         />
                         <Image
@@ -130,6 +135,7 @@ const TrustSection = () => {
                             alt={t('alt.trust3')}
                             width={460}
                             height={210}
+                            quality={100}
                             className="rounded-[10px] max-lg:hidden max-md:block"
                         />
                     </div>

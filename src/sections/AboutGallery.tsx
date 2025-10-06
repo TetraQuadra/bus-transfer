@@ -15,7 +15,7 @@ const AboutGallery = () => {
                 {IMAGES.map((src, idx) => (
                     <SwiperSlide key={idx}>
                         <div className="w-full h-full flex items-center justify-center">
-                            <Image src={src} alt="about" width={800} height={500} className="w-full h-auto object-cover rounded-xl" />
+                            <Image src={src} alt="about" width={800} height={500} quality={100} className="w-full h-auto object-cover rounded-xl" />
                         </div>
                     </SwiperSlide>
                 ))}

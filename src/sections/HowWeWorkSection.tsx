@@ -37,6 +37,7 @@ const HowWeWorkSection = async ({ translationKey = 'howWeWork' }: HowWeWorkSecti
                                 alt={t(`steps.${item.id}.title`)}
                                 width={75}
                                 height={75}
+                                quality={100}
                                 className="w-full h-full object-contain"
                             />
                         </div>

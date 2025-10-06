@@ -15,8 +15,8 @@ const PetsTitle = ({ title, subtitle }: PetsTitleProps) => {
                 <p className="font-regular text-[26px] md:text-[66px] leading-tight">
                     {subtitle}
                 </p>
-                <Image src="/pets/paws.png" alt="Pets Title" width={175} height={122} className="absolute bottom-0 left-[40px] max-lg:bottom-0 max-lg:left-[6px] max-md:w-[102px] max-md:h-[71px]" />
-                <Image src="/pets/paws.png" alt="Pets Title" width={175} height={122} className="absolute bottom-[60px] right-[-26px] rotate-270 max-lg:top-0 max-lg:right-[-20px] max-lg:rotate-180 max-md:top-0 max-md:right-[-8px] max-md:rotate-180 max-md:w-[102px] max-md:h-[71px]" />
+                <Image src="/pets/paws.png" alt="Pets Title" width={175} height={122} quality={100} className="absolute bottom-0 left-[40px] max-lg:bottom-0 max-lg:left-[6px] max-md:w-[102px] max-md:h-[71px]" />
+                <Image src="/pets/paws.png" alt="Pets Title" width={175} height={122} quality={100} className="absolute bottom-[60px] right-[-26px] rotate-270 max-lg:top-0 max-lg:right-[-20px] max-lg:rotate-180 max-md:top-0 max-md:right-[-8px] max-md:rotate-180 max-md:w-[102px] max-md:h-[71px]" />
             </div>
         </section>
     );

@@ -60,6 +60,7 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
                                     alt={t('mapAlt', { name: t(`routes.${selectedRouteId}.name`) })}
                                     width={393}
                                     height={291}
+                                    quality={100}
                                     className="object-contain"
                                     priority
                                 />
@@ -116,6 +117,7 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
                                                     alt={item.alt}
                                                     width={item.width}
                                                     height={item.height}
+                                                    quality={100}
                                                     className="object-contain max-sm:scale-75 w-full h-full"
                                                 />
                                             </div>

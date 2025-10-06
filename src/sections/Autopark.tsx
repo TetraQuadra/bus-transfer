@@ -44,7 +44,7 @@ const Autopark = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-[60px] gap-y-[30px]">
                     {currentTexts.map((text, index) => (
                         <div key={index} className="flex flex-row gap-[14px] items-start">
-                            <Image src="/icons/shield.svg" alt={t('alt.icon')} width={70} height={70} className="w-10 h-10 md:w-[70px] md:h-[70px]" />
+                            <Image src="/icons/shield.svg" alt={t('alt.icon')} width={70} height={70} quality={100} className="w-10 h-10 md:w-[70px] md:h-[70px]" />
                             <div>
                                 <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-regular text-foreground mb-1 pt-[16px] max-md:pt-0">{text.title}</h3>
                                 <p className="text-[14px] sm:text-[15px] md:text-[16px] font-regular text-foreground">{text.description}</p>

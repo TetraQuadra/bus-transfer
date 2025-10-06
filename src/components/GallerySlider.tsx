@@ -76,6 +76,7 @@ const GallerySlider = ({
                                         alt="Попередні"
                                         width={24}
                                         height={24}
+                                        quality={100}
                                         className="rotate-180"
                                     />
                                 </button>
@@ -123,6 +124,7 @@ const GallerySlider = ({
                                         alt="Наступні"
                                         width={24}
                                         height={24}
+                                        quality={100}
                                     />
                                 </button>
                             )}
@@ -139,6 +141,7 @@ const GallerySlider = ({
                                         alt="Попередні"
                                         width={20}
                                         height={20}
+                                        quality={100}
                                         className="rotate-180"
                                     />
                                 </button>
@@ -151,6 +154,7 @@ const GallerySlider = ({
                                         alt="Наступні"
                                         width={20}
                                         height={20}
+                                        quality={100}
                                     />
                                 </button>
                             </div>

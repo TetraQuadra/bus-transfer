@@ -28,6 +28,7 @@ const ParcelInfo = ({ country }: ParcelInfoProps) => {
                         alt={t('imageAlt')}
                         width={600}
                         height={300}
+                        quality={100}
                         className="max-w-full h-auto rounded-[10px]"
                     />
                 </div>

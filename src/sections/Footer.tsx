@@ -87,6 +87,7 @@ const Footer = async () => {
                                     alt={t('social.alt.viber')}
                                     width={42}
                                     height={42}
+                                    quality={100}
                                     className="object-contain"
                                 />
                             </a>
@@ -96,6 +97,7 @@ const Footer = async () => {
                                     alt={t('social.alt.telegram')}
                                     width={42}
                                     height={42}
+                                    quality={100}
                                     className="object-contain"
                                 />
                             </a>
@@ -105,6 +107,7 @@ const Footer = async () => {
                                     alt={t('social.alt.facebook')}
                                     width={42}
                                     height={42}
+                                    quality={100}
                                     className="object-contain"
                                 />
                             </a>
@@ -114,6 +117,7 @@ const Footer = async () => {
                                     alt={t('social.alt.whatsapp')}
                                     width={42}
                                     height={42}
+                                    quality={100}
                                     className="object-contain"
                                 />
                             </a>
@@ -123,6 +127,7 @@ const Footer = async () => {
                                     alt={t('social.alt.instagram')}
                                     width={42}
                                     height={42}
+                                    quality={100}
                                     className="object-contain"
                                 />
                             </a>
@@ -132,6 +137,7 @@ const Footer = async () => {
                                     alt={t('social.alt.tiktok')}
                                     width={42}
                                     height={42}
+                                    quality={100}
                                     className="object-contain"
                                 />
                             </a>

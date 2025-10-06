@@ -37,6 +37,7 @@ const AboutRoute = async ({ direction }: Props) => {
                                         alt=""
                                         width={20}
                                         height={20}
+                                        quality={100}
                                         className="object-contain max-sm:w-[16px] max-sm:h-[16px]"
                                     />
                                     <span>
@@ -58,6 +59,7 @@ const AboutRoute = async ({ direction }: Props) => {
                                         alt=""
                                         width={20}
                                         height={20}
+                                        quality={100}
                                         className="object-contain max-sm:w-[16px] max-sm:h-[16px]"
                                     />
                                     <span>{city.names[lang]}</span>

@@ -110,6 +110,7 @@ const CompactGallery = ({
                                         alt="Попередні"
                                         width={20}
                                         height={20}
+                                        quality={100}
                                         className="rotate-180"
                                     />
                                 </button>
@@ -122,6 +123,7 @@ const CompactGallery = ({
                                         alt="Наступні"
                                         width={20}
                                         height={20}
+                                        quality={100}
                                     />
                                 </button>
                             </div>
