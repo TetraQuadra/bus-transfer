@@ -15,7 +15,9 @@ type RouteDropdownProps = {
 
 const RouteDropdown = ({ city, country, countrySlug, className = "" }: RouteDropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
+    const [isRightColumn, setIsRightColumn] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
     const locale = useLocale();
 
     const sourceCity = ALL_CITIES.find(cityData =>
@@ -52,10 +54,21 @@ const RouteDropdown = ({ city, country, countrySlug, className = "" }: RouteDrop
         setIsOpen(false);
     };
 
+    const handleButtonClick = () => {
+        if (buttonRef.current) {
+            const rect = buttonRef.current.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const isInRightColumn = rect.left > viewportWidth / 2;
+            setIsRightColumn(isInRightColumn);
+        }
+        setIsOpen(!isOpen);
+    };
+
     return (
         <div ref={dropdownRef} className={`relative ${className}`}>
             <button
-                onClick={() => setIsOpen(!isOpen)}
+                ref={buttonRef}
+                onClick={handleButtonClick}
                 className="flex items-center gap-2 max-sm:gap-1 hover:text-[var(--color-primary)] transition-colors w-full text-left"
             >
                 <Image
@@ -79,16 +92,19 @@ const RouteDropdown = ({ city, country, countrySlug, className = "" }: RouteDrop
                 </svg>
             </button>
             {isOpen && (
-                <div className="absolute top-full mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 w-full max-w-[250px] max-h-[300px] overflow-y-auto left-0 sm:max-w-[250px]">
+                <div className={`absolute top-full mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 w-full w-[300px] max-h-[300px] overflow-y-auto left-0 sm:max-w-[350px] max-sm:absolute max-sm:top-full max-sm:mt-2 ${isRightColumn
+                    ? 'max-sm:w-[80vw] max-sm:-translate-x-[45%] max-sm:left-0'
+                    : 'max-sm:w-[80vw] max-sm:left-0'
+                    }`}>
                     {countryCities.map((cityData) => (
                         <Link
                             key={cityData.slug}
                             href={`/book/${sourceCity ? createRouteSlug(sourceCity.slug, cityData.slug) : cityData.slug}`}
-                            className="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 group"
+                            className="block px-4 py-3 hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-b-0 group max-sm:py-4"
                             onClick={handleItemClick}
                         >
                             <div className="flex items-center gap-2"></div>
-                            <span className="text-[16px] font-regular text-foreground group-hover:text-[var(--color-primary)] transition-colors">
+                            <span className="text-[16px] font-regular text-foreground group-hover:text-[var(--color-primary)] transition-colors max-sm:text-[18px]">
                                 {city} - {getCityName(cityData)}
                             </span>
                         </Link>
