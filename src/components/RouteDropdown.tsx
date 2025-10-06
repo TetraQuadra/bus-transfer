@@ -18,23 +18,19 @@ const RouteDropdown = ({ city, country, countrySlug, className = "" }: RouteDrop
     const dropdownRef = useRef<HTMLDivElement>(null);
     const locale = useLocale();
 
-    // Находим исходный город по названию
     const sourceCity = ALL_CITIES.find(cityData =>
         cityData.names.uk === city || cityData.names.ru === city || cityData.names.en === city
     );
 
-    // Получаем города для данной страны (кроме исходного города)
     const countryCities = ALL_CITIES.filter(cityData =>
         cityData.country === countrySlug && cityData.names.uk !== city
     );
 
-    // Получаем название города в зависимости от языка
     const getCityName = (cityData: typeof countryCities[0]) => {
         const lang = locale as 'uk' | 'ru' | 'en';
         return cityData.names[lang] || cityData.names.uk;
     };
 
-    // Создаем slug для маршрута
     const createRouteSlug = (sourceCitySlug: string, destinationCitySlug: string) => {
         return `${sourceCitySlug}-${destinationCitySlug}`;
     };
@@ -83,7 +79,7 @@ const RouteDropdown = ({ city, country, countrySlug, className = "" }: RouteDrop
                 </svg>
             </button>
             {isOpen && (
-                <div className="absolute top-full left-0 mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-[250px] max-h-[300px] overflow-y-auto">
+                <div className="absolute top-full mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 w-full max-w-[250px] max-h-[300px] overflow-y-auto left-0 sm:max-w-[250px]">
                     {countryCities.map((cityData) => (
                         <Link
                             key={cityData.slug}

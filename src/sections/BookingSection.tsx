@@ -484,7 +484,7 @@ const BookingSection = ({
                                 <Button
                                     type="submit"
                                     size='sm'
-                                    className="w-full"
+                                    className="w-full max-md:h-[60px]"
                                     disabled={hasErrors || invalidDirection || dateInPast || submitting}
                                 >
                                     {submitting ? tCommon('loading') : t('submitLabel')}

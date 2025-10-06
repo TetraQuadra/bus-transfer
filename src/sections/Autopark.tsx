@@ -15,21 +15,21 @@ const Autopark = () => {
 
     return (
         <section id="fleet" className="w-full mb-15 md:mb-[140px]">
-            <h2 className="text-[24px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-regular text-center text-foreground mb-8 sm:mb-10 lg:mb-12">{t('title')}</h2>
+            <h2 className="text-[30px] sm:text-[32px] md:text-[36px] lg:text-[40px] font-regular text-center text-foreground mb-8 sm:mb-10 lg:mb-12">{t('title')}</h2>
             <div className="w-full lg:w-[80%] bg-white rounded-[10px] mx-auto px-4 sm:px-6 md:px-8 lg:px-[50px] py-6 sm:py-8 md:py-10 lg:py-[40px] relative lg:min-h-[950px] flex flex-col">
                 <div className="flex flex-col lg:flex-row gap-6 md:gap-10 lg:gap-12 mb-8 md:mb-12">
                     <div className="flex flex-col gap-5 w-full lg:w-[290px]">
                         <Button
                             onClick={() => setActiveTab('comfort')}
                             variant={activeTab === 'comfort' ? 'primary' : 'secondary'}
-                            className={activeTab === 'comfort' ? '' : 'border-1'}
+                            className={`max-lg:h-[65px] ${activeTab === 'comfort' ? '' : 'border-1'}`}
                         >
                             {t('tabs.comfort')}
                         </Button>
                         <Button
                             onClick={() => setActiveTab('lux')}
                             variant={activeTab === 'lux' ? 'primary' : 'secondary'}
-                            className={activeTab === 'lux' ? '' : 'border-1'}
+                            className={`max-lg:h-[65px] ${activeTab === 'lux' ? '' : 'border-1'}`}
                         >
                             {t('tabs.lux')}
                         </Button>
@@ -46,14 +46,14 @@ const Autopark = () => {
                         <div key={index} className="flex flex-row gap-[14px] items-start">
                             <Image src="/icons/shield.svg" alt={t('alt.icon')} width={70} height={70} quality={100} className="w-10 h-10 md:w-[70px] md:h-[70px]" />
                             <div>
-                                <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-regular text-foreground mb-1 pt-[16px] max-md:pt-0">{text.title}</h3>
+                                <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-medium text-foreground mb-1 pt-[16px] max-md:pt-0">{text.title}</h3>
                                 <p className="text-[14px] sm:text-[15px] md:text-[16px] font-regular text-foreground">{text.description}</p>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <div className="flex justify-center pt-8 lg:mt-auto max-md:w-full">
+                <div className="flex justify-center pt-8 lg:mt-auto max-md:hidden">
                     <Button as="link" href="/#booking" className="mx-auto max-w-[286px] max-md:max-w-full">
                         {t('cta')}
                     </Button>
