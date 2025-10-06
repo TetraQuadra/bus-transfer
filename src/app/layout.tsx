@@ -9,7 +9,9 @@ import Script from 'next/script';
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://svitsuchasnykhperevezen.com'),
-    alternates: { canonical: '/' }
+    alternates: {
+        canonical: '/'
+    }
 };
 
 export default async function RootLayout({

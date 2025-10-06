@@ -40,11 +40,15 @@ export async function generateMetadata(): Promise<Metadata> {
             index: true,
             follow: true
         },
+        alternates: {
+            canonical: '/'
+        },
         openGraph: {
             title: currentTitle,
             description: currentDescription,
             type: 'website',
-            images: ['/logo.png']
+            images: ['/logo.png'],
+            locale: locale === 'uk' ? 'uk_UA' : locale === 'ru' ? 'ru_RU' : 'en_US'
         },
         twitter: {
             card: 'summary_large_image',
