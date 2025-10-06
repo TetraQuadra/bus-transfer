@@ -23,7 +23,6 @@ const ServiceCard = ({ title, image, href }: ServiceCardProps) => {
                     quality={100}
                     className="object-contain max-md:w-[80px] max-md:h-[80px] max-sm:w-[70px] max-sm:h-[70px] group-hover:opacity-80 transition-opacity"
                 />
-                {/* SVG иконка ссылки */}
                 <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     <svg
                         className="w-6 h-6 text-[var(--color-primary)] bg-white rounded-full p-1 shadow-md"

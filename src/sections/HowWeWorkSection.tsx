@@ -43,7 +43,7 @@ const HowWeWorkSection = async ({ translationKey = 'howWeWork' }: HowWeWorkSecti
                         </div>
 
                         <div className="">
-                            <h3 className="text-[26px] font-medium text-foreground mb-3 uppercase">
+                            <h3 className="text-[26px] font-medium text-foreground mb-3">
                                 {t(`steps.${item.id}.title`)}
                             </h3>
                             <p className="text-[18px] font-normal text-foreground">
