@@ -17,8 +17,8 @@ interface HowWeWorkSectionProps {
 const HowWeWorkSection = async ({ translationKey = 'howWeWork' }: HowWeWorkSectionProps) => {
     const t = await getTranslations(translationKey);
     return (
-        <section id="how-we-work" className="w-full mb-15 md:mb-16">
-            <h2 className="text-[40px] font-regular text-center text-foreground mb-12">
+        <section id="how-we-work" className="w-full mb-15 md:mb-16 max-md:px-4">
+            <h2 className="text-[30px] lg:text-[40px] font-regular text-center text-foreground mb-12 uppercase">
                 {t('title')}
             </h2>
 
@@ -43,7 +43,7 @@ const HowWeWorkSection = async ({ translationKey = 'howWeWork' }: HowWeWorkSecti
                         </div>
 
                         <div className="">
-                            <h3 className="text-[26px] font-medium text-foreground mb-3">
+                            <h3 className="text-[26px] font-medium text-foreground mb-3 uppercase">
                                 {t(`steps.${item.id}.title`)}
                             </h3>
                             <p className="text-[18px] font-normal text-foreground">

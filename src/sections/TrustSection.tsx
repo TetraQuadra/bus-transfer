@@ -8,13 +8,12 @@ const TrustSection = () => {
     return (
         <section id="trust" className="mb-15 md:mb-16 w-full">
             <div className="max-w-7xl mx-auto px-4">
-                <h2 className="text-[40px] font-regular text-center text-foreground mb-12">
+                <h2 className="text-[30px] lg:text-[40px] font-regular text-center text-foreground mb-12 uppercase">
                     {t('title')}
                 </h2>
 
                 <div className="lg:flex lg:flex-row max-lg:flex max-lg:flex-col gap-[30px] mb-[30px]">
-                    {/* Первая карточка - 500px */}
-                    <div className="bg-white rounded-[10px] p-6 shadow-lg w-full lg:w-[500px]">
+                    <div className="bg-white rounded-[10px] p-2 shadow-lg w-full lg:w-[500px]">
                         <Image
                             src="/trust/1.png"
                             alt={t('alt.trust1')}

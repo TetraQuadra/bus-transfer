@@ -28,7 +28,7 @@ const PopularRoutesSection = async () => {
         <section id="popular" className="w-full mb-15 md:mb-16 max-sm:px-1">
             <div className="">
                 <div className="w-full">
-                    <h2 className="text-[40px] font-regular text-center text-foreground mb-12">
+                    <h2 className="text-[30px] lg:text-[40px] font-regular text-center text-foreground mb-12 uppercase">
                         {t('title')}
                     </h2>
 

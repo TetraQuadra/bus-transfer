@@ -59,7 +59,7 @@ const GallerySlider = ({
             <div className="">
                 <div className="w-full">
                     {title && (
-                        <h2 className="text-[40px] font-regular text-center text-foreground mb-12">
+                        <h2 className="text-[30px] lg:text-[40px] font-regular text-center text-foreground mb-12 uppercase">
                             {title}
                         </h2>
                     )}
@@ -131,10 +131,10 @@ const GallerySlider = ({
                         </div>
 
                         {showNavigation && (
-                            <div className="flex justify-center gap-12 mt-4 lg:hidden">
+                            <div className="flex justify-center gap-3 mt-4 lg:hidden">
                                 <button
                                     onClick={handlePrev}
-                                    className="w-[80px] h-[80px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200 lg:flex max-lg:w-[50px] max-lg:h-[50px]"
+                                    className="w-[80px] h-[80px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200 lg:flex max-lg:w-[55px] max-lg:h-[55px]"
                                 >
                                     <Image
                                         src="/icons/ArrowButtonRight.svg"
@@ -142,12 +142,12 @@ const GallerySlider = ({
                                         width={20}
                                         height={20}
                                         quality={100}
-                                        className="rotate-180"
+                                        className="rotate-180 max-lg:w-[24px] max-lg:h-[24px]"
                                     />
                                 </button>
                                 <button
                                     onClick={handleNext}
-                                    className="w-[80px] h-[80px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200 lg:flex max-lg:w-[50px] max-lg:h-[50px]"
+                                    className="w-[80px] h-[80px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200 lg:flex max-lg:w-[55px] max-lg:h-[55px]"
                                 >
                                     <Image
                                         src="/icons/ArrowButtonRight.svg"
@@ -155,6 +155,7 @@ const GallerySlider = ({
                                         width={20}
                                         height={20}
                                         quality={100}
+                                        className="max-lg:w-[24px] max-lg:h-[24px]"
                                     />
                                 </button>
                             </div>

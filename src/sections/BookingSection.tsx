@@ -324,7 +324,7 @@ const BookingSection = ({
             <div className="">
                 <div className="w-full">
                     <div className="relative flex items-center justify-center mb-8">
-                        <h2 className="text-[40px] font-regular text-center text-foreground max-sm:text-[30px]">
+                        <h2 className="text-[30px] lg:text-[40px] font-regular text-center text-foreground uppercase">
                             {title ?? t('title')}
                         </h2>
 
