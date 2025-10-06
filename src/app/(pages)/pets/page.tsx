@@ -52,7 +52,6 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PetsPage() {
     const t = await getTranslations('pets');
-    const tBooking = await getTranslations('booking');
     return (
         <main className="w-full">
             <div className="w-full">
@@ -62,7 +61,7 @@ export default async function PetsPage() {
                 <PetsComfort />
                 <PetsRules />
                 <PetsPricing />
-                <BookingSection title={tBooking('bookSeatTitle')} dateInputType="text" mode="pets" />
+                <BookingSection title={t('bookSeatTitle')} dateInputType="text" mode="pets" />
                 <HowWeWorkSection />
             </div>
         </main>
