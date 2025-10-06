@@ -268,3 +268,80 @@ body::before {
 .reviews-swiper .swiper-slide {
     height: auto;
 }
+
+/* DatePicker iOS fixes */
+input[type="date"] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+    position: relative;
+}
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+    input[type="date"] {
+        -webkit-appearance: none;
+        background-color: white;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        min-height: 48px;
+        color: #000000;
+    }
+
+    input[type="date"]::-webkit-datetime-edit {
+        padding: 0;
+        margin: 0;
+        color: #000000;
+    }
+
+    input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+        padding: 0;
+        margin: 0;
+    }
+
+    input[type="date"]::-webkit-datetime-edit-text {
+        color: #000000;
+        padding: 0 0.25rem;
+    }
+
+    input[type="date"]::-webkit-datetime-edit-month-field,
+    input[type="date"]::-webkit-datetime-edit-day-field,
+    input[type="date"]::-webkit-datetime-edit-year-field {
+        color: #000000;
+        padding: 0 0.25rem;
+    }
+
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        color: #6b7280;
+        cursor: pointer;
+        height: 1.5rem;
+        width: 1.5rem;
+        margin-left: 0.5rem;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator:hover {
+        color: #374151;
+    }
+}
+
+/* Firefox specific fixes */
+@-moz-document url-prefix() {
+    input[type="date"] {
+        -moz-appearance: textfield;
+        background-color: white;
+        border: 1px solid #d1d5db;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        min-height: 48px;
+        color: #000000;
+    }
+}

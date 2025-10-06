@@ -33,8 +33,14 @@ const BaseInput = forwardRef<HTMLInputElement, BaseInputProps>(
             transition-all 
             duration-200
             ${error ? 'border-red-500 focus:ring-red-500' : ''}
+            ${props.type === 'date' ? 'appearance-none' : ''}
             ${className}
           `}
+                    style={props.type === 'date' ? {
+                        WebkitAppearance: 'none',
+                        MozAppearance: 'textfield',
+                        minHeight: '48px'
+                    } : undefined}
                     {...props}
                 />
                 {error && (
