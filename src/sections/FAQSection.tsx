@@ -73,7 +73,7 @@ const FAQSection = ({ direction }: Props) => {
                                                     dangerouslySetInnerHTML={{
                                                         __html: item.description
                                                             .replaceAll('{toWhere}', toWhere)
-                                                            .replaceAll('{telNumber}', '<a href="tel:+380982275197" class="text-blue-600 underline hover:text-blue-800">+38 (098) 227 51 97</a>')
+                                                            .replaceAll('{telNumber}', '<br/><a href="tel:+380982275197" class="text-blue-600 underline hover:text-blue-800">+38 (098) 227 51 97</a>')
                                                             .replaceAll(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 underline hover:text-blue-800">$1</a>')
                                                     }}
                                                 />
