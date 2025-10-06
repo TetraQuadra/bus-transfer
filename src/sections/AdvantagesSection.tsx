@@ -20,8 +20,8 @@ const AdvantagesSection = () => {
                                 key={item.id}
                                 className="w-full md:max-w-[275px] mx-auto"
                             >
-                                <div className="border-l-2 border-black flex items-start">
-                                    <div className=" mr-6 h-full"></div>
+                                <div className="flex items-start">
+                                    <div className="relative top-2 w-[2px] h-[120px] bg-black mr-6 max-md:h-[90px]"></div>
                                     <div className="flex-1">
                                         <h3 className="text-[26px] font-medium text-foreground mb-2">
                                             {item.title}
