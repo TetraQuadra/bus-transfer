@@ -5,7 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import Image from 'next/image';
 import { getPriceByRoute } from '@/lib/priceClient';
 import { PriceResult } from '@/lib/prices';
-import { findCityByName } from '@/const/cities';
+import { findCityByName, DirectionId, citiesBySlug, getDirectionByCity } from '@/const/cities';
 import CompactGallery from './CompactGallery';
 import { SwiperSlide } from 'swiper/react';
 import { useOptionalBookingContext } from '@/contexts/BookingContext';
@@ -16,8 +16,34 @@ interface BookingRouteDetailsProps {
 
 type ServiceClass = 'comfort' | 'luxury';
 
+function isDirectionSlug(slug: string): slug is DirectionId {
+    const EU_COUNTRIES = ['poland', 'germany', 'netherlands', 'belgium'] as const;
+    return (EU_COUNTRIES as readonly string[]).includes(slug);
+}
+
+function parsePair(slug: string): { from: string; to: string } | null {
+    const parts = slug.split('-');
+    const [a, b] = parts;
+    if (!a || !b) return null;
+    return { from: a, to: b };
+}
+
+function resolveDirectionFromSlug(slug: string): DirectionId | null {
+    if (isDirectionSlug(slug)) return slug;
+    const pair = parsePair(slug);
+    if (!pair) return null;
+    const fromCity = citiesBySlug[pair.from];
+    const toCity = citiesBySlug[pair.to];
+    if (!fromCity || !toCity) return null;
+    // определить направление как неукраинская сторона
+    const nonUaCity = fromCity.country === 'ukraine' ? toCity : fromCity;
+    const dir = getDirectionByCity(nonUaCity);
+    return dir ?? null;
+}
+
 export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsProps) {
     const t = useTranslations('booking.bookingRoute');
+    const tRoutes = useTranslations('routesSection');
     const locale = useLocale();
     const context = useOptionalBookingContext();
     const selectedRoute = context?.selectedRoute;
@@ -36,6 +62,10 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
         }
         return routeSlug;
     }, [routeSlug, routeToUse]);
+
+    const direction = useMemo(() => {
+        return resolveDirectionFromSlug(targetRouteSlug);
+    }, [targetRouteSlug]);
 
     useEffect(() => {
         async function fetchPrice() {
@@ -180,8 +210,7 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                                 alt: "Цена",
                                 width: 36,
                                 height: 36,
-                                label: t('cost'),
-                                value: loading ? '...' : `${currentPrice}€`,
+                                value: loading ? '...' : t('cost', { price: currentPrice }),
                                 note: t('bookingNote')
                             },
                             {
@@ -189,8 +218,7 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                                 alt: "Время",
                                 width: 42,
                                 height: 42,
-                                label: t('travelTime'),
-                                value: t('travelTimeValue'),
+                                value: direction ? tRoutes(`routes.${direction}.info.duration`) : t('travelTime'),
                                 note: t('durationNote')
                             },
                             {
@@ -198,8 +226,7 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                                 alt: "Частота",
                                 width: 22,
                                 height: 40,
-                                label: t('stops'),
-                                value: t('stopsValue'),
+                                value: t('stops'),
                                 note: t('frequencyNote')
                             },
                             {
@@ -207,8 +234,7 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                                 alt: "Пассажиры",
                                 width: 40,
                                 height: 28,
-                                label: t('passengers'),
-                                value: t('passengersValue')
+                                value: t('passengers')
                             }
                         ].map((item, index) => (
                             <div key={index} className="flex items-center gap-3 max-sm:gap-1">
@@ -224,9 +250,6 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                                 </div>
                                 <div className="flex flex-col">
                                     <div className="">
-                                        <span className="text-[16px] max-sm:text-[16px]">
-                                            {item.label}: &nbsp;
-                                        </span>
                                         <span className="text-foreground text-[16px] max-sm:text-[16px] max-sm:w-[110px]">
                                             {item.value}
                                         </span>
