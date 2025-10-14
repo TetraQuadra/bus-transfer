@@ -92,7 +92,7 @@ const RouteDropdown = ({ city, country, countrySlug, className = "" }: RouteDrop
                 </svg>
             </button>
             {isOpen && (
-                <div className={`absolute top-full mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-50 w-full w-[300px] max-h-[300px] overflow-y-auto left-0 sm:max-w-[350px] max-sm:absolute max-sm:top-full max-sm:mt-2 ${isRightColumn
+                <div className={`absolute top-full mt-2 bg-white border border-gray-200 rounded-md shadow-lg z-25 w-[300px] max-h-[300px] overflow-y-auto left-0 sm:max-w-[350px] max-sm:absolute max-sm:top-full max-sm:mt-2 ${isRightColumn
                     ? 'max-sm:w-[80vw] max-sm:-translate-x-[45%] max-sm:left-0'
                     : 'max-sm:w-[80vw] max-sm:left-0'
                     }`}>
