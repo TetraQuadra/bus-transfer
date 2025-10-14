@@ -100,7 +100,7 @@ const CompactGallery = ({
                         </div>
 
                         {showNavigation && (
-                            <div className="flex justify-center gap-2 xl:gap-8 mt-4">
+                            <div className="flex justify-center gap-2 xl:gap-8 mt-4 xl:mt-12">
                                 <button
                                     onClick={handlePrev}
                                     className="w-[60px] h-[60px] bg-[var(--color-primary)] rounded-full flex items-center justify-center hover:bg-[var(--color-secondary)] transition-colors duration-200 lg:flex "

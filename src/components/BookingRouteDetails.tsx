@@ -122,7 +122,7 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
     }
 
     return (
-        <div className="gap-4 flex flex-col xl:flex-row max-md:p-0 xl:h-[362px] mb-15 md:mb-16">
+        <div className="gap-4 flex flex-col xl:flex-row max-md:p-0 xl:h-[405px] mb-15 md:mb-16">
             <div className="flex flex-col gap-8 xl:min-w-[290px] xl:justify-between">
                 <div className="">
                     <h2 className="text-[48px] font-regular text-gray-800 mb-4">
