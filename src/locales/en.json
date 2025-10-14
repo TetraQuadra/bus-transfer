@@ -28,7 +28,7 @@
   "aboutCompany": {
     "title": "ABOUT US",
     "greeting": "Welcome to ‘World of Modern Transportation’!",
-    "intro": "We are ‘World of Modern Transportation’, providing professional passenger transportation services across Ukraine and to Europe since 2012, as well as delivery of small cargo, parcels and transfers.",
+    "intro": "We are 'World of Modern Transportation', providing professional passenger transportation services from Ukraine to Europe and back since 2012, as well as delivery of small cargo, parcels and transfers.",
     "directionsTitle": "Our main directions are:",
     "directions": {
       "poland": "Poland",
@@ -376,7 +376,7 @@
         "name": "Ukraine - Germany",
         "info": {
           "duration": "Travel time: 24-30 hours",
-          "price": "Price: 150-200€",
+          "price": "Price: 160-250€",
           "passengers": "Number of passengers: 8",
           "frequency": "Stops: every 3-4 hours"
         }
@@ -385,7 +385,7 @@
         "name": "Ukraine - Netherlands",
         "info": {
           "duration": "Travel time: 28-36 hours",
-          "price": "Price: 150-200€",
+          "price": "Price: 160-250€",
           "passengers": "Number of passengers: 8",
           "frequency": "Stops: every 3-4 hours"
         }
@@ -394,7 +394,7 @@
         "name": "Ukraine - Belgium",
         "info": {
           "duration": "Travel time: 28-36 hours",
-          "price": "Price: 140-190€",
+          "price": "Price: 160-250€",
           "passengers": "Number of passengers: 8",
           "frequency": "Stops: every 3-4 hours"
         }
