@@ -190,7 +190,8 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                                 width: 42,
                                 height: 42,
                                 label: t('travelTime'),
-                                value: t('travelTimeValue')
+                                value: t('travelTimeValue'),
+                                note: t('durationNote')
                             },
                             {
                                 icon: "/icons/bus.png",
@@ -198,7 +199,8 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
                                 width: 22,
                                 height: 40,
                                 label: t('stops'),
-                                value: t('stopsValue')
+                                value: t('stopsValue'),
+                                note: t('frequencyNote')
                             },
                             {
                                 icon: "/icons/people.png",

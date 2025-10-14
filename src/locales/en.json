@@ -181,7 +181,9 @@
       "routeNotFoundDescription": "Please check the URL or try another route",
       "selectRoute": "Select route",
       "selectRouteDescription": "Fill out the form below to see route information",
-      "bookingNote": "specific seat booking costs additional 20€"
+      "bookingNote": "specific seat booking costs additional 20€",
+      "durationNote": "depends on border",
+      "frequencyNote": "or upon passenger request"
     },
     "meta": {
       "directionTitlePrefix": "Bus tickets Ukraine — {direction}",
@@ -401,7 +403,9 @@
         }
       }
     },
-    "bookingNote": "specific seat booking costs additional 20€"
+    "bookingNote": "specific seat booking costs additional 20€",
+    "durationNote": "depends on border",
+    "frequencyNote": "or upon passenger request"
   },
   "benefits": {
     "title": "From this moment, you no longer need to:",
