@@ -274,7 +274,6 @@ export default async function Page({ params }: Props) {
             />
             <BookHero title={heroTitle} subtitle={tHero('subtitle')} />
             <BookingProvider>
-                <BookingRouteDetails routeSlug={slug} />
                 <BookingSection
                     initialDepartureCountry={initialDepartureCountry}
                     initialArrivalCountry={initialArrivalCountry}
@@ -283,6 +282,7 @@ export default async function Page({ params }: Props) {
                     dateInputType="date"
                     title={t('title')}
                 />
+                <BookingRouteDetails routeSlug={slug} />
                 <WeOfferSection />
                 <AboutRoute direction={direction} />
                 {/* <RoadAdvices direction={direction} /> commented out for now */}
