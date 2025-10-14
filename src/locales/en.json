@@ -608,27 +608,27 @@
       },
       {
         "title": "How many passengers are in the minibus?",
-        "description": "Trips to Europe are carried out in premium and luxury class minibuses designed for 8 passengers. This provides more space, quiet, and maximum comfort during the journey."
+        "description": "Trips to Europe are carried out in comfort and luxury class minibuses designed for 8 passengers. This provides more space, quiet, and maximum comfort during the journey."
       },
       {
         "title": "Can I bring pets and what documents are needed for transporting pets abroad?",
-        "description": "Yes, you can bring your pet with you. If the animal is small, it travels in your arms, an additional fee of 50€ is added to the ticket price. If the animal is large, you need to take an additional seat. To transport pets to EU countries, you need: a veterinary passport, a valid rabies vaccination, a microchip, and a certificate from a state veterinary clinic. We help with the paperwork and ensure a comfortable trip for your pet to Europe."
+        "description": "Yes, you can bring your pet with you. If the animal is up to 7 kilograms, it travels in your arms, an additional fee of 50€ is added to the ticket price. If the animal is from 7 kilograms, you need to take an additional seat. To transport pets to EU countries, you need: a veterinary passport, a valid rabies vaccination, a microchip, and a certificate from a state veterinary clinic. We help with the paperwork and ensure a comfortable trip for your pet to Europe."
       },
       {
         "title": "Are there discounts for children?",
-        "description": "Children under 5 years old get a 10€ discount on the ticket price"
+        "description": "We make a 10€ discount for children under 5 years old on the ticket price"
       },
       {
         "title": "How is payment made and is there a prepayment?",
-        "description": "Payment is made upon boarding. You can pay in cash or by transfer to our account. Seat booking is done with a 50€ prepayment. If you cancel the trip less than 10 days in advance, the prepayment is not refunded. Trip rescheduling is possible only once, no later than 3 days before departure."
+        "description": "Booking is done with a 30€ prepayment by transfer to our account, the remainder is paid upon boarding in a way convenient for you. If you cancel the trip less than 14 days in advance, the prepayment is not refunded. Trip rescheduling is possible only once, no later than 7 days before departure."
       },
       {
         "title": "How much luggage can I take with me?",
-        "description": "The ticket price includes 2 suitcases weighing 40 kg and a small carry-on in the cabin, and you can also take additional luggage for a separate fee of 2€/kg"
+        "description": "The ticket price includes 2 suitcases with total weight 40kg and a small carry-on in the cabin, and you can also take additional luggage for a separate fee of 2€/kg"
       },
       {
         "title": "If you need to send luggage to Europe?",
-        "description": "Minimum delivery cost is 50€, weight up to 25 kg, if more - 2€ per kg. Packaging must be suitcase or bag. It is not necessary to wrap luggage with film or tape, because each parcel is checked by the border service. Before handing over, you must attach all recipient's data with full address and phone number. You send us the list of parcel contents via messenger. Delivery time is from 24 hours to 4 days. In Europe, we pick up from the address, in Ukraine we work with Nova Poshta. You can view the list of allowed and prohibited items by [link](/parcels/poland) and also check by phone: {telNumber}"
+        "description": "Minimum delivery cost is 50€, weight up to 25 kg, if more - 2€ per kg. Packaging suitcase or bag. It is not necessary to wrap luggage with film or tape, because each parcel is checked by the border service. Before handing over, you must attach all recipient's data with full address and phone number. You send us the list of parcel contents via messenger. Delivery time is from 24 hours to 4 days, depends on the route. In Europe, we pick up from the address, in Ukraine we work with Nova Poshta. You can view the list of allowed and prohibited items by [link](/parcels/poland) and also check by phone: {telNumber}"
       }
     ]
   },
@@ -740,8 +740,8 @@
   },
   "petsPricing": {
     "title": "PET TRANSPORTATION COST",
-    "smallAnimal": "A small animal can travel in your arms — an additional fee is 50€.",
-    "largeAnimal": "If the animal is larger (up to 7 kg), you must purchase a separate seat."
+    "smallAnimal": "Animal up to 7 kilograms can travel in your arms — an additional fee is 50€.",
+    "largeAnimal": "If the animal is from 7 kilograms, you must purchase a separate seat."
   },
   "parcelsAdditionalInfo": {
     "minimumCost": "Minimum delivery cost is 50€, weight up to 25 kg, if more – 2€ per kg.",
@@ -845,7 +845,7 @@
     "items": {
       "1": {
         "title": "Faster than mail",
-        "description": "Delivery takes up to three days, as our buses run constantly, and border delays are minimized."
+        "description": "Delivery takes up to four days, as our buses run constantly, and border delays are minimized."
       },
       "2": {
         "title": "Optimized routes",
