@@ -56,10 +56,10 @@ export default async function ArticlePage({ params }: Props) {
         <main className="container-custom py-8 min-h-screen">
             <article className={styles.article}>
                 <h1 className="text-3xl font-semibold mb-4">{article.title}</h1>
-                {article.image && (
+                {/* {article.image && (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={article.image} alt={article.title} className="w-full h-auto mb-6" />
-                )}
+                )} */}
                 <MDXRemote
                     source={article.content}
                 />

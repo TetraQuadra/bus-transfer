@@ -54,6 +54,67 @@
     margin: 1rem 0 1.5rem;
 }
 
+.article .content-with-image {
+    display: flex !important;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    flex-direction: row !important;
+}
+
+/* Дополнительная специфичность для MDX */
+div.content-with-image {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+/* Глобальные стили для MDX контента */
+:global(.content-with-image) {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1.5rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+:global(.content-with-image .text-content) {
+    flex: 0 0 60% !important;
+    max-width: 60% !important;
+}
+
+:global(.content-with-image .image-content) {
+    flex: 0 0 40% !important;
+    max-width: 40% !important;
+    min-width: 250px;
+}
+
+:global(.content-with-image .image-content img) {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    aspect-ratio: 2 / 1.2;
+    object-fit: cover;
+}
+
+.article .content-with-image .text-content {
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+
+.article .content-with-image .image-content {
+    flex: 0 0 40%;
+    max-width: 40%;
+    min-width: 250px;
+}
+
+.article .content-with-image .image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    aspect-ratio: 2 / 1.2;
+    object-fit: cover;
+}
+
 .article pre {
     margin: 1rem 0 1.5rem;
     padding: 1rem;
@@ -82,5 +143,41 @@
     .article li {
         font-size: 16px;
         /* max-md:text-[16px] */
+    }
+
+    /* На мобильных устройствах контент становится вертикальным */
+    .article .content-with-image {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .article .content-with-image .text-content {
+        flex: none;
+        max-width: 100%;
+    }
+
+    .article .content-with-image .image-content {
+        flex: none;
+        max-width: 100%;
+        width: 100%;
+        min-width: auto;
+    }
+
+    /* Глобальные адаптивные стили для MDX */
+    :global(.content-with-image) {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    :global(.content-with-image .text-content) {
+        flex: none !important;
+        max-width: 100% !important;
+    }
+
+    :global(.content-with-image .image-content) {
+        flex: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        min-width: auto !important;
     }
 }
