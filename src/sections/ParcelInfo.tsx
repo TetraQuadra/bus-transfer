@@ -5,9 +5,11 @@ import Image from 'next/image';
 
 type ParcelInfoProps = {
     country: string;
+    countryNominative: string;
+    countryVerb: string;
 };
 
-const ParcelInfo = ({ country }: ParcelInfoProps) => {
+const ParcelInfo = ({ country, countryNominative, countryVerb }: ParcelInfoProps) => {
     const t = useTranslations('parcelInfo');
 
     return (
@@ -18,7 +20,7 @@ const ParcelInfo = ({ country }: ParcelInfoProps) => {
                         {t('title', { country })}
                     </h2>
                     <p className="text-[18px] max-md:text-[16px] text-foreground/80 mb-4">
-                        {t('intro', { country })}
+                        {t('intro', { country, countryNominative, countryVerb })}
                     </p>
                 </div>
 

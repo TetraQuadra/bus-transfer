@@ -100,7 +100,7 @@ export default async function ParcelsPage({ params }: { params: Promise<{ slug: 
                     dateInputType="text"
                     mode="parcel"
                 />
-                <ParcelInfo country={tCountry('name')} />
+                <ParcelInfo country={tCountry('name')} countryNominative={tCountry('nominative')} countryVerb={tCountry('verb')} />
             </div>
         </main>
     );
