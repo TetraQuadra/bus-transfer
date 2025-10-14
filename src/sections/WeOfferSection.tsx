@@ -1,4 +1,5 @@
 import ServiceCard from '@/components/ServiceCard';
+import ServiceCardWithDropdown from '@/components/ServiceCardWithDropdown';
 import { getTranslations } from 'next-intl/server';
 
 const services = [
@@ -10,7 +11,7 @@ const services = [
     {
         id: 'packages',
         image: '/we_offer/packages.png',
-        href: '/parcels/poland',
+        isDropdown: true,
     },
     {
         id: 'pets',
@@ -30,14 +31,26 @@ const WeOfferSection = async () => {
                     </h2>
 
                     <div className="flex flex-row justify-between max-w-4xl mx-auto  max-lg:w-[85%] max-sm:w-full">
-                        {services.map((service) => (
-                            <ServiceCard
-                                key={service.id}
-                                title={t(`services.${service.id}`)}
-                                image={service.image}
-                                href={service.href}
-                            />
-                        ))}
+                        {services.map((service) => {
+                            if (service.isDropdown) {
+                                return (
+                                    <ServiceCardWithDropdown
+                                        key={service.id}
+                                        title={t(`services.${service.id}`)}
+                                        image={service.image}
+                                        isDropdown={true}
+                                    />
+                                );
+                            }
+                            return (
+                                <ServiceCard
+                                    key={service.id}
+                                    title={t(`services.${service.id}`)}
+                                    image={service.image}
+                                    href={service.href}
+                                />
+                            );
+                        })}
                     </div>
                 </div>
             </div>

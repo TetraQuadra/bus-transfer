@@ -3,13 +3,15 @@
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations } from '@/hooks/useTranslations';
+import ParcelDropdown from './ParcelDropdown';
 
 type ServicesDropdownProps = {
     className?: string;
     isMobile?: boolean;
+    onMobileMenuClose?: () => void;
 };
 
-const ServicesDropdown = ({ className = "", isMobile = false }: ServicesDropdownProps) => {
+const ServicesDropdown = ({ className = "", isMobile = false, onMobileMenuClose }: ServicesDropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
     const t = useTranslations('header.navigation');
@@ -17,9 +19,9 @@ const ServicesDropdown = ({ className = "", isMobile = false }: ServicesDropdown
 
     const services = [
         { id: 'passengers', href: '/#routes' },
-        { id: 'packages', href: '/parcels/poland' },
+        { id: 'packages', isDropdown: true },
         { id: 'pets', href: '/pets' }
-    ];
+    ] as const;
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -43,7 +45,7 @@ const ServicesDropdown = ({ className = "", isMobile = false }: ServicesDropdown
             <div ref={dropdownRef} className={`relative ${className}`}>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="w-full px-3 py-2 rounded-md hover:bg-gray-50 text-left flex items-center justify-between"
+                    className="w-full px-3 py-2 rounded-md hover:bg-gray-50 text-left flex items-center justify-between cursor-pointer"
                 >
                     <span>{t('services')}</span>
                     <svg
@@ -57,16 +59,33 @@ const ServicesDropdown = ({ className = "", isMobile = false }: ServicesDropdown
                 </button>
                 {isOpen && (
                     <div className="mt-1 bg-white border border-gray-200 rounded-md shadow-lg">
-                        {services.map((service) => (
-                            <Link
-                                key={service.id}
-                                href={service.href}
-                                className="block px-3 py-2 hover:bg-gray-50 text-sm"
-                                onClick={handleItemClick}
-                            >
-                                {tServices(service.id)}
-                            </Link>
-                        ))}
+                        {services.map((service) => {
+                            if ('isDropdown' in service && service.isDropdown && service.id === 'packages') {
+                                return (
+                                    <div key={service.id} className="text-sm">
+                                        <ParcelDropdown
+                                            triggerText={tServices(service.id)}
+                                            showArrow={false}
+                                            isMobile={true}
+                                            onMobileMenuClose={onMobileMenuClose}
+                                        />
+                                    </div>
+                                );
+                            }
+                            if ('href' in service) {
+                                return (
+                                    <Link
+                                        key={service.id}
+                                        href={service.href}
+                                        className="block px-3 py-2 hover:bg-gray-50 text-sm"
+                                        onClick={handleItemClick}
+                                    >
+                                        {tServices(service.id)}
+                                    </Link>
+                                );
+                            }
+                            return null;
+                        })}
                     </div>
                 )}
             </div>
@@ -91,16 +110,32 @@ const ServicesDropdown = ({ className = "", isMobile = false }: ServicesDropdown
             </button>
             {isOpen && (
                 <div className="absolute top-full left-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50 min-w-[200px]">
-                    {services.map((service) => (
-                        <Link
-                            key={service.id}
-                            href={service.href}
-                            className="block px-4 py-2 hover:bg-gray-50 transition-colors"
-                            onClick={handleItemClick}
-                        >
-                            {tServices(service.id)}
-                        </Link>
-                    ))}
+                    {services.map((service) => {
+                        if ('isDropdown' in service && service.isDropdown && service.id === 'packages') {
+                            return (
+                                <div key={service.id} className=" hover:bg-gray-50 transition-colors cursor-pointer">
+                                    <ParcelDropdown
+                                        triggerText={tServices(service.id)}
+                                        showArrow={false}
+                                        onMobileMenuClose={onMobileMenuClose}
+                                    />
+                                </div>
+                            );
+                        }
+                        if ('href' in service) {
+                            return (
+                                <Link
+                                    key={service.id}
+                                    href={service.href}
+                                    className="block px-4 py-2 hover:bg-gray-50 transition-colors"
+                                    onClick={handleItemClick}
+                                >
+                                    {tServices(service.id)}
+                                </Link>
+                            );
+                        }
+                        return null;
+                    })}
                 </div>
             )}
         </div>
