@@ -599,8 +599,8 @@
     },
     "items": [
       {
-        "title": "How often do minibuses run to Europe?",
-        "description": "Trips to Europe from Ukraine operate several times a week. You can check the schedule at {telNumber}"
+        "title": "How often do trips to Europe run?",
+        "description": "Trips to Europe from Ukraine operate every Thursday and Saturday. You can check the schedule at {telNumber}"
       },
       {
         "title": "How to order transportation or package delivery?",
