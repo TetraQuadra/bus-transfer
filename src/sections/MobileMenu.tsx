@@ -58,10 +58,10 @@ const MobileMenu = ({ items, bookLabel }: Props) => {
                     <nav className="flex flex-col gap-2">
                         {items.map((item, index) => {
                             if (item.isDropdown && item.dropdownType === 'parcels') {
-                                return <ParcelDropdown key={index} isMobile={true} />;
+                                return <ParcelDropdown key={index} isMobile={true} showArrow={true} onMobileMenuClose={() => setOpen(false)} />;
                             }
                             if (item.isDropdown && item.dropdownType === 'services') {
-                                return <ServicesDropdown key={index} isMobile={true} />;
+                                return <ServicesDropdown key={index} isMobile={true} onMobileMenuClose={() => setOpen(false)} />;
                             }
                             return (
                                 <Link key={item.href} href={item.href} className="px-3 py-2 rounded-md hover:bg-gray-50" onClick={() => setOpen(false)}>

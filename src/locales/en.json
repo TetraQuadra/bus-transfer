@@ -28,7 +28,7 @@
   "aboutCompany": {
     "title": "ABOUT US",
     "greeting": "Welcome to ‘World of Modern Transportation’!",
-    "intro": "We are ‘World of Modern Transportation’, providing professional passenger transportation services across Ukraine and to Europe since 2012, as well as delivery of small cargo, parcels and transfers.",
+    "intro": "We are 'World of Modern Transportation', providing professional passenger transportation services from Ukraine to Europe and back since 2012, as well as delivery of small cargo, parcels and transfers.",
     "directionsTitle": "Our main directions are:",
     "directions": {
       "poland": "Poland",
@@ -135,7 +135,7 @@
     "steps": {
       "1": {
         "title": "You submit a request",
-        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram"
+        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram / Telegram"
       },
       "2": {
         "title": "We contact you",
@@ -143,7 +143,7 @@
       },
       "3": {
         "title": "Payment for services",
-        "description": "Pay in the way that is most convenient for you"
+        "description": "Booking is made with a 30€ prepayment, the remaining amount is paid at boarding in the way that is most convenient for you"
       },
       "4": {
         "title": "We carry out the transfer",
@@ -151,7 +151,7 @@
       },
       "5": {
         "title": "Customer support",
-        "description": "24/7 support from Mon-Fri before, during, and after the trip — we are in touch with you"
+        "description": "24/7 support before, during, and after the trip — we are in touch with you"
       },
       "6": {
         "title": "Loyalty program",
@@ -161,27 +161,26 @@
   },
   "booking": {
     "title": "SEAT BOOKING",
-    "bookSeatTitle": "Book a seat for parcel delivery",
+    "bookSeatTitle": "Order parcel delivery",
     "submitLabel": "Book now",
     "swapRoutes": "Swap direction",
     "bookingRoute": {
       "route": "ROUTE",
       "information": "Information",
-      "cost": "Cost",
-      "travelTime": "Travel time",
-      "travelTimeValue": "12-20 hours",
-      "stops": "Stops",
-      "stopsValue": "every 3-4 hours",
-      "passengers": "Passengers",
-      "passengersValue": "8",
+      "cost": "Cost: {price}€",
+      "travelTime": "Travel time: 12-20 hours",
+      "stops": "Stops: every 3-4 hours",
+      "passengers": "Passengers: 8",
       "bookNow": "BOOK NOW",
       "luxury": "LUXURY",
       "comfort": "COMFORT",
       "routeNotFound": "Route not found",
       "routeNotFoundDescription": "Please check the URL or try another route",
       "selectRoute": "Select route",
-      "selectRouteDescription": "Fill out the form below to see route information",
-      "bookingNote": "specific seat booking costs additional 20€"
+      "selectRouteDescription": "Fill out the form above to see route information",
+      "bookingNote": "specific seat booking costs additional 20€",
+      "durationNote": "depends on border",
+      "frequencyNote": "or upon passenger request"
     },
     "meta": {
       "directionTitlePrefix": "Bus tickets Ukraine — {direction}",
@@ -377,7 +376,7 @@
         "name": "Ukraine - Germany",
         "info": {
           "duration": "Travel time: 24-30 hours",
-          "price": "Price: 150-200€",
+          "price": "Price: 160-250€",
           "passengers": "Number of passengers: 8",
           "frequency": "Stops: every 3-4 hours"
         }
@@ -386,7 +385,7 @@
         "name": "Ukraine - Netherlands",
         "info": {
           "duration": "Travel time: 28-36 hours",
-          "price": "Price: 150-200€",
+          "price": "Price: 160-250€",
           "passengers": "Number of passengers: 8",
           "frequency": "Stops: every 3-4 hours"
         }
@@ -395,13 +394,15 @@
         "name": "Ukraine - Belgium",
         "info": {
           "duration": "Travel time: 28-36 hours",
-          "price": "Price: 140-190€",
+          "price": "Price: 160-250€",
           "passengers": "Number of passengers: 8",
           "frequency": "Stops: every 3-4 hours"
         }
       }
     },
-    "bookingNote": "specific seat booking costs additional 20€"
+    "bookingNote": "specific seat booking costs additional 20€",
+    "durationNote": "depends on border",
+    "frequencyNote": "or upon passenger request"
   },
   "benefits": {
     "title": "From this moment, you no longer need to:",
@@ -445,7 +446,7 @@
       "lux": {
         "1": {
           "title": "Comfort and safety",
-          "description": "Luxury class minibuses feature spacious seats with electric adjustment and leg support for maximum comfort even on long trips. Blankets are provided for passengers, and a spacious refrigerator is available in the cabin. A full technical inspection is carried out before each trip to ensure a high level of safety and reliability on the road."
+          "description": "Luxury class minibuses feature spacious seats with electric adjustment and leg support for maximum comfort even on long trips. Blankets are provided for passengers.<br/><br/>A spacious refrigerator is available in the cabin. A full technical inspection is carried out before each trip to ensure a high level of safety and reliability on the road."
         },
         "2": {
           "title": "Multimedia",
@@ -474,7 +475,7 @@
       },
       "3": {
         "title": "Fast support",
-        "description": "Our managers are available on Viber/WhatsApp/Instagram from Monday to Friday"
+        "description": "Our managers are available on Viber/WhatsApp/Instagram/Telegram 24/7"
       },
       "4": {
         "title": "Convenient boarding points",
@@ -552,7 +553,7 @@
     },
     "cards": {
       "first": {
-        "title": "on the market since 2013",
+        "title": "on the market since 2012",
         "description": "We have extensive experience and thousands of successful trips across Ukraine and Europe."
       },
       "second": {
@@ -577,7 +578,7 @@
       },
       "sixth": {
         "title": "Real communication — no bots",
-        "description": "All requests are handled by real managers who truly understand your needs and respond promptly."
+        "description": "All requests are handled by our managers who truly understand your needs and respond promptly."
       }
     }
   },
@@ -595,36 +596,36 @@
     },
     "items": [
       {
-        "title": "How often do minibuses run to Europe?",
-        "description": "Trips to Europe from Ukraine operate several times a week. You can check the schedule at {telNumber}"
+        "title": "How often do trips to Europe run?",
+        "description": "Trips to Europe from Ukraine operate every Thursday and Saturday. You can check the schedule at {telNumber}"
       },
       {
         "title": "How to order transportation or package delivery?",
-        "description": "Contact us by phone, in a messenger, or via the form on the website. Our manager will clarify the details, help with the paperwork, and reserve a seat or shipment. We work quickly, responsibly, and with respect for every client."
+        "description": "You can contact us by phone number, through a messenger, or by using the form on the website. Our manager will clarify the details, help with the paperwork, and reserve a seat or parcel delivery. We work quickly, responsibly, and with respect for every client."
       },
       {
         "title": "How many passengers are in the minibus?",
-        "description": "Trips to Europe are carried out in premium and luxury class minibuses designed for 8 passengers. This provides more space, quiet, and maximum comfort during the journey."
+        "description": "Trips to Europe are carried out in comfort and luxury class minibuses designed for 8 passengers. This provides more space, quiet, and maximum comfort during the journey."
       },
       {
         "title": "Can I bring pets and what documents are needed for transporting pets abroad?",
-        "description": "Yes, you can bring your pet with you. If the animal is small, it travels in your arms, an additional fee of 50€ is added to the ticket price. If the animal is large, you need to take an additional seat. To transport pets to EU countries, you need: a veterinary passport, a valid rabies vaccination, a microchip, and a certificate from a state veterinary clinic. We help with the paperwork and ensure a comfortable trip for your pet to Europe."
+        "description": "Yes, you can bring your pet with you. If the animal is up to 7 kilograms, it travels in your arms, an additional fee of 50€ is added to the ticket price. If the animal is from 7 kilograms, you need to take an additional seat. To transport pets to EU countries, you need: a veterinary passport, a valid rabies vaccination, a microchip, and a certificate from a state veterinary clinic. We help with the paperwork and ensure a comfortable trip for your pet to Europe."
       },
       {
         "title": "Are there discounts for children?",
-        "description": "Children under 5 years old get a 10€ discount on the ticket price"
+        "description": "We make a 10€ discount for children under 5 years old on the ticket price"
       },
       {
         "title": "How is payment made and is there a prepayment?",
-        "description": "Payment is made upon boarding. You can pay in cash or by transfer to our account. Seat booking is done with a 50€ prepayment. If you cancel the trip less than 10 days in advance, the prepayment is not refunded. Trip rescheduling is possible only once, no later than 3 days before departure."
+        "description": "Booking is done with a 30€ prepayment by transfer to our account, the remainder is paid upon boarding in a way convenient for you. If you cancel the trip less than 14 days in advance, the prepayment is not refunded. Trip rescheduling is possible only once, no later than 7 days before departure."
       },
       {
         "title": "How much luggage can I take with me?",
-        "description": "The ticket price includes 2 suitcases weighing 40 kg and a small carry-on in the cabin, and you can also take additional luggage for a separate fee of 2€/kg"
+        "description": "The ticket price includes 2 suitcases with total weight 40kg and a small carry-on in the cabin, and you can also take additional luggage for a separate fee of 2€/kg"
       },
       {
         "title": "If you need to send luggage to Europe?",
-        "description": "Minimum delivery cost is 50€, weight up to 25 kg, if more - 2€ per kg. Packaging must be in a suitcase or bag. It is not necessary to wrap luggage with film or tape, because each parcel is checked by the border service. Before handing over, you must attach all recipient's data with full address and phone number. You send us the list of parcel contents via messenger. Delivery time is from 24 hours to 4 days. In Europe, we pick up from the address, in Ukraine we work with Nova Poshta. You can view the list of allowed and prohibited items by [link](/parcels/poland) and also check by phone: {telNumber}"
+        "description": "Minimum delivery cost is 50€, weight up to 25 kg, if more - 2€ per kg. Packaging suitcase or bag. It is not necessary to wrap luggage with film or tape, because each parcel is checked by the border service. Before handing over, you must attach all recipient's data with full address and phone number. You send us the list of parcel contents via messenger. Delivery time is from 24 hours to 4 days, depends on the route. In Europe, we pick up from the address, in Ukraine we work with Nova Poshta. You can view the list of allowed and prohibited items by [link](/parcels/poland) and also check by phone: {telNumber}"
       }
     ]
   },
@@ -736,8 +737,8 @@
   },
   "petsPricing": {
     "title": "PET TRANSPORTATION COST",
-    "smallAnimal": "A small animal can travel in your arms — an additional fee is 50€.",
-    "largeAnimal": "If the animal is larger (up to 7 kg), you must purchase a separate seat."
+    "smallAnimal": "Animal up to 7 kilograms can travel in your arms — an additional fee is 50€.",
+    "largeAnimal": "If the animal is from 7 kilograms, you must purchase a separate seat."
   },
   "parcelsAdditionalInfo": {
     "minimumCost": "Minimum delivery cost is 50€, weight up to 25 kg, if more – 2€ per kg.",
@@ -824,16 +825,24 @@
     },
     "countries": {
       "poland": {
-        "name": "Poland"
+        "name": "Poland",
+        "nominative": "Poland",
+        "verb": "has become"
       },
       "germany": {
-        "name": "Germany"
+        "name": "Germany",
+        "nominative": "Germany",
+        "verb": "has become"
       },
       "belgium": {
-        "name": "Belgium"
+        "name": "Belgium",
+        "nominative": "Belgium",
+        "verb": "has become"
       },
       "netherlands": {
-        "name": "Netherlands"
+        "name": "Netherlands",
+        "nominative": "Netherlands",
+        "verb": "have become"
       }
     }
   },
@@ -841,7 +850,7 @@
     "items": {
       "1": {
         "title": "Faster than mail",
-        "description": "Delivery takes up to three days, as our buses run constantly, and border delays are minimized."
+        "description": "Delivery takes up to four days, as our buses run constantly, and border delays are minimized."
       },
       "2": {
         "title": "Optimized routes",
@@ -889,7 +898,7 @@
   },
   "parcelInfo": {
     "title": "Need to quickly send a parcel or luggage to {country}? With us, it's easy!",
-    "intro": "World of Modern Transportation delivers personal belongings, suitcases, parcels and various-sized cargo using comfortable minibuses. {country} has become a second home for many Ukrainians today. That's why we organized convenient and regular flights so everyone can quickly and safely transfer things to their loved ones. We approach each client individually, offering the best solution for luggage delivery from Ukraine to {country} and back. Our drivers have years of international transportation experience and care for the safety of your belongings during transport. We value our clients' trust, so we guarantee timely delivery and careful attention to every parcel. Sending luggage with World of Modern Transportation is fast, convenient and reliable. We help with packing, labeling and choosing the optimal route so your belongings arrive without damage and exactly on time.",
+    "intro": "World of Modern Transportation delivers small-sized cargo, parcel-transfers of personal belongings and suitcases. {countryNominative} {countryVerb} a second home for many Ukrainians today. That's why we organized convenient and regular flights so everyone can quickly and safely transfer things to their loved ones. We approach each client individually, offering the best solution for luggage delivery from Ukraine to {country} and back. Our drivers have years of international transportation experience and care for the safety of your belongings during transport. We value our clients' trust, so we guarantee timely delivery and careful attention to every parcel. Sending luggage with World of Modern Transportation is fast, convenient and reliable. We help with packing, labeling and choosing the optimal route so your belongings arrive without damage and exactly on time.",
     "imageAlt": "World of Modern Transportation fleet",
     "description": "Each shipment has its own characteristics — weight, dimensions, packaging method. That's why we always select individual transportation conditions for each client. It doesn't matter if you need to deliver a small parcel or transport large luggage by bus from Ukraine to {country} — World of Modern Transportation will provide optimal transport and reliable delivery. Your belongings are always safe from the moment of acceptance until arrival at the destination. Sending a parcel by bus from Ukraine to {country} is a fast, economical and proven delivery method. Our team controls all stages of transportation so your belongings arrive exactly on schedule and in perfect condition. Thanks to professional drivers and well-established logistics, you get confidence in every kilometer of the route. Contact our managers today to learn all the details about sending luggage and parcels to {country}. We guarantee comfortable service, reliability and transparent cooperation. World of Modern Transportation – your reliable partner in international deliveries",
     "details": "",
@@ -916,7 +925,7 @@
           "tea, coffee",
           "plant-based preserves (jam, vegetables, mushrooms) — in small volumes",
           "non-alcoholic drinks (juices, water, lemonades)",
-          "alcohol: up to 1 l of spirits or up to 2 l of wine, or up to 5 l of beer (in total no more than 1 l of spirits per person aged 18+)",
+          "alcohol: up to 1 liter of spirits, up to 2 liters of wine or up to 5 l of beer (in total no more than 1 liter of spirits per person aged 18+)",
           "tobacco: 40 cigarettes (two packs) (from 18 years old)"
         ]
       },
@@ -976,11 +985,11 @@
     "steps": {
       "1": {
         "title": "You submit a request",
-        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram"
+        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram / Telegram"
       },
       "2": {
         "title": "We contact you",
-        "description": "A manager clarifies transfer details, answers all questions, and reserves a seat"
+        "description": "A manager clarifies transfer details, answers all questions, and reserves delivery"
       },
       "3": {
         "title": "Payment for services",
@@ -988,11 +997,11 @@
       },
       "4": {
         "title": "We carry out the transfer",
-        "description": "After passing customs control, the driver calls the recipient and delivers the items upon arrival at the agreed location"
+        "description": "After passing customs control, the driver calls the recipient and delivers the parcel upon arrival at the agreed location"
       },
       "5": {
         "title": "Customer support",
-        "description": "24/7 support from Mon-Fri before, during, and after the trip — we are in touch with you"
+        "description": "24/7 support before, during, and after the trip — we are in touch with you"
       },
       "6": {
         "title": "Loyalty program",

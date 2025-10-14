@@ -93,14 +93,16 @@ const RoutesSection = ({ initialRouteId }: RoutesSectionProps) => {
                                             alt: t('alt.time'),
                                             width: 42,
                                             height: 42,
-                                            value: t(`routes.${selectedRouteId}.info.duration`)
+                                            value: t(`routes.${selectedRouteId}.info.duration`),
+                                            note: t('durationNote')
                                         },
                                         {
                                             icon: "/icons/bus.png",
                                             alt: t('alt.frequency'),
                                             width: 22,
                                             height: 40,
-                                            value: t(`routes.${selectedRouteId}.info.frequency`)
+                                            value: t(`routes.${selectedRouteId}.info.frequency`),
+                                            note: t('frequencyNote')
                                         },
                                         {
                                             icon: "/icons/people.png",

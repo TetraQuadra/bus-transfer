@@ -13,7 +13,7 @@ const TrustSection = () => {
                 </h2>
 
                 <div className="lg:flex lg:flex-row max-lg:flex max-lg:flex-col gap-[30px] mb-[30px]">
-                    <div className="bg-white rounded-[10px] p-2 shadow-lg w-full lg:w-[500px]">
+                    <div className="bg-white rounded-[10px] p-6 shadow-lg w-full lg:w-[500px]">
                         <Image
                             src="/trust/1.png"
                             alt={t('alt.trust1')}

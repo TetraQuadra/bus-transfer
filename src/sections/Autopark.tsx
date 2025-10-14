@@ -47,7 +47,7 @@ const Autopark = () => {
                             <Image src="/icons/shield.svg" alt={t('alt.icon')} width={70} height={70} quality={100} className="w-10 h-10 md:w-[70px] md:h-[70px]" />
                             <div>
                                 <h3 className="text-[18px] sm:text-[20px] md:text-[22px] lg:text-[24px] font-medium text-foreground mb-1 pt-[16px] max-md:pt-0 uppercase">{text.title}</h3>
-                                <p className="text-[14px] sm:text-[15px] md:text-[16px] font-regular text-foreground">{text.description}</p>
+                                <p className="text-[14px] sm:text-[15px] md:text-[16px] font-regular text-foreground" dangerouslySetInnerHTML={{ __html: text.description.replace(/<br\/>/g, '<br/>') }}></p>
                             </div>
                         </div>
                     ))}
