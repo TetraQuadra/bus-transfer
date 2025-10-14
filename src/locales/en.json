@@ -135,7 +135,7 @@
     "steps": {
       "1": {
         "title": "You submit a request",
-        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram"
+        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram / Telegram"
       },
       "2": {
         "title": "We contact you",
@@ -980,7 +980,7 @@
     "steps": {
       "1": {
         "title": "You submit a request",
-        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram"
+        "description": "Fill out a short form on the website or write to us on Viber / WhatsApp / Instagram / Telegram"
       },
       "2": {
         "title": "We contact you",

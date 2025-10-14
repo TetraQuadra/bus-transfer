@@ -135,7 +135,7 @@
     "steps": {
       "1": {
         "title": "Вы оставляете заявку",
-        "description": "Заполните короткую форму на сайте или напишите нам в Viber / WhatsApp / Instagram"
+        "description": "Заполните короткую форму на сайте или напишите нам в Viber / WhatsApp / Instagram / Telegram"
       },
       "2": {
         "title": "Мы связываемся с вами",
@@ -985,7 +985,7 @@
     "steps": {
       "1": {
         "title": "Вы оставляете заявку",
-        "description": "Заполните короткую форму на сайте или напишите нам в Viber / WhatsApp / Instagram"
+        "description": "Заполните короткую форму на сайте или напишите нам в Viber / WhatsApp / Instagram / Telegram"
       },
       "2": {
         "title": "Мы связываемся с вами",
