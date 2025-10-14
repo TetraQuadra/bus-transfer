@@ -13,8 +13,8 @@ interface ArticleCardProps {
 
 const ArticleCard = ({ image, title, date, description, href, buttonLabel }: ArticleCardProps) => {
     return (
-        <div className="bg-white rounded-[10px] overflow-hidden shadow-lg max-w-[400px] mx-auto">
-            <div className="relative h-48 overflow-hidden">
+        <div className="bg-white rounded-[10px] shadow-lg max-w-[400px] mx-auto h-[450px] flex flex-col overflow-hidden">
+            <div className="relative h-48 overflow-hidden flex-shrink-0">
                 <Image
                     src={image}
                     alt={title}
@@ -23,16 +23,18 @@ const ArticleCard = ({ image, title, date, description, href, buttonLabel }: Art
                     className="object-cover"
                 />
             </div>
-            <div className="p-5">
-                <h3 className="text-[18px] font-medium text-foreground mb-2 line-clamp-2">
-                    {title}
-                </h3>
-                <p className="text-[14px] text-gray-500 mb-3">
-                    {date}
-                </p>
-                <p className="text-[16px] text-foreground leading-relaxed line-clamp-4 mb-4">
-                    {description}
-                </p>
+            <div className="p-5 flex flex-col justify-between flex-1">
+                <div>
+                    <h3 className="text-[18px] font-medium text-foreground mb-2 line-clamp-2">
+                        {title}
+                    </h3>
+                    <p className="text-[14px] text-gray-500 mb-3">
+                        {date}
+                    </p>
+                    <p className="text-[16px] text-foreground leading-relaxed line-clamp-3 mb-4">
+                        {description}
+                    </p>
+                </div>
                 <Button
                     as="link"
                     href={href}
