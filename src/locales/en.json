@@ -984,7 +984,7 @@
       },
       "2": {
         "title": "We contact you",
-        "description": "A manager clarifies transfer details, answers all questions, and reserves a seat"
+        "description": "A manager clarifies transfer details, answers all questions, and reserves delivery"
       },
       "3": {
         "title": "Payment for services",
@@ -992,7 +992,7 @@
       },
       "4": {
         "title": "We carry out the transfer",
-        "description": "After passing customs control, the driver calls the recipient and delivers the items upon arrival at the agreed location"
+        "description": "After passing customs control, the driver calls the recipient and delivers the parcel upon arrival at the agreed location"
       },
       "5": {
         "title": "Customer support",
