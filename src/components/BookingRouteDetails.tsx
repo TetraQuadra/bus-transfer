@@ -132,7 +132,7 @@ export default function BookingRouteDetails({ routeSlug }: BookingRouteDetailsPr
     const displayFromCity = routeToUse?.fromCity || fromCity;
     const displayToCity = routeToUse?.toCity || toCity;
     const currentPrice = serviceClass === 'comfort' ? priceData?.comfort : priceData?.luxury;
-    const images = Array.from({ length: 5 }, (_, i) => `/booking/${serviceClass}/${i + 1}.png`);
+    const images = Array.from({ length: 6 }, (_, i) => `/booking/${serviceClass}/${i + 1}.png`);
 
     if (!displayFromCity || !displayToCity) {
         return (
