@@ -84,8 +84,6 @@ export default async function ParcelsPage({ params }: { params: Promise<{ slug: 
     const tCountry = await getTranslations(`parcels.countries.${slug}`);
     const tBooking = await getTranslations('booking');
 
-    console.log(tCountry('s'));
-
     return (
         <main className="w-full">
             <div className="w-full">

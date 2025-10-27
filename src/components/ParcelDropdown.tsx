@@ -46,8 +46,6 @@ const ParcelDropdown = ({
         };
     }, []);
 
-    console.log('handleItemClickCallback', handleItemClickCallback);
-
     const handleItemClick = () => {
         if (handleItemClickCallback) {
             handleItemClickCallback();
