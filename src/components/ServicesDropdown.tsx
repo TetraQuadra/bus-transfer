@@ -37,6 +37,7 @@ const ServicesDropdown = ({ className = "", isMobile = false, onMobileMenuClose 
     }, []);
 
     const handleItemClick = () => {
+        console.log('handleItemClick');
         setIsOpen(false);
     };
 
@@ -118,6 +119,8 @@ const ServicesDropdown = ({ className = "", isMobile = false, onMobileMenuClose 
                                         triggerText={tServices(service.id)}
                                         showArrow={false}
                                         onMobileMenuClose={onMobileMenuClose}
+                                        handleItemClickCallback={handleItemClick}
+
                                     />
                                 </div>
                             );

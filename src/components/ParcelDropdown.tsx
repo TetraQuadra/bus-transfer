@@ -10,6 +10,7 @@ type ParcelDropdownProps = {
     triggerText?: string;
     showArrow?: boolean;
     onMobileMenuClose?: () => void;
+    handleItemClickCallback?: () => void;
 };
 
 const ParcelDropdown = ({
@@ -17,7 +18,8 @@ const ParcelDropdown = ({
     isMobile = false,
     triggerText,
     showArrow = true,
-    onMobileMenuClose
+    onMobileMenuClose,
+    handleItemClickCallback
 }: ParcelDropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
@@ -44,7 +46,12 @@ const ParcelDropdown = ({
         };
     }, []);
 
+    console.log('handleItemClickCallback', handleItemClickCallback);
+
     const handleItemClick = () => {
+        if (handleItemClickCallback) {
+            handleItemClickCallback();
+        }
         setIsOpen(false);
         if (onMobileMenuClose) {
             onMobileMenuClose();
