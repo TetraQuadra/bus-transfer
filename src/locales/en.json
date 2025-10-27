@@ -809,9 +809,9 @@
   },
   "parcels": {
     "title": "Parcels",
-    "subtitle": "to {country} from Ukraine",
+    "subtitle": "From Ukraine to {country}",
     "meta": {
-      "title": "Parcel delivery to {country} from Ukraine | Світ Сучасних Перевезень",
+      "title": "Parcel delivery from Ukraine to {country} | Світ Сучасних Перевезень",
       "description": "Fast and reliable parcel delivery from Ukraine to {country}. Express delivery in 3 days, optimized routes, modern transport. Safe delivery of cargo and parcels.",
       "keywords": {
         "0": "parcel delivery",
@@ -826,22 +826,26 @@
       "poland": {
         "name": "Poland",
         "nominative": "Poland",
-        "verb": "has become"
+        "verb": "has become",
+        "accusative": "Poland"
       },
       "germany": {
         "name": "Germany",
         "nominative": "Germany",
-        "verb": "has become"
+        "verb": "has become",
+        "accusative": "Germany"
       },
       "belgium": {
         "name": "Belgium",
         "nominative": "Belgium",
-        "verb": "has become"
+        "verb": "has become",
+        "accusative": "Belgium"
       },
       "netherlands": {
         "name": "Netherlands",
         "nominative": "Netherlands",
-        "verb": "have become"
+        "verb": "have become",
+        "accusative": "Netherlands"
       }
     }
   },
