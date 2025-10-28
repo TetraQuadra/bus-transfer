@@ -6,6 +6,7 @@ import Header from '@/sections/Header';
 import Footer from '@/sections/Footer';
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import CallButton from '@/components/CallButton';
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://svitsuchasnykhperevezen.com'),
@@ -58,6 +59,7 @@ export default async function RootLayout({
                         {children}
                     </div>
                     <Footer />
+                    <CallButton phone="+380982275197" className="fixed bottom-4 right-4" />
                 </NextIntlClientProvider>
             </body>
         </html>
