@@ -1,5 +1,5 @@
 const BASE_URL =
-  process.env.COMMO_API_URL || "https://{subdomain}.kommo.com/api/v4";
+  process.env.COMMO_API_URL || "https://svitperevezengroup.kommo.com/api/v4";
 const TOKEN = process.env.COMMO_AUTH_TOKEN || "";
 const ENABLED = process.env.COMMO_ENABLED !== "false";
 
