@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { sendErrorReport } from "@/lib/errorTracker";
+import { sendToCommo } from "@/lib/commoClient";
 
 type PetsBookingPayload = {
   departureCountry: string;
@@ -38,7 +39,6 @@ export async function POST(req: NextRequest) {
     if (!departureCity) missing.push("departureCity");
     if (!arrivalCountry) missing.push("arrivalCountry");
     if (!arrivalCity) missing.push("arrivalCity");
-    // date is OPTIONAL for pets mode
     if (!fullName) missing.push("fullName");
     if (!phone) missing.push("phone");
     if (!petTypeAndWeight) missing.push("petTypeAndWeight");
@@ -82,6 +82,27 @@ export async function POST(req: NextRequest) {
     }\nName: ${fullName}\nPhone: ${phone}\n\nAnimal & weight: ${petTypeAndWeight}`;
 
     await transporter.sendMail({ from: smtpUser, to: mailTo, subject, text });
+
+    // Отправка в CRM Commo
+    try {
+      const commoResult = await sendToCommo({
+        type: "pets",
+        departureCountry: departureCountry!,
+        departureCity: departureCity!,
+        arrivalCountry: arrivalCountry!,
+        arrivalCity: arrivalCity!,
+        date: date!,
+        fullName: fullName!,
+        phone: phone!,
+        additionalInfo: `Тип та вага тварини: ${petTypeAndWeight}`,
+      });
+
+      if (!commoResult.success) {
+        console.warn("Failed to send to Commo CRM:", commoResult.error);
+      }
+    } catch (commoError) {
+      console.warn("Commo CRM integration error:", commoError);
+    }
 
     return NextResponse.json({ ok: true });
   } catch (e) {

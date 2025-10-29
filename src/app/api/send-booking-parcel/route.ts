@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { sendErrorReport } from "@/lib/errorTracker";
+import { sendToCommo } from "@/lib/commoClient";
 
 type ParcelBookingPayload = {
   departureCountry: string;
@@ -81,6 +82,26 @@ export async function POST(req: NextRequest) {
     }\nName: ${fullName}\nPhone: ${phone}\n\nParcel weight: ${parcelWeight}`;
 
     await transporter.sendMail({ from: smtpUser, to: mailTo, subject, text });
+
+    try {
+      const commoResult = await sendToCommo({
+        type: "parcel",
+        departureCountry: departureCountry!,
+        departureCity: departureCity!,
+        arrivalCountry: arrivalCountry!,
+        arrivalCity: arrivalCity!,
+        date: date!,
+        fullName: fullName!,
+        phone: phone!,
+        additionalInfo: `Вага посилки: ${parcelWeight}`,
+      });
+
+      if (!commoResult.success) {
+        console.warn("Failed to send to Commo CRM:", commoResult.error);
+      }
+    } catch (commoError) {
+      console.warn("Commo CRM integration error:", commoError);
+    }
 
     return NextResponse.json({ ok: true });
   } catch (e) {
