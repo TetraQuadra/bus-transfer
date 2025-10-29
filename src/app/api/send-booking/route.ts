@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { sendErrorReport } from "@/lib/errorTracker";
+import { sendToCommo } from "@/lib/commoClient";
 
 type BookingPayload = {
   departureCountry: string;
@@ -12,7 +14,6 @@ type BookingPayload = {
   phone: string;
 };
 
-// ENABLE WHEN REAL SENDING IS NEEDED
 function requiredEnv(name: string): string {
   const v = process.env[name];
   if (!v) throw new Error(`Missing env ${name}`);
@@ -65,26 +66,45 @@ export async function POST(req: NextRequest) {
     // return NextResponse.json({ ok: true, test: true });
 
     // REAL SENDING
-    const smtpUser = requiredEnv("SMTP_USER");
-    const smtpPass = requiredEnv("SMTP_PASS");
-    const mailTo = requiredEnv("BOOKING_MAIL_TO");
+    // const smtpUser = requiredEnv("SMTP_USER");
+    // const smtpPass = requiredEnv("SMTP_PASS");
+    // const mailTo = requiredEnv("BOOKING_MAIL_TO");
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: { user: smtpUser, pass: smtpPass },
-    });
+    // const transporter = nodemailer.createTransport({
+    //   host: "smtp.gmail.com",
+    //   port: 465,
+    //   secure: true,
+    //   auth: { user: smtpUser, pass: smtpPass },
+    // });
 
-    const subject = `Booking request: ${departureCity} → ${arrivalCity} (${date})`;
-    const text = `New booking request\n\nFrom: ${departureCountry}, ${departureCity}\nTo: ${arrivalCountry}, ${arrivalCity}\nDate: ${date}\nName: ${fullName}\nPhone: ${phone}`;
+    // const subject = `Booking request: ${departureCity} → ${arrivalCity} (${date})`;
+    // const text = `New booking request\n\nFrom: ${departureCountry}, ${departureCity}\nTo: ${arrivalCountry}, ${arrivalCity}\nDate: ${date}\nName: ${fullName}\nPhone: ${phone}`;
 
-    await transporter.sendMail({
-      from: smtpUser,
-      to: mailTo,
-      subject,
-      text,
-    });
+    // await transporter.sendMail({
+    //   from: smtpUser,
+    //   to: mailTo,
+    //   subject,
+    //   text,
+    // });
+
+    try {
+      const commoResult = await sendToCommo({
+        type: "passenger",
+        departureCountry: departureCountry!,
+        departureCity: departureCity!,
+        arrivalCountry: arrivalCountry!,
+        arrivalCity: arrivalCity!,
+        date: date!,
+        fullName: fullName!,
+        phone: phone!,
+      });
+
+      if (!commoResult.success) {
+        console.warn("Failed to send to Commo CRM:", commoResult.error);
+      }
+    } catch (commoError) {
+      console.warn("Commo CRM integration error:", commoError);
+    }
 
     return NextResponse.json({ ok: true });
   } catch (e) {
