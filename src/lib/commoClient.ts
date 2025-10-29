@@ -57,7 +57,7 @@ async function createLead(contactId: number) {
   const payload = [
     {
       _embedded: { contacts: [{ id: contactId }] },
-      tags_to_add: [{ id: 23906, name: "website" }],
+      tags_to_add: [{ id: 118558, name: "Сайт svitperevezen" }],
     },
   ];
 
