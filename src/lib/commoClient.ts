@@ -99,7 +99,7 @@ async function addNote(leadId: number, text: string) {
   return res.json();
 }
 
-function formatNotes(data: {
+export function formatNotes(data: {
   type: "passenger" | "parcel" | "pets";
   departureCountry: string;
   departureCity: string;

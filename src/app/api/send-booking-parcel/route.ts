@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { sendErrorReport } from "@/lib/errorTracker";
 import { sendToCommo } from "@/lib/commoClient";
+import sendToTelegram from "@/lib/sendToTelegram";
 
 type ParcelBookingPayload = {
   departureCountry: string;
@@ -82,6 +83,22 @@ export async function POST(req: NextRequest) {
     }\nName: ${fullName}\nPhone: ${phone}\n\nParcel weight: ${parcelWeight}`;
 
     await transporter.sendMail({ from: smtpUser, to: mailTo, subject, text });
+
+    try {
+      await sendToTelegram({
+        type: "parcel",
+        departureCountry: departureCountry!,
+        departureCity: departureCity!,
+        arrivalCountry: arrivalCountry!,
+        arrivalCity: arrivalCity!,
+        date: date!,
+        fullName: fullName!,
+        phone: phone!,
+        additionalInfo: `Вага посилки: ${parcelWeight}`,
+      });
+    } catch (error) {
+      console.warn("Telegram integration error:", error);
+    }
 
     try {
       const commoResult = await sendToCommo({

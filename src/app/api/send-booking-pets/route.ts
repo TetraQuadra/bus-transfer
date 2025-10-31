@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { sendErrorReport } from "@/lib/errorTracker";
 import { sendToCommo } from "@/lib/commoClient";
+import sendToTelegram from "@/lib/sendToTelegram";
 
 type PetsBookingPayload = {
   departureCountry: string;
@@ -83,7 +84,22 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({ from: smtpUser, to: mailTo, subject, text });
 
-    // Отправка в CRM Commo
+    try {
+      await sendToTelegram({
+        type: "passenger",
+        departureCountry: departureCountry!,
+        departureCity: departureCity!,
+        arrivalCountry: arrivalCountry!,
+        arrivalCity: arrivalCity!,
+        date: date!,
+        fullName: fullName!,
+        phone: phone!,
+        additionalInfo: `Тип та вага тварини: ${petTypeAndWeight}`,
+      });
+    } catch (error) {
+      console.warn("Telegram integration error:", error);
+    }
+
     try {
       const commoResult = await sendToCommo({
         type: "pets",
